@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1">
+    <meta http-equiv=X-UA-Compatible content="ie=edge">
+    <title>{{ setting.title }}</title>
+    <script id=www-widgetapi-script src=https://s.ytimg.com/yts/jsbin/www-widgetapi-vflS50iB-/www-widgetapi.js async=""></script>
+    <script src=https://www.youtube.com/player_api></script>
+    <link rel="icon" type="image/x-icon" href="{{ setting.logo.url }}">
+    <link rel="stylesheet preload" as=style href="{% static 'css/preload.min.css' %}">
+    <link rel="stylesheet preload" as=style href="{% static 'css/icomoon.css' %}">
+    <link rel="stylesheet preload" as=style href="{% static 'css/libs.min.css' %}">
+    <link rel=stylesheet href="{% static 'css/index.min.css' %}">
+    <link rel=stylesheet href="{% static 'css/floatbutton.min.css' %}">
+  </head>
+  <body>
+    {% block content %}
+
+    {% endblock %}
+
+    <script src="{% static 'js/common.min.js' %}"></script>
+    <script src="{% static 'js/index.min.js' %}"></script>
+    <script src="{% static 'js/gallery.min.js' %}"></script>
+    <script src="{% static 'js/demo.js' %}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FC3KYV46D4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-FC3KYV46D4');
+    </script>
+  </body>
+</html>
