@@ -1,106 +1,50 @@
-<header class="header d-flex align-items-center" data-page=home>
-    <div class="container position-relative d-flex justify-content-between align-items-center">
-      <a class="brand d-flex align-items-center" href="{% url 'index' %}">
-        <span class="brand_logo theme-element">
-          <!-- <svg id=brandHeader width=22 height=23 viewBox="0 0 22 23" fill=none xmlns=http://www.w3.org/2000/svg>
-            <path fill-rule=evenodd clip-rule=evenodd d="M7.03198 3.80281V7.07652L3.86083 9.75137L0.689673 12.4263L0.667474 6.56503C0.655304 3.34138 0.663875 0.654206 0.686587 0.593579C0.71907 0.506918 1.4043 0.488223 3.87994 0.506219L7.03198 0.529106V3.80281ZM21.645 4.36419V5.88433L17.0383 9.76316C14.5046 11.8966 11.2263 14.6552 9.75318 15.8934L7.07484 18.145V20.3225V22.5H3.85988H0.64502L0.667303 18.768L0.689673 15.036L2.56785 13.4609C3.60088 12.5946 6.85989 9.85244 9.81009 7.36726L15.1741 2.84867L18.4096 2.8464L21.645 2.84413V4.36419ZM21.645 15.5549V22.5H18.431H15.217V18.2638V14.0274L15.4805 13.7882C15.8061 13.4924 21.5939 8.61606 21.6236 8.61248C21.6353 8.61099 21.645 11.7351 21.645 15.5549Z" fill=currentColor />
-          </svg> -->
-          <img src="{{ setting.logo.url }}" alt="{{ setting.title }}" style="width: 60px;">
-        </span>
-        <span class=brand_name>{{ setting.title }}</span>
-      </a>
-      <div class="header_offcanvas offcanvas offcanvas-end" id=menuOffcanvas>
-        <div class="header_offcanvas-header d-flex justify-content-between align-content-center">
-          <a class="brand d-flex align-items-center" href="{% url 'index' %}">
-            <span class="brand_logo theme-element">
-              <svg id=brandOffset width=22 height=23 viewBox="0 0 22 23" fill=none xmlns=http://www.w3.org/2000/svg>
-                <path fill-rule=evenodd clip-rule=evenodd d="M7.03198 3.80281V7.07652L3.86083 9.75137L0.689673 12.4263L0.667474 6.56503C0.655304 3.34138 0.663875 0.654206 0.686587 0.593579C0.71907 0.506918 1.4043 0.488223 3.87994 0.506219L7.03198 0.529106V3.80281ZM21.645 4.36419V5.88433L17.0383 9.76316C14.5046 11.8966 11.2263 14.6552 9.75318 15.8934L7.07484 18.145V20.3225V22.5H3.85988H0.64502L0.667303 18.768L0.689673 15.036L2.56785 13.4609C3.60088 12.5946 6.85989 9.85244 9.81009 7.36726L15.1741 2.84867L18.4096 2.8464L21.645 2.84413V4.36419ZM21.645 15.5549V22.5H18.431H15.217V18.2638V14.0274L15.4805 13.7882C15.8061 13.4924 21.5939 8.61606 21.6236 8.61248C21.6353 8.61099 21.645 11.7351 21.645 15.5549Z" fill=currentColor />
-              </svg>
-            </span>
-            <span class=brand_name>{{ setting.title }}</span>
+<header class="header-style-01">
+    <nav class="navbar navbar-area navbar-border navbar-padding navbar-expand-lg">
+      <div class="container custom-container-one nav-container">
+        <div class="logo-wrapper">
+          <a href="index.html" class="logo">
+            <img src="{{ setting.logo.url }}" width="100px" alt="">
           </a>
-          <button class=close type=button data-bs-dismiss=offcanvas>
-            <i class=icon-close--entypo></i>
+        </div>
+        <div class="responsive-mobile-menu d-lg-none">
+          <a href="javascript:void(0)" class="click-nav-right-icon">
+            <i class="las la-ellipsis-v"></i>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hotel_booking_menu">
+            <span class="navbar-toggler-icon"></span>
           </button>
         </div>
-        <nav class=header_nav>
-          <ul class=header_nav-list>
-            <li class=header_nav-list_item>
-              <a class=nav-item href="{% url 'index' %}" data-page=home>Домой</a>
+        <div class="collapse navbar-collapse" id="hotel_booking_menu">
+          <ul class="navbar-nav">
+            <li>
+                <a href="{% url 'index' %}"> Домой </a>
             </li>
-            <li class=header_nav-list_item>
-              <a class=nav-item href=about.html data-page=about>О нас</a>
+            <li>
+              <a href="about.html"> О нас </a>
             </li>
-            <li class="header_nav-list_item dropdown">
-              <a class="nav-link dropdown-toggle d-inline-flex align-items-center" href=rooms.html data-bs-toggle=collapse data-bs-target=#roomMenu aria-expanded=false aria-controls=roomMenu data-page=rooms>Комнаты <i class="icon-chevron_down--entypo icon"></i>
-              </a>
-              <div class="dropdown-menu collapse" id=roomMenu>
-                <ul class=dropdown-list>
-                  <li class=list-item data-main=true>
-                    <a class="dropdown-item nav-item" data-page=rooms href=rooms.html>Комнаты</a>
-                  </li>
-                  <li class=list-item>
-                    <a class="dropdown-item nav-item" data-page=room href=room.html>Single room</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="header_nav-list_item dropdown">
-              <a class="nav-link dropdown-toggle d-inline-flex align-items-center" href=news.html data-bs-toggle=collapse data-bs-target=#newsMenu aria-expanded=false aria-controls=newsMenu data-page=news>Новости <i class="icon-chevron_down--entypo icon"></i>
-              </a>
-              <div class="dropdown-menu collapse" id=newsMenu>
-                <ul class=dropdown-list>
-                  <li class=list-item data-main=true>
-                    <a class="dropdown-item nav-item" data-page=news href=news.html>Новости</a>
-                  </li>
-                  <li class=list-item>
-                    <a class="dropdown-item nav-item" data-page=post href=post.html>Single post</a>
-                  </li>
-                </ul>
-              </div>
+            <li>
+              <a href="checkout.html"> Комнаты </a>
             </li>
             
-            <li class="header_nav-list_item dropdown">
-              <a class="nav-link nav-link--contacts dropdown-toggle d-inline-flex align-items-center" href=# data-bs-toggle=collapse data-bs-target=#contactsMenu aria-expanded=false aria-controls=contactsMenu>Контакты <i class="icon-chevron_down--entypo icon"></i>
-              </a>
-              <div class="dropdown-menu collapse" id=contactsMenu>
-                <ul class=dropdown-list>
-                  <li class=list-item>
-                    <a class="dropdown-item nav-item" data-page=contacts01 href=contacts.html>Contacts V1</a>
-                  </li>
-                  <li class=list-item>
-                    <a class="dropdown-item nav-item" data-page=contacts02 href=contacts2.html>Contacts V2</a>
-                  </li>
-                </ul>
-              </div>
+            
+            
+            <li>
+              <a href="contact.html"> Связаться </a>
             </li>
           </ul>
-        </nav>
-        <ul class="socials d-flex align-items-center">
-          <li class=list-item>
-            <a class=link href="">
-              <i class=icon-facebook></i>
-            </a>
-          </li>
-          <li class=list-item>
-            <a class=link href="">
-              <i class=icon-instagram></i>
-            </a>
-          </li>
-          <li class=list-item>
-            <a class=link href="">
-              <i class=icon-twitter></i>
-            </a>
-          </li>
-          <li class=list-item>
-            <a class=link href="">
-              <i class=icon-whatsapp></i>
-            </a>
-          </li>
-        </ul>
+        </div>
+        <div class="navbar-right-content show-nav-content">
+          <div class="single-right-content">
+            <div class="navbar-right-flex">
+              <div class="navbar-right-btn">
+                <a href="login.html"> Log In </a>
+              </div>
+              <div class="btn-wrapper">
+                <a href="signup.html" class="cmn-btn btn-bg-1 radius-10"> Sign Up </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <button class="header_trigger d-lg-none" type=button data-bs-toggle=offcanvas data-bs-target=#menuOffcanvas>
-        <i class=icon-stream></i>
-      </button>
-    </div>
+    </nav>
   </header>

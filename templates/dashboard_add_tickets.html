@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title> Hotel Booking - Html Template </title>
+
+<link rel=icon href="favicon.png" sizes="16x16" type="icon/png">
+
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="assets/css/line-awesome.min.css">
+
+<link rel="stylesheet" href="assets/css/animate.css">
+
+<link rel="stylesheet" href="assets/css/slick.css">
+
+<link rel="stylesheet" href="assets/css/magnific-popup.css">
+
+<link rel="stylesheet" href="assets/css/flatpicker.css">
+
+<link rel="stylesheet" href="assets/css/intlTelInput.css">
+
+<link rel="stylesheet" href="assets/css/nice-select.css">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="header-style-01">
+
+<nav class="navbar navbar-area navbar-border navbar-padding navbar-expand-lg">
+<div class="container custom-container-one nav-container">
+<div class="logo-wrapper">
+<a href="index.html" class="logo">
+<img src="assets/img/logo.png" alt="">
+</a>
+</div>
+<div class="responsive-mobile-menu d-lg-none">
+<a href="javascript:void(0)" class="click-nav-right-icon">
+<i class="las la-ellipsis-v"></i>
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hotel_booking_menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+</div>
+<div class="collapse navbar-collapse" id="hotel_booking_menu">
+<ul class="navbar-nav">
+<li class="menu-item-has-children current-menu-item">
+<a href="javascript:void(0)">Home</a>
+<ul class="sub-menu">
+<li><a href="index.html">Home One</a></li>
+<li><a href="02_index.html"> Home Two </a></li>
+<li><a href="03_index.html"> Home Three </a></li>
+</ul>
+</li>
+<li><a href="about.html"> About </a></li>
+<li><a href="checkout.html"> Checkout </a></li>
+<li class="menu-item-has-children current-menu-item">
+<a href="javascript:void(0)">Pages</a>
+<ul class="sub-menu">
+<li><a href="listing.html">Listing</a></li>
+<li><a href="hotel_details.html"> Hotel Details </a></li>
+<li><a href="confirmation.html"> Confirmation </a></li>
+<li><a href="dashboard.html"> Dashboard </a></li>
+<li><a href="dashboard_cancellation.html"> Cancellations </a></li>
+<li><a href="dashboard_report_issue.html"> Report Issue </a></li>
+<li><a href="dashboard_support.html"> Support </a></li>
+<li><a href="dashboard_tickets.html"> Tickets </a></li>
+<li><a href="dashboard_add_tickets.html"> Add Ticket </a></li>
+<li><a href="dashboard_profile.html"> Dashboard Profile </a></li>
+<li><a href="dashboard_edit_profile.html"> Edit Profile </a></li>
+<li><a href="dashboard_pass_change.html"> Password Change </a></li>
+<li><a href="error.html"> Error Page </a></li>
+</ul>
+</li>
+<li class="menu-item-has-children current-menu-item">
+<a href="javascript:void(0)">Blog</a>
+<ul class="sub-menu">
+<li><a href="blog.html">Blog</a></li>
+<li><a href="blog_details.html"> Blog Details </a></li>
+</ul>
+</li>
+<li><a href="contact.html"> Contact Us </a></li>
+</ul>
+</div>
+<div class="navbar-right-content show-nav-content">
+<div class="single-right-content">
+<div class="navbar-author">
+<div class="navbar-author-flex">
+<div class="navbar-author-thumb">
+<img src="assets/img/single-page/author.jpg" alt="img">
+</div>
+<div class="navbar-author-name">
+<h6 class="navbar-author-name-title"> Nelson </h6>
+</div>
+</div>
+<div class="navbar-author-wrapper">
+<div class="navbar-author-wrapper-list">
+<a href="signup.html" class="navbar-author-wrapper-list-item"> Sign Up </a>
+<a href="login.html" class="navbar-author-wrapper-list-item"> Sign In </a>
+<span class="navbar-author-wrapper-list-item"> Log Out </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+
+</header>
+
+<div class="breadcrumb-area breadcrumb-padding">
+<div class="container custom-container-one">
+<div class="row">
+<div class="col-lg-12">
+<div class="breadcrumb-contents">
+<h4 class="breadcrumb-contents-title"> Add a Tickets </h4>
+<ul class="breadcrumb-contents-list list-style-none">
+<li class="breadcrumb-contents-list-item"> <a href="index.html" class="breadcrumb-contents-list-item-link"> Home </a> </li>
+<li class="breadcrumb-contents-list-item"> <a href="support.html" class="breadcrumb-contents-list-item-link"> Supports </a> </li>
+<li class="breadcrumb-contents-list-item"> Add Ticket </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="body-overlay"></div>
+<div class="dashboard-area section-bg-2 dashboard-padding">
+<div class="container">
+<div class="dashboard-contents-wrapper">
+<div class="dashboard-icon">
+<div class="sidebar-icon">
+<i class="las la-bars"></i>
+</div>
+</div>
+<div class="dashboard-left-content">
+<div class="dashboard-close-main">
+<div class="close-bars"> <i class="las la-times"></i> </div>
+<div class="dashboard-bottom">
+<ul class="dashboard-list list-style-none">
+<li class="list">
+<a href="dashboard.html"> <i class="las la-briefcase"></i> Dashboard </a>
+</li>
+<li class="list">
+<a href="dashboard_cancellation.html"> <i class="las la-times-circle"></i> Cancellation & Refund </a>
+</li>
+<li class="list">
+<a href="dashboard_report_issue.html"> <i class="las la-exclamation-triangle"></i> Report an issue <span class="badge-notification"> 12 </span> </a>
+</li>
+<li class="list has-children">
+<a href="javascript:void(0)"> <i class="las la-user-circle"></i> Profile </a>
+<ul class="submenu list-style-none">
+<li class="list"> <a href="dashboard_profile.html"> Profile </a> </li>
+<li class="list"> <a href="dashboard_edit_profile.html"> Edit Profile </a> </li>
+<li class="list"> <a href="dashboard_pass_change.html"> Password Change </a> </li>
+</ul>
+</li>
+<li class="list has-children active open show">
+<a href="javascript:void(0)"> <i class="las la-headset"></i> Support </a>
+<ul class="submenu list-style-none">
+<li class="list"> <a href="dashboard_support.html"> Support </a> </li>
+<li class="list"> <a href="dashboard_tickets.html"> Tickets </a> </li>
+<li class="list selected"> <a href="dashboard_add_tickets.html"> Add Tickets </a> </li>
+</ul>
+</li>
+<li class="list">
+<a href="javascript:void(0)"> <i class="las la-sign-out-alt"></i> Log Out </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="dashboard-right-contents mt-4 mt-lg-0">
+<div class="dashboard-reservation">
+<div class="single-reservation bg-white base-padding">
+<div class="single-reservation-author">
+<div class="single-reservation-author-flex">
+<div class="single-reservation-author-thumb">
+<img src="assets/img/dashboard/author.jpg" alt="img">
+</div>
+<div class="single-reservation-author-contents">
+<div class="custom--from">
+<form action="#">
+<div class="popup-contents-select">
+<label class="popup-contents-select-label"> What is the issue? </label>
+<div class="js-select">
+<select>
+<option value="1">Lost Luggages</option>
+<option value="2">Lost Tickets</option>
+<option value="3">Lost Profile</option>
+</select>
+</div>
+</div>
+<div class="popup-contents-select">
+<label class="popup-contents-select-label"> Departments </label>
+<div class="js-select">
+<select>
+<option value="1">Baggage & Luggages</option>
+<option value="2">Support Tickets</option>
+<option value="3">Baggage & Luggages</option>
+</select>
+</div>
+</div>
+<div class="popup-contents-select">
+<label class="popup-contents-select-label"> Priorities </label>
+<div class="js-select">
+<select>
+<option value="1">Normal</option>
+<option value="2">Medium</option>
+<option value="3">Difficult</option>
+</select>
+</div>
+</div>
+<div class="popup-contents-select">
+<div class="single-input">
+<textarea name="message" class="form--control form--message" cols="30" rows="6" placeholder="Write Details..."></textarea>
+</div>
+</div>
+<div class="btn-wrapper flex-btn mt-3">
+<a href="javascript:void(0)" class="dash-btn"> <i class="las la-paperclip"></i> Add Fields </a>
+<a href="javascript:void(0)" class="dash-btn btn-bg-1"> <i class="lab la-telegram-plane"></i> Submit Ticket </a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="popup-overlay"></div>
+<div class="popup-fixed">
+<div class="popup-contents popup-cancell-modal">
+<h2 class="popup-contents-title"> Why do you want to cancel? </h2>
+<div class="popup-contents-select">
+<label class="popup-contents-select-label"> Choose a reason </label>
+<div class="js-select">
+<select>
+<option value="1">Don't want to Book</option>
+<option value="2">Booked Accidentally</option>
+<option value="3">Don't want to Book</option>
+</select>
+</div>
+</div>
+<div class="popup-contents-btn flex-btn">
+<a href="javascript:void(0)" class="dash-btn popup-close"> <i class="las la-arrow-left"></i> Go Back </a>
+<a href="javascript:void(0)" class="dash-btn btn-cancelled popup-close"> Cancel </a>
+</div>
+</div>
+</div>
+
+
+<footer class="footer-area footer-bg-1">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="footer-wrapper">
+<div class="footer-wrapper-flex">
+<div class="footer-wrapper-single">
+<div class="footer-widget widget">
+<div class="footer-widget-contents">
+<div class="footer-widget-logo">
+<a href="index.html"> <img src="assets/img/03_logo.png" alt="logo"> </a>
+</div>
+<div class="footer-widget-inner mt-4">
+<p class="footer-widget-contents-para"> Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit. </p>
+<div class="copyright-contents-items mt-5">
+<div class="copyright-contents-single">
+<div class="copyright-contents-single-flex">
+<div class="copyright-contents-single-icon">
+<i class="las la-phone"></i>
+</div>
+<div class="copyright-contents-single-details">
+<span class="copyright-contents-single-details-title"> Have a question? </span>
+<a href="tel:3104372766" class="copyright-contents-single-details-link"> 310-437-2766 </a>
+</div>
+</div>
+</div>
+<div class="copyright-contents-single">
+<div class="copyright-contents-single-flex">
+<div class="copyright-contents-single-icon">
+<i class="las la-envelope"></i>
+</div>
+<div class="copyright-contents-single-details">
+<span class="copyright-contents-single-details-title"> Have a question? </span>
+<a href="/cdn-cgi/l/email-protection#c0b5aeb2a5a1ac80a5b8a1adb0aca5eea3afad" class="copyright-contents-single-details-link"> <span class="__cf_email__" data-cfemail="5f2a312d3a3e331f3a273e322f333a713c3032">[email&#160;protected]</span> </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper-single">
+<div class="footer-widget widget">
+<h3 class="footer-widget-title text-white"> Discounts, Newsletters </h3>
+<div class="footer-widget-inner mt-4">
+<p class="footer-widget-para"> Get discounts and newsletters on our hotels in your email. We promise to not spam. Unsubscribe anytime </p>
+<div class="footer-widget-form mt-5">
+<form action="#">
+<div class="footer-widget-form-single">
+<input class="footer-widget-form-control" type="text" placeholder="Enter Your Email">
+ <button type="submit"> Submit </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-navbar">
+<div class="container">
+<div class="footer-widget widget">
+<div class="footer-widget-nav">
+<ul class="footer-widget-nav-list list-style-none">
+<li class="footer-widget-nav-list-item">
+<a href="javascript:void(0)" class="footer-widget-nav-list-link"> About </a>
+</li>
+<li class="footer-widget-nav-list-item">
+<a href="javascript:void(0)" class="footer-widget-nav-list-link"> Jobs </a>
+</li>
+<li class="footer-widget-nav-list-item">
+<a href="javascript:void(0)" class="footer-widget-nav-list-link"> Blog </a>
+</li>
+<li class="footer-widget-nav-list-item">
+<a href="javascript:void(0)" class="footer-widget-nav-list-link"> Press </a>
+</li>
+<li class="footer-widget-nav-list-item">
+<a href="javascript:void(0)" class="footer-widget-nav-list-link"> Careers </a>
+</li>
+<li class="footer-widget-nav-list-item">
+<a href="javascript:void(0)" class="footer-widget-nav-list-link"> Terms of use </a>
+</li>
+<li class="footer-widget-nav-list-item">
+<a href="javascript:void(0)" class="footer-widget-nav-list-link"> Privacy Policy </a>
+</li>
+<li class="footer-widget-nav-list-item">
+<a href="javascript:void(0)" class="footer-widget-nav-list-link"> Contact </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="copyright-area footer-padding copyright-bg-1">
+<div class="container">
+<div class="copyright-contents">
+<div class="copyright-contents-flex">
+<div class="footer-widget-social">
+<ul class="footer-widget-social-list list-style-none justify-content-center">
+<li class="footer-widget-social-list-item">
+<a class="footer-widget-social-list-link" href="javascript:void(0)"> <i class="lab la-facebook-f"></i> </a>
+</li>
+<li class="footer-widget-social-list-item">
+<a class="footer-widget-social-list-link" href="javascript:void(0)"> <i class="lab la-twitter"></i> </a>
+</li>
+<li class="footer-widget-social-list-item">
+<a class="footer-widget-social-list-link" href="javascript:void(0)"> <i class="lab la-instagram"></i> </a>
+</li>
+<li class="footer-widget-social-list-item">
+<a class="footer-widget-social-list-link" href="javascript:void(0)"> <i class="lab la-youtube"></i> </a>
+</li>
+</ul>
+</div>
+ <span class="copyright-contents-main"> © 2000-2022, All Rights Reserved by <a href="02_index.html"> Beyond Hotel </a> </span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+
+<div class="back-to-top">
+<span class="back-top"> <i class="las la-angle-up"></i> </span>
+</div>
+
+
+<div class="mouse-move mouse-outer"></div>
+<div class="mouse-move mouse-inner"></div>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
+
+<script src="assets/js/jquery-migrate.min.js"></script>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/js/wow.js"></script>
+
+<script src="assets/js/slick.js"></script>
+
+<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+
+<script src="assets/js/isotope.pkgd.min.js"></script>
+
+<script src="assets/js/jquery.magnific-popup.js"></script>
+
+<script src="assets/js/jquery.nice-select.js"></script>
+
+<script src="assets/js/flatpicker.js"></script>
+
+<script src="assets/js/nouislider-8.5.1.min.js"></script>
+
+<script src="assets/js/intlTelInput.js"></script>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

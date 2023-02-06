@@ -1,0 +1,535 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %}
+    <div class="breadcrumb-area breadcrumb-padding">
+      <div class="container custom-container-one">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-contents">
+              <h4 class="breadcrumb-contents-title"> Hotel Details </h4>
+              <ul class="breadcrumb-contents-list list-style-none">
+                <li class="breadcrumb-contents-list-item">
+                  <a href="index.html" class="breadcrumb-contents-list-item-link"> Home </a>
+                </li>
+                <li class="breadcrumb-contents-list-item">
+                  <a href="listing.html" class="breadcrumb-contents-list-item-link"> Hotels </a>
+                </li>
+                <li class="breadcrumb-contents-list-item"> Hotel Details </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="hotel-details-area section-bg-2 pat-100 pab-100">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-xl-8 col-lg-7">
+            <div class="details-left-wrapper">
+              <div class="details-contents bg-white radius-10">
+                <div class="details-contents-header">
+                  <div class="details-contents-thumb details-contents-main-thumb bg-image" style="background-image: url(assets/img/single-page/details_main.jpg);"></div>
+                  <div class="details-contents-header-flex">
+                    <div class="details-contents-header-thumb">
+                      <img src="assets/img/single-page/details_1.jpg" alt="img">
+                    </div>
+                    <div class="details-contents-header-thumb">
+                      <img src="assets/img/single-page/details_2.jpg" alt="img">
+                      <a href="javascript:void(0)" class="more-photos">
+                        <i class="las la-plus"></i> More Photos </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="hotel-view-contents">
+                  <div class="hotel-view-contents-header">
+                    <span class="hotel-view-contents-review">
+                      <i class="las la-star"></i> 4.5 <span class="hotel-view-contents-review-count"> (380) </span>
+                    </span>
+                    <h3 class="hotel-view-contents-title"> King Suite Room </h3>
+                    <div class="hotel-view-contents-location mt-2">
+                      <span class="hotel-view-contents-location-icon">
+                        <i class="las la-map-marker-alt"></i>
+                      </span>
+                      <span class="hotel-view-contents-location-para"> 4140 Parker Rd. Allentown, New Mexico 31134 </span>
+                    </div>
+                  </div>
+                  <div class="hotel-view-contents-middle">
+                    <div class="hotel-view-contents-flex">
+                      <div class="hotel-view-contents-icon d-flex gap-1">
+                        <span>
+                          <i class="las la-parking"></i>
+                        </span>
+                        <p class="hotel-view-contents-icon-title flex-fill"> Parking </p>
+                      </div>
+                      <div class="hotel-view-contents-icon d-flex gap-1">
+                        <span>
+                          <i class="las la-wifi"></i>
+                        </span>
+                        <p class="hotel-view-contents-icon-title flex-fill"> Wifi </p>
+                      </div>
+                      <div class="hotel-view-contents-icon d-flex gap-1">
+                        <span>
+                          <i class="las la-coffee"></i>
+                        </span>
+                        <p class="hotel-view-contents-icon-title flex-fill"> Breakfast </p>
+                      </div>
+                      <div class="hotel-view-contents-icon d-flex gap-1">
+                        <span>
+                          <i class="las la-quidditch"></i>
+                        </span>
+                        <p class="hotel-view-contents-icon-title flex-fill"> Room Service </p>
+                      </div>
+                      <div class="hotel-view-contents-icon d-flex gap-1">
+                        <span>
+                          <i class="las la-swimming-pool"></i>
+                        </span>
+                        <p class="hotel-view-contents-icon-title flex-fill"> Pool </p>
+                      </div>
+                      <div class="hotel-view-contents-icon d-flex gap-1">
+                        <span>
+                          <i class="las la-receipt"></i>
+                        </span>
+                        <p class="hotel-view-contents-icon-title flex-fill"> Reception </p>
+                      </div>
+                      <div class="hotel-view-contents-icon d-flex gap-1">
+                        <span>
+                          <i class="las la-dumbbell"></i>
+                        </span>
+                        <p class="hotel-view-contents-icon-title flex-fill"> Gym </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hotel-view-contents-bottom">
+                    <div class="hotel-view-contents-bottom-flex">
+                      <div class="hotel-view-contents-bottom-contents">
+                        <h4 class="hotel-view-contents-bottom-title"> $230 <sub>/Night</sub>
+                        </h4>
+                        <p class="hotel-view-contents-bottom-para"> (4 Nights, 2 Rooms, 4 Persons) </p>
+                      </div>
+                      <div class="btn-wrapper">
+                        <a href="javascript:void(0)" class="cmn-btn btn-bg-1 btn-small"> Reserve Now </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="details-contents-tab">
+                  <ul class="tabs details-tab details-tab-border">
+                    <li class="active" data-tab="about"> About </li>
+                    <li data-tab="reviews"> Reviews </li>
+                  </ul>
+                  <div id="about" class="tab-content-item active">
+                    <div class="about-tab-contents">
+                      <p class="about-tab-contents-para"> One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back. </p>
+                      <p class="about-tab-contents-para mt-4"> He lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him. </p>
+                      <p class="about-tab-contents-para mt-4"> So many legs pitifully thin compared with the size of the rest of him waved about helplessly as he looked What's happened to me. </p>
+                    </div>
+                  </div>
+                  <div id="reviews" class="tab-content-item">
+                    <div class="review-tab-contents">
+                      <div class="review-tab-contents-single">
+                        <div class="rating-wrap">
+                          <div class="ratings">
+                            <span class="hide-rating"></span>
+                            <span class="show-rating"></span>
+                          </div>
+                          <p>
+                            <span class="total-ratings">(167)</span>
+                          </p>
+                        </div>
+                        <p class="about-review-para mt-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a egestas leo. Aliquam ut ante lobortis tellus cursus pellentesque. Praesent feugiat tellus quis aliquet </p>
+                        <div class="review-tab-contents-author mt-4">
+                          <h4 class="review-tab-contents-author-name"> Sandra M. Hurt </h4>
+                          <p class="review-tab-contents-author-para mt-2"> TrustPilot </p>
+                        </div>
+                      </div>
+                      <div class="review-tab-contents-single">
+                        <div class="rating-wrap">
+                          <div class="ratings">
+                            <span class="hide-rating"></span>
+                            <span class="show-rating"></span>
+                          </div>
+                          <p>
+                            <span class="total-ratings">(236)</span>
+                          </p>
+                        </div>
+                        <p class="about-review-para mt-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a egestas leo. Aliquam ut ante lobortis tellus cursus pellentesque. Praesent feugiat tellus quis aliquet </p>
+                        <div class="review-tab-contents-author mt-4">
+                          <h4 class="review-tab-contents-author-name"> Robert Fox </h4>
+                          <p class="review-tab-contents-author-para mt-2"> Designer </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="hotel-view bg-white radius-20 mt-4">
+                <div class="hotel-view-flex">
+                  <a href="hotel_details.html" class="hotel-view-thumb hotel-view-list-thumb bg-image" style="background-image: url(assets/img/single-page/hotel-list1.jpg);"></a>
+                  <div class="hotel-view-contents">
+                    <div class="hotel-view-contents-header">
+                      <div class="hotel-view-contents-header-flex d-flex flex-wrap gap-3 align-items-center justify-content-between">
+                        <span class="hotel-view-contents-review">
+                          <i class="las la-star"></i> 4.5 <span class="hotel-view-contents-review-count"> (380) </span>
+                        </span>
+                        <div class="btn-wrapper">
+                          <a href="javascript:void(0)" class="cmn-btn btn-bg-1 btn-small"> Reserve Now </a>
+                        </div>
+                      </div>
+                      <h3 class="hotel-view-contents-title">
+                        <a href="hotel_details.html"> King Suite Room </a>
+                      </h3>
+                      <div class="hotel-view-contents-location mt-2">
+                        <span class="hotel-view-contents-location-icon">
+                          <i class="las la-map-marker-alt"></i>
+                        </span>
+                        <span class="hotel-view-contents-location-para"> 4140 Parker Rd. Allentown, New Mexico 31134 </span>
+                      </div>
+                    </div>
+                    <div class="hotel-view-contents-middle">
+                      <div class="hotel-view-contents-flex">
+                        <div class="hotel-view-contents-icon d-flex gap-1">
+                          <span>
+                            <i class="las la-parking"></i>
+                          </span>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Parking </p>
+                        </div>
+                        <div class="hotel-view-contents-icon d-flex gap-1">
+                          <span>
+                            <i class="las la-wifi"></i>
+                          </span>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Wifi </p>
+                        </div>
+                        <div class="hotel-view-contents-icon d-flex gap-1">
+                          <span>
+                            <i class="las la-coffee"></i>
+                          </span>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Breakfast </p>
+                        </div>
+                        <div class="hotel-view-contents-icon d-flex gap-1">
+                          <span>
+                            <i class="las la-quidditch"></i>
+                          </span>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Room Service </p>
+                        </div>
+                        <div class="hotel-view-contents-icon d-flex gap-1">
+                          <span>
+                            <i class="las la-swimming-pool"></i>
+                          </span>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Pool </p>
+                        </div>
+                        <div class="hotel-view-contents-icon d-flex gap-1">
+                          <span>
+                            <i class="las la-receipt"></i>
+                          </span>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Reception </p>
+                        </div>
+                        <div class="hotel-view-contents-icon d-flex gap-1">
+                          <span>
+                            <i class="las la-dumbbell"></i>
+                          </span>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Gym </p>
+                        </div>
+                        <div class="hotel-view-contents-icon d-flex gap-1">
+                          <a class="hotel-view-contents-icon-more" href="javascript:void(0)"> +8 More </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hotel-view-contents-bottom">
+                      <div class="hotel-view-contents-bottom-flex">
+                        <div class="hotel-view-contents-bottom-contents d-flex flex-wrap gap-4">
+                          <h4 class="hotel-view-contents-bottom-title"> $230 <sub>/Night</sub>
+                          </h4>
+                          <p class="hotel-view-contents-bottom-para"> (4 Nights, 2 Rooms, 4 Persons) </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-5">
+            <div class="sticky-top">
+              <div class="hotel-details-widget hotel-details-widget-padding widget bg-white radius-10">
+                <div class="details-sidebar">
+                  <div class="details-sidebar-dropdown custom-form">
+                    <form action="#">
+                      <div class="single-input">
+                        <label class="details-sidebar-dropdown-title"> Check In </label>
+                        <input class="form--control date-picker" type="text" placeholder="Check in">
+                      </div>
+                      <div class="single-input mt-3">
+                        <label class="details-sidebar-dropdown-title"> Check Out </label>
+                        <input class="form--control date-picker" type="text" placeholder="Check out">
+                      </div>
+                    </form>
+                  </div>
+                  <div class="details-sidebar-quantity pt-4">
+                    <div class="details-sidebar-quantity-flex">
+                      <div class="details-sidebar-quantity-item">
+                        <h6 class="details-sidebar-quantity-title"> Guest </h6>
+                        <div class="details-sidebar-quantity-field">
+                          <span class="minus">
+                            <i class="las la-minus"></i>
+                          </span>
+                          <input class="quantity-input" type="number" value="5">
+                          <span class="plus">
+                            <i class="las la-plus"></i>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="details-sidebar-quantity-item">
+                        <h6 class="details-sidebar-quantity-title"> Children </h6>
+                        <div class="details-sidebar-quantity-field">
+                          <span class="minus">
+                            <i class="las la-minus"></i>
+                          </span>
+                          <input class="quantity-input" type="number" value="3">
+                          <span class="plus">
+                            <i class="las la-plus"></i>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="details-sidebar-quantity-item">
+                        <h6 class="details-sidebar-quantity-title"> Room </h6>
+                        <div class="details-sidebar-quantity-field">
+                          <span class="minus">
+                            <i class="las la-minus"></i>
+                          </span>
+                          <input class="quantity-input" type="number" value="2">
+                          <span class="plus">
+                            <i class="las la-plus"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btn-wrapper mt-4">
+                    <a href="checkout.html" class="cmn-btn btn-bg-1 btn-small"> Go to Checkout </a>
+                  </div>
+                </div>
+              </div>
+              <div class="hotel-details-widget widget bg-white radius-10">
+                <div class="hotel-view">
+                  <div class="hotel-view-thumb hotel-view-grid-thumb bg-image" style="background-image: url(assets/img/single-page/hotel-grid1.jpg);"></div>
+                  <div class="hotel-view-contents">
+                    <div class="hotel-view-contents-header">
+                      <span class="hotel-view-contents-review">
+                        <i class="las la-star"></i> 4.5 <span class="hotel-view-contents-review-count"> (380) </span>
+                      </span>
+                      <h3 class="hotel-view-contents-title"> King Suite Room </h3>
+                      <div class="hotel-view-contents-location mt-2">
+                        <span class="hotel-view-contents-location-icon">
+                          <i class="las la-map-marker-alt"></i>
+                        </span>
+                        <span class="hotel-view-contents-location-para"> 4140 Parker Rd. Allentown, New Mexico 31134 </span>
+                      </div>
+                    </div>
+                    <div class="hotel-view-contents-middle">
+                      <div class="hotel-view-contents-flex">
+                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Car Parking">
+                          <i class="las la-parking"></i>
+                        </div>
+                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Free Wifi">
+                          <i class="las la-wifi"></i>
+                        </div>
+                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Free Breakfast">
+                          <i class="las la-coffee"></i>
+                        </div>
+                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Home Service">
+                          <i class="las la-quidditch"></i>
+                        </div>
+                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Swimming Pool">
+                          <i class="las la-swimming-pool"></i>
+                        </div>
+                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Reception">
+                          <i class="las la-receipt"></i>
+                        </div>
+                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Gym">
+                          <i class="las la-dumbbell"></i>
+                        </div>
+                        <div class="hotel-view-contents-icon">
+                          <a class="hotel-view-contents-icon-more" href="javascript:void(0)"> +8 More </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hotel-view-contents-bottom">
+                      <div class="hotel-view-contents-bottom-flex">
+                        <div class="hotel-view-contents-bottom-contents">
+                          <h4 class="hotel-view-contents-bottom-title"> $230 <sub>/Night</sub>
+                          </h4>
+                          <p class="hotel-view-contents-bottom-para"> (4 Nights, 2 Rooms, 4 Persons) </p>
+                        </div>
+                        <div class="btn-wrapper">
+                          <a href="javascript:void(0)" class="cmn-btn btn-bg-1 btn-small"> Reserve Now </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="hotel-details-widget hotel-details-widget-padding widget bg-white radius-10">
+                <div class="details-sidebar">
+                  <div class="details-sidebar-offer center-text radius-10">
+                    <div class="details-sidebar-offer-shapes">
+                      <img src="assets/img/single-page/offer_shapes.png" alt="shapes">
+                    </div>
+                    <div class="details-sidebar-offer-thumb">
+                      <img src="assets/img/single-page/offer.png" alt="">
+                    </div>
+                    <div class="btn-wrapper mt-5">
+                      <a href="javascript:void(0)" class="cmn-btn btn-bg-white"> Book Now </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer-area footer-bg-1">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="footer-wrapper">
+              <div class="footer-wrapper-flex">
+                <div class="footer-wrapper-single">
+                  <div class="footer-widget widget">
+                    <div class="footer-widget-contents">
+                      <div class="footer-widget-logo">
+                        <a href="index.html">
+                          <img src="assets/img/03_logo.png" alt="logo">
+                        </a>
+                      </div>
+                      <div class="footer-widget-inner mt-4">
+                        <p class="footer-widget-contents-para"> Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit. </p>
+                        <div class="copyright-contents-items mt-5">
+                          <div class="copyright-contents-single">
+                            <div class="copyright-contents-single-flex">
+                              <div class="copyright-contents-single-icon">
+                                <i class="las la-phone"></i>
+                              </div>
+                              <div class="copyright-contents-single-details">
+                                <span class="copyright-contents-single-details-title"> Have a question? </span>
+                                <a href="tel:3104372766" class="copyright-contents-single-details-link"> 310-437-2766 </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="copyright-contents-single">
+                            <div class="copyright-contents-single-flex">
+                              <div class="copyright-contents-single-icon">
+                                <i class="las la-envelope"></i>
+                              </div>
+                              <div class="copyright-contents-single-details">
+                                <span class="copyright-contents-single-details-title"> Have a question? </span>
+                                <a href="/cdn-cgi/l/email-protection#4d38233f282c210d28352c203d2128632e2220" class="copyright-contents-single-details-link">
+                                  <span class="__cf_email__" data-cfemail="f2879c8097939eb2978a939f829e97dc919d9f">[email&#160;protected]</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="footer-wrapper-single">
+                  <div class="footer-widget widget">
+                    <h3 class="footer-widget-title text-white"> Discounts, Newsletters </h3>
+                    <div class="footer-widget-inner mt-4">
+                      <p class="footer-widget-para"> Get discounts and newsletters on our hotels in your email. We promise to not spam. Unsubscribe anytime </p>
+                      <div class="footer-widget-form mt-5">
+                        <form action="#">
+                          <div class="footer-widget-form-single">
+                            <input class="footer-widget-form-control" type="text" placeholder="Enter Your Email">
+                            <button type="submit"> Submit </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-navbar">
+        <div class="container">
+          <div class="footer-widget widget">
+            <div class="footer-widget-nav">
+              <ul class="footer-widget-nav-list list-style-none">
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> About </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Jobs </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Blog </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Press </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Careers </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Terms of use </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Privacy Policy </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Contact </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright-area footer-padding copyright-bg-1">
+        <div class="container">
+          <div class="copyright-contents">
+            <div class="copyright-contents-flex">
+              <div class="footer-widget-social">
+                <ul class="footer-widget-social-list list-style-none justify-content-center">
+                  <li class="footer-widget-social-list-item">
+                    <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                      <i class="lab la-facebook-f"></i>
+                    </a>
+                  </li>
+                  <li class="footer-widget-social-list-item">
+                    <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                      <i class="lab la-twitter"></i>
+                    </a>
+                  </li>
+                  <li class="footer-widget-social-list-item">
+                    <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                      <i class="lab la-instagram"></i>
+                    </a>
+                  </li>
+                  <li class="footer-widget-social-list-item">
+                    <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                      <i class="lab la-youtube"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <span class="copyright-contents-main"> © 2000-2022, All Rights Reserved by <a href="02_index.html"> Beyond Hotel </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="back-to-top">
+      <span class="back-top">
+        <i class="las la-angle-up"></i>
+      </span>
+    </div>
+    <div class="mouse-move mouse-outer"></div>
+    <div class="mouse-move mouse-inner"></div>
+{% endblock %}

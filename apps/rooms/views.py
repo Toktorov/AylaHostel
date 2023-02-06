@@ -10,4 +10,4 @@ def room_detail(request, id):
         'setting' : setting,
         'room' : room
     }
-    return render(request, 'room.html', context)
+    return render(request, 'room/room_detail.html', context)
