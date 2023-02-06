@@ -65,8 +65,16 @@ class Contact(models.Model):
     email = models.EmailField(
         verbose_name="Почта"
     )
+    phone_number = models.CharField(
+        max_length=100,
+        verbose_name="Телефонный номер"
+    )
     message = models.TextField(
         verbose_name="Сообщение"
+    )
+    created = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="Дата создания"
     )
 
     def __str__(self):

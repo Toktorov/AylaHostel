@@ -20,8 +20,17 @@ def reservation_room(request, id):
         phone_number = request.POST.get('phone_number')
         if first_name and last_name and phone_number:
             reservation = Reservation.objects.create(room_id = id,first_name = first_name, last_name = last_name, phone_number = phone_number)
-        return redirect('index')
+            return redirect('confirmation', reservation.id)
     context = {
         'setting' : setting,
     }
     return render(request, 'room/reservation.html', context)
+
+def confirmation(request, id):
+    setting = Setting.objects.latest('id')
+    reservation = Reservation.objects.get(id = id)
+    context = {
+        'setting' : setting,
+        'reservation' : reservation
+    }
+    return render(request, 'room/confirmation.html', context)

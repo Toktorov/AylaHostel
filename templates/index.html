@@ -534,7 +534,7 @@
     <section class="question-area pat-50 pab-50">
       <div class="container">
         <div class="section-title center-text">
-          <h2 class="title"> Frequently Asked Question </h2>
+          <h2 class="title"> Часто задаваемые вопросы </h2>
           <div class="section-title-shapes"></div>
         </div>
         <div class="row g-4 mt-4">
@@ -576,22 +576,22 @@
           </div>
           <div class="col-xl-4 col-lg-5">
             <div class="faq-question faq-question-border radius-10 sticky-top">
-              <h3 class="faq-question-title"> Still got questions? </h3>
+              <h3 class="faq-question-title"> У вас есть вопросы? </h3>
               <div class="faq-question-form custom-form mat-20">
                 <form action="#">
                   <div class="single-input">
-                    <label class="label-title"> Name </label>
+                    <label class="label-title"> Имя </label>
                     <input type="text" class="form--control radius-10" placeholder="Type Name">
                   </div>
                   <div class="single-input">
-                    <label class="label-title"> Email </label>
+                    <label class="label-title"> Номер </label>
                     <input type="text" class="form--control radius-10" placeholder="Type Email">
                   </div>
                   <div class="single-input">
-                    <label class="label-title"> Questions </label>
+                    <label class="label-title"> Вопрос </label>
                     <textarea name="message" class="form--control form-message radius-10" placeholder="Type Your Questons..."></textarea>
                   </div>
-                  <button class="submit-btn w-100 radius-10" type="submit"> Submit </button>
+                  <button class="submit-btn w-100 radius-10" type="submit"> Отправить </button>
                 </form>
               </div>
             </div>
@@ -602,7 +602,7 @@
     <section class="blog-area pat-50 pab-50">
       <div class="container">
         <div class="section-title center-text">
-          <h2 class="title"> Latest News </h2>
+          <h2 class="title"> Последние новости </h2>
           <div class="section-title-shapes"></div>
         </div>
         <div class="row gy-4 mt-4">
@@ -610,7 +610,7 @@
             <div class="single-blog">
               <div class="single-blog-thumbs">
                 <a href="blog_details.html">
-                  <img class="lazyloads" src="assets/img/blog/blog1.jpg" alt="">
+                  <img class="lazyloads" src="{% static 'assets/img/blog/blog1.jpg' %}" alt="">
                 </a>
                 <div class="single-blog-thumbs-date">
                   <a href="javascript:void(0)">
@@ -639,7 +639,7 @@
             <div class="single-blog">
               <div class="single-blog-thumbs">
                 <a href="blog_details.html">
-                  <img class="lazyloads" src="assets/img/blog/blog2.jpg" alt="">
+                  <img class="lazyloads" src="{% static 'assets/img/blog/blog2.jpg' %}" alt="">
                 </a>
                 <div class="single-blog-thumbs-date">
                   <a href="javascript:void(0)">
@@ -668,7 +668,7 @@
             <div class="single-blog">
               <div class="single-blog-thumbs">
                 <a href="blog_details.html">
-                  <img class="lazyloads" src="assets/img/blog/blog3.jpg" alt="">
+                  <img class="lazyloads" src="{% static 'assets/img/blog/blog3.jpg' %}" alt="">
                 </a>
                 <div class="single-blog-thumbs-date">
                   <a href="javascript:void(0)">
@@ -709,37 +709,37 @@
 																																																						</div>' data-responsive='[{"breakpoint": 1400,"settings": {"slidesToShow": 5}},{"breakpoint": 1200,"settings": {"slidesToShow": 4}},{"breakpoint": 992,"settings": {"slidesToShow": 3}},{"breakpoint": 576, "settings": {"slidesToShow": 2} }]'>
               <div class="single-brand">
                 <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="assets/img/single-page/logo1.png" alt="brandLogo">
+                  <img src="{% static 'assets/img/single-page/logo1.png' %}" alt="brandLogo">
                 </a>
               </div>
               <div class="single-brand">
                 <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="assets/img/single-page/logo2.png" alt="brandLogo">
+                  <img src="{% static 'assets/img/single-page/logo2.png' %}" alt="brandLogo">
                 </a>
               </div>
               <div class="single-brand">
                 <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="assets/img/single-page/logo3.png" alt="brandLogo">
+                  <img src="{% static 'assets/img/single-page/logo3.png' %}" alt="brandLogo">
                 </a>
               </div>
               <div class="single-brand">
                 <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="assets/img/single-page/logo4.png" alt="brandLogo">
+                  <img src="{% static 'assets/img/single-page/logo4.png' %}" alt="brandLogo">
                 </a>
               </div>
               <div class="single-brand">
                 <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="assets/img/single-page/logo5.png" alt="brandLogo">
+                  <img src="{% static 'assets/img/single-page/logo5.png' %}" alt="brandLogo">
                 </a>
               </div>
               <div class="single-brand">
                 <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="assets/img/single-page/logo6.png" alt="brandLogo">
+                  <img src="{% static 'assets/img/single-page/logo6.png' %}" alt="brandLogo">
                 </a>
               </div>
               <div class="single-brand">
                 <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="assets/img/single-page/logo3.png" alt="brandLogo">
+                  <img src="{% static 'assets/img/single-page/logo3.png' %}" alt="brandLogo">
                 </a>
               </div>
             </div>
@@ -753,8 +753,8 @@
           <div class="col-lg-12">
             <div class="newsletter-wrapper newsletter-bg radius-20 newsletter-wrapper-padding wow zoomIn" data-wow-delay=".3s">
               <div class="newsletter-wrapper-shapes">
-                <img src="assets/img/single-page/newsletter-shape1.png" alt="shapes">
-                <img src="assets/img/single-page/newsletter-shape2.png" alt="shapes">
+                <img src="{% static 'assets/img/single-page/newsletter-shape1.png' %}" alt="shapes">
+                <img src="{% static 'assets/img/single-page/newsletter-shape2.png' %}" alt="shapes">
               </div>
               <div class="newsletter-contents center-text">
                 <h3 class="newsletter-contents-title"> Get discounts, newsletters in your email </h3>
