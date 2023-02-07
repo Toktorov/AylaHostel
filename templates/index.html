@@ -328,110 +328,21 @@
         </div>
         <div class="imgLoaded mt-5">
           <div class="row g-4 masonry-grid">
+            {% for gallery in galleries %}
             <div class="col-lg-2 col-md-4 col-sm-6 grid-item">
-              <div class="single-shots bg-image" style="background-image: url(assets/img/shots/shot1.jpg);">
-                <a href="{% static 'assets/img/shots/shot1.jpg' %}" class="single-shots-icon gallery-popup-two">
+              <div class="single-shots bg-image" style="background-image: url({{ gallery.image.url }});">
+                <a href="{{ gallery.image.url }}" class="single-shots-icon gallery-popup-two">
                   <i class="las la-image"></i>
                 </a>
                 <div class="single-shots-contents">
-                  <h4 class="single-shots-contents-title">
+                  <!-- <h4 class="single-shots-contents-title">
                     <a href="hotel_details.html"> Disneyland </a>
-                  </h4>
-                  <p class="single-shots-contents-para"> We have over 28K reviews to assure you top notch service. We have over 28K reviews to assure you top notch service.We have over 28K reviews to assure you top notch service. We have over 28K reviews to assure you top notch service. </p>
+                  </h4> -->
+                  <!-- <p class="single-shots-contents-para"> We have over 28K reviews to assure you top notch service. We have over 28K reviews to assure you top notch service.We have over 28K reviews to assure you top notch service. We have over 28K reviews to assure you top notch service. </p> -->
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 grid-item">
-              <div class="single-shots bg-image" style="background-image: url(assets/img/shots/shot2.jpg);">
-                <a href="{% static 'assets/img/shots/shot2.jpg' %}" class="single-shots-icon gallery-popup-two">
-                  <i class="las la-image"></i>
-                </a>
-                <div class="single-shots-contents">
-                  <h4 class="single-shots-contents-title">
-                    <a href="hotel_details.html"> Disneyland </a>
-                  </h4>
-                  <p class="single-shots-contents-para"> We have over 28K reviews to assure you top notch service. </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 grid-item">
-              <div class="single-shots bg-image" style="background-image: url(assets/img/shots/shot3.jpg);">
-                <a href="{% static 'assets/img/shots/shot3.jpg' %}" class="single-shots-icon gallery-popup-two">
-                  <i class="las la-image"></i>
-                </a>
-                <div class="single-shots-contents">
-                  <h4 class="single-shots-contents-title">
-                    <a href="hotel_details.html"> Disneyland </a>
-                  </h4>
-                  <p class="single-shots-contents-para"> We have over 28K reviews to assure you top notch service. </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 grid-item">
-              <div class="single-shots bg-image" style="background-image: url(assets/img/shots/shot4.jpg);">
-                <a href="{% static 'assets/img/shots/shot4.jpg' %}" class="single-shots-icon gallery-popup-two">
-                  <i class="las la-image"></i>
-                </a>
-                <div class="single-shots-contents">
-                  <h4 class="single-shots-contents-title">
-                    <a href="hotel_details.html"> Disneyland </a>
-                  </h4>
-                  <p class="single-shots-contents-para"> We have over 28K reviews to assure you top notch service. </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 grid-item">
-              <div class="single-shots bg-image" style="background-image: url(assets/img/shots/shot5.jpg);">
-                <a href="{% static 'assets/img/shots/shot5.jpg' %}" class="single-shots-icon gallery-popup-two">
-                  <i class="las la-image"></i>
-                </a>
-                <div class="single-shots-contents">
-                  <h4 class="single-shots-contents-title">
-                    <a href="hotel_details.html"> Disneyland </a>
-                  </h4>
-                  <p class="single-shots-contents-para"> We have over 28K reviews to assure you top notch service. </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 grid-item">
-              <div class="single-shots bg-image" style="background-image: url(assets/img/shots/shot10.jpg);">
-                <a href="{% static 'assets/img/shots/shot10.jpg' %}" class="single-shots-icon gallery-popup-two">
-                  <i class="las la-image"></i>
-                </a>
-                <div class="single-shots-contents">
-                  <h4 class="single-shots-contents-title">
-                    <a href="hotel_details.html"> Disneyland </a>
-                  </h4>
-                  <p class="single-shots-contents-para"> We have over 28K reviews to assure you top notch service. </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 grid-item">
-              <div class="single-shots bg-image" style="background-image: url(assets/img/shots/shot11.jpg);">
-                <a href="{% static 'assets/img/shots/shot11.jpg' %}" class="single-shots-icon gallery-popup-two">
-                  <i class="las la-image"></i>
-                </a>
-                <div class="single-shots-contents">
-                  <h4 class="single-shots-contents-title">
-                    <a href="hotel_details.html"> Disneyland </a>
-                  </h4>
-                  <p class="single-shots-contents-para"> We have over 28K reviews to assure you top notch service. </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 grid-item">
-              <div class="single-shots bg-image" style="background-image: url(assets/img/shots/shot12.jpg);">
-                <a href="{% static 'assets/img/shots/shot12.jpg' %}" class="single-shots-icon gallery-popup-two">
-                  <i class="las la-image"></i>
-                </a>
-                <div class="single-shots-contents">
-                  <h4 class="single-shots-contents-title">
-                    <a href="hotel_details.html"> Disneyland </a>
-                  </h4>
-                  <p class="single-shots-contents-para"> We have over 28K reviews to assure you top notch service. </p>
-                </div>
-              </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -446,36 +357,14 @@
           <div class="col-xl-8 col-lg-7">
             <div class="faq-wrapper">
               <div class="faq-contents">
+                {% for faq in faqs %}
                 <div class="faq-item wow fadeInLeft" data-wow-delay=".1s">
-                  <h3 class="faq-title"> How does it works? </h3>
+                  <h3 class="faq-title"> {{ faq.question }} </h3>
                   <div class="faq-panel">
-                    <p class="faq-para"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ipsum purus erat aliquam fermentum, tincidunt. Massa id faucibus orci nunc sed turpis nibh neque. Ut tellus curabitur arcu, mollis malesuada arcu. </p>
+                    <p class="faq-para"> {{ faq.answer }} </p>
                   </div>
                 </div>
-                <div class="faq-item active open wow fadeInLeft" data-wow-delay=".2s">
-                  <h3 class="faq-title"> Do I get full refund if I cancel? </h3>
-                  <div class="faq-panel">
-                    <p class="faq-para"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ipsum purus erat aliquam fermentum, tincidunt. Massa id faucibus orci nunc sed turpis nibh neque. Ut tellus curabitur arcu, mollis malesuada arcu. </p>
-                  </div>
-                </div>
-                <div class="faq-item wow fadeInLeft" data-wow-delay=".3s">
-                  <h3 class="faq-title"> Do you offer pool service? </h3>
-                  <div class="faq-panel">
-                    <p class="faq-para"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ipsum purus erat aliquam fermentum, tincidunt. Massa id faucibus orci nunc sed turpis nibh neque. Ut tellus curabitur arcu, mollis malesuada arcu. </p>
-                  </div>
-                </div>
-                <div class="faq-item wow fadeInLeft" data-wow-delay=".1s">
-                  <h3 class="faq-title"> What if I want to cancel? </h3>
-                  <div class="faq-panel">
-                    <p class="faq-para"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ipsum purus erat aliquam fermentum, tincidunt. Massa id faucibus orci nunc sed turpis nibh neque. Ut tellus curabitur arcu, mollis malesuada arcu. </p>
-                  </div>
-                </div>
-                <div class="faq-item wow fadeInLeft" data-wow-delay=".1s">
-                  <h3 class="faq-title"> What’s the closure time? </h3>
-                  <div class="faq-panel">
-                    <p class="faq-para"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ipsum purus erat aliquam fermentum, tincidunt. Massa id faucibus orci nunc sed turpis nibh neque. Ut tellus curabitur arcu, mollis malesuada arcu. </p>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
           </div>
@@ -483,22 +372,23 @@
             <div class="faq-question faq-question-border radius-10 sticky-top">
               <h3 class="faq-question-title"> У вас есть вопросы? </h3>
               <div class="faq-question-form custom-form mat-20">
-                <form action="#">
+                <form method="post">
+                  {% csrf_token %}
                   <div class="single-input">
                     <label class="label-title"> Имя </label>
-                    <input type="text" class="form--control radius-10" placeholder="Type Name">
+                    <input type="text" name = "name" class="form--control radius-10" placeholder="Ваше имя">
                   </div>
                   <div class="single-input">
                     <label class="label-title"> Номер </label>
-                    <input type="text" class="form--control radius-10" placeholder="Type Email">
+                    <input type="text" name = "phone_number" class="form--control radius-10" placeholder="Ваш номер">
                   </div>
                   <div class="single-input">
                     <label class="label-title"> Почта </label>
-                    <input type="text" class="form--control radius-10" placeholder="Type Email">
+                    <input type="text" name = "email" class="form--control radius-10" placeholder="Ваша почта">
                   </div>
                   <div class="single-input">
                     <label class="label-title"> Вопрос </label>
-                    <textarea name="message" class="form--control form-message radius-10" placeholder="Type Your Questons..."></textarea>
+                    <textarea name="message" name = "message" class="form--control form-message radius-10" placeholder="Ваше сообщение..."></textarea>
                   </div>
                   <button class="submit-btn w-100 radius-10" type="submit"> Отправить </button>
                 </form>
@@ -515,147 +405,37 @@
           <div class="section-title-shapes"></div>
         </div>
         <div class="row gy-4 mt-4">
+          {% for new in news %}
           <div class="col-xxl-4 col-lg-4 col-md-6">
             <div class="single-blog">
               <div class="single-blog-thumbs">
-                <a href="blog_details.html">
-                  <img class="lazyloads" src="{% static 'assets/img/blog/blog1.jpg' %}" alt="">
+                <a href="{% url 'index' %}">
+                  <img class="lazyloads" src="{{ new.image.url }}" alt="">
                 </a>
-                <div class="single-blog-thumbs-date">
-                  <a href="javascript:void(0)">
-                    <span class="date"> 18 </span>
-                    <span class="month"> Jun </span>
-                  </a>
-                </div>
+                
               </div>
               <div class="single-blog-contents mt-3">
                 <div class="single-blog-contents-tags mt-3">
                   <span class="single-blog-contents-tags-item">
                     <a href="javascript:void(0)">
-                      <i class="las la-tag"></i> Hotel </a>
+                      <i class="las la-tag"></i> {{ setting.title }} </a>
                   </span>
                   <span class="single-blog-contents-tags-item">
-                    <a href="javascript:void(0)"> 22 Comments </a>
+                    <a href="javascript:void(0)"> {{ new.created }} </a>
                   </span>
                 </div>
                 <h4 class="single-blog-contents-title mt-3">
-                  <a href="blog_details.html"> Great Deals to Send Your Loved Ones Somewhere Nice </a>
+                  <a href="blog_details.html"> {{ new.title }} </a>
+                  <p>{{ new.description|truncatewords:5 }}</p>
                 </h4>
               </div>
             </div>
           </div>
-          <div class="col-xxl-4 col-lg-4 col-md-6">
-            <div class="single-blog">
-              <div class="single-blog-thumbs">
-                <a href="blog_details.html">
-                  <img class="lazyloads" src="{% static 'assets/img/blog/blog2.jpg' %}" alt="">
-                </a>
-                <div class="single-blog-thumbs-date">
-                  <a href="javascript:void(0)">
-                    <span class="date"> 19 </span>
-                    <span class="month"> Jun </span>
-                  </a>
-                </div>
-              </div>
-              <div class="single-blog-contents mt-3">
-                <div class="single-blog-contents-tags mt-3">
-                  <span class="single-blog-contents-tags-item">
-                    <a href="javascript:void(0)">
-                      <i class="las la-tag"></i> Hotel </a>
-                  </span>
-                  <span class="single-blog-contents-tags-item">
-                    <a href="javascript:void(0)"> 25 Comments </a>
-                  </span>
-                </div>
-                <h4 class="single-blog-contents-title mt-3">
-                  <a href="blog_details.html"> Read Real Guest Reviews. 24/7 Customer Service and others. </a>
-                </h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-xxl-4 col-lg-4 col-md-6">
-            <div class="single-blog">
-              <div class="single-blog-thumbs">
-                <a href="blog_details.html">
-                  <img class="lazyloads" src="{% static 'assets/img/blog/blog3.jpg' %}" alt="">
-                </a>
-                <div class="single-blog-thumbs-date">
-                  <a href="javascript:void(0)">
-                    <span class="date"> 20 </span>
-                    <span class="month"> Jun </span>
-                  </a>
-                </div>
-              </div>
-              <div class="single-blog-contents mt-3">
-                <div class="single-blog-contents-tags mt-3">
-                  <span class="single-blog-contents-tags-item">
-                    <a href="javascript:void(0)">
-                      <i class="las la-tag"></i> Hotel </a>
-                  </span>
-                  <span class="single-blog-contents-tags-item">
-                    <a href="javascript:void(0)"> 12 Comments </a>
-                  </span>
-                </div>
-                <h4 class="single-blog-contents-title mt-3">
-                  <a href="blog_details.html"> Compare hotel prices and find an amazing price for the Resort </a>
-                </h4>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </section>
-    <div class="brand-area pat-50 pab-50">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="global-slick-init attraction-slider slider-inner-margin" data-slidesToShow="6" data-infinite="true" data-arrows="false" data-dots="false" data-swipeToSlide="true" data-autoplay="true" data-autoplaySpeed="2500" data-prevArrow='
-																																																						<div class="prev-icon">
-																																																							<i class="las la-angle-left"></i>
-																																																						</div>' data-nextArrow='
-																																																						<div class="next-icon">
-																																																							<i class="las la-angle-right"></i>
-																																																						</div>' data-responsive='[{"breakpoint": 1400,"settings": {"slidesToShow": 5}},{"breakpoint": 1200,"settings": {"slidesToShow": 4}},{"breakpoint": 992,"settings": {"slidesToShow": 3}},{"breakpoint": 576, "settings": {"slidesToShow": 2} }]'>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo1.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo2.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo3.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo4.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo5.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo6.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo3.png' %}" alt="brandLogo">
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <div class="newsletter-area pat-50">
       <div class="container">
         <div class="row">
@@ -666,14 +446,33 @@
                 <img src="{% static 'assets/img/single-page/newsletter-shape2.png' %}" alt="shapes">
               </div>
               <div class="newsletter-contents center-text">
-                <h3 class="newsletter-contents-title"> Get discounts, newsletters in your email </h3>
-                <p class="newsletter-contents-para mt-3"> Get discounts and newsletters on our hotels in your email. We promise to not spam. Unsubscribe anytime </p>
-                <div class="newsletter-contents-form custom-form mt-4">
-                  <div class="single-input">
-                    <input type="text" class="form--control" placeholder="Enter Email">
-                    <button type="submit"> Submit </button>
+                <h3 class="newsletter-contents-title"> Подпишитесь на наши социальные сети </h3>
+                <p class="newsletter-contents-para mt-3"> Подпишитесь на наши социальные сети, чтобы получать актуальную информацию </p>
+                <div class="footer-widget widget">
+                  <div class="footer-widget-social mt-4">
+                    <ul class="footer-widget-social-list list-style-none justify-content-center">
+                      <li class="footer-widget-social-list-item">
+                        <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                          <i class="lab la-facebook-f"></i>
+                        </a>
+                      </li>
+                      <li class="footer-widget-social-list-item">
+                        <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                          <i class="lab la-twitter"></i>
+                        </a>
+                      </li>
+                      <li class="footer-widget-social-list-item">
+                        <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                          <i class="lab la-instagram"></i>
+                        </a>
+                      </li>
+                      <li class="footer-widget-social-list-item">
+                        <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                          <i class="lab la-youtube"></i>
+                        </a>
+                      </li>
+                    </ul>
                   </div>
-                </div>
               </div>
             </div>
           </div>

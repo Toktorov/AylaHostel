@@ -43,29 +43,18 @@
                 <div class="footer-widget-nav mt-5">
                   <ul class="footer-widget-nav-list list-style-none">
                     <li class="footer-widget-nav-list-item">
-                      <a href="javascript:void(0)" class="footer-widget-nav-list-link"> About </a>
+                      <a href="{% url 'index' %}" class="footer-widget-nav-list-link"> Домой </a>
                     </li>
                     <li class="footer-widget-nav-list-item">
-                      <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Jobs </a>
+                      <a href="{% url 'about' %}" class="footer-widget-nav-list-link"> О нас </a>
                     </li>
                     <li class="footer-widget-nav-list-item">
-                      <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Blog </a>
+                      <a href="{% url 'rooms' %}" class="footer-widget-nav-list-link"> Комнаты </a>
                     </li>
                     <li class="footer-widget-nav-list-item">
-                      <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Press </a>
+                      <a href="{% url 'contact' %}" class="footer-widget-nav-list-link"> Связаться </a>
                     </li>
-                    <li class="footer-widget-nav-list-item">
-                      <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Careers </a>
-                    </li>
-                    <li class="footer-widget-nav-list-item">
-                      <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Terms of use </a>
-                    </li>
-                    <li class="footer-widget-nav-list-item">
-                      <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Privacy Policy </a>
-                    </li>
-                    <li class="footer-widget-nav-list-item">
-                      <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Contact </a>
-                    </li>
+                  
                   </ul>
                 </div>
               </div>
@@ -84,9 +73,8 @@
                   <div class="copyright-contents-single-icon">
                     <i class="las la-phone"></i>
                   </div>
-                  <div class="copyright-contents-single-details">
-                    <span class="copyright-contents-single-details-title"> Have a question? </span>
-                    <a href="tel:3104372766" class="copyright-contents-single-details-link"> 310-437-2766 </a>
+                  <div class="copyright-contents-single-details">Есть вопросы? </span>
+                    <a href="tel:{{ setting.phone }}" class="copyright-contents-single-details-link"> {{ setting.phone }} </a>
                   </div>
                 </div>
               </div>
@@ -96,15 +84,15 @@
                     <i class="las la-envelope"></i>
                   </div>
                   <div class="copyright-contents-single-details">
-                    <span class="copyright-contents-single-details-title"> Have a question? </span>
-                    <a href="/cdn-cgi/l/email-protection#81f4eff3e4e0edc1e4f9e0ecf1ede4afe2eeec" class="copyright-contents-single-details-link">
-                      <span class="__cf_email__" data-cfemail="99ecf7ebfcf8f5d9fce1f8f4e9f5fcb7faf6f4">[email&#160;protected]</span>
+                    <span class="copyright-contents-single-details-title"> Есть вопрос? </span>
+                    <a href="{% url 'contact' %}" class="copyright-contents-single-details-link">
+                      <span class="__cf_email__" data-cfemail="99ecf7ebfcf8f5d9fce1f8f4e9f5fcb7faf6f4">Свяжитесь с нами</span>
                     </a>
                   </div>
                 </div>
               </div>
             </div>
-            <span class="copyright-contents-main"> Codex Studio & <a href="{% url 'index' %}"> {{ setting.title }} </a>
+            <span class="copyright-contents-main"> {{ setting.title }} & <a href="http://codexstudio.site/"> Codex Studio </a>
             </span>
           </div>
         </div>

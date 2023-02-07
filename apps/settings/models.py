@@ -17,10 +17,11 @@ class Setting(models.Model):
         upload_to="logos/",
         verbose_name="Логотип сайта"
     )
-    # phone = models.CharField(
-    #     max_length=100,
-    #     verbose_name="Телефонный номер"
-    # )
+    phone = models.CharField(
+        max_length=100,
+        verbose_name="Телефонный номер",
+        blank = True, null = True
+    )
     email = models.EmailField(
         verbose_name="Почта",
         blank = True, null = True
@@ -203,3 +204,64 @@ class News(models.Model):
     class Meta:
         verbose_name = "Новость"
         verbose_name_plural = "Новости"
+
+class Promotion(models.Model):
+    image = models.ImageField(
+        upload_to="promotions/",
+        verbose_name="Фотография"
+    )
+    url = models.URLField(
+        verbose_name="URL"
+    )
+
+    def __str__(self):
+        return self.url
+
+    class Meta:
+        verbose_name = "Акция"
+        verbose_name_plural = "Акции"
+
+class Benefit(models.Model):
+    title = models.CharField(
+        max_length=100,
+        verbose_name="Заголовок"
+    )
+    description = models.CharField(
+        max_length=255,
+        verbose_name="Описание"
+    )
+    icon = models.ImageField(
+        upload_to="icons/",
+        verbose_name="Иконка"
+    )
+
+    def __str__(self):
+        return self.title 
+
+    class Meta:
+        verbose_name = "Преимущество"
+        verbose_name_plural = "Преимущества"
+
+class Team(models.Model):
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='news_images/',
+        verbose_name="Основная фотография",
+        blank = True, null = True
+    )
+    full_name = models.CharField(
+        max_length=255,
+        verbose_name="Полное имя"
+    )
+    job_title = models.CharField(
+        max_length=255,
+        verbose_name="Должность"
+    )
+
+    def __str__(self):
+        return self.full_name
+
+    class Meta:
+        verbose_name = "Команда"
+        verbose_name_plural = "Команды"
