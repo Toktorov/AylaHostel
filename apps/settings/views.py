@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
-from apps.settings.models import Setting, Contact
+from apps.settings.models import Setting, Contact, Review
 from apps.rooms.models import Room
 
 # Create your views here.
 def index(request):
     setting = Setting.objects.latest('id')
     rooms = Room.objects.all()
+    reviews = Review.objects.all().order_by('?')[:5]
     context = {
         'setting' : setting,
         'rooms' : rooms,
+        'reviews' : reviews,
     }
     return render(request, 'index.html', context)
 

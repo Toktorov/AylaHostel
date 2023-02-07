@@ -1,14 +1,29 @@
 from django.shortcuts import render, redirect
-from apps.settings.models import Setting, Reservation
+from apps.settings.models import Setting, Reservation, Review
 from apps.rooms.models import Room
 
 # Create your views here.
+def rooms(request):
+    setting = Setting.objects.latest('id')
+    rooms = Room.objects.all()
+    context = {
+        'setting' : setting,
+        'rooms' : rooms
+    }
+    return render(request, 'room/rooms.html', context)
+
 def room_detail(request, id):
     setting = Setting.objects.latest('id')
     room = Room.objects.get(id = id)
+    one_random_room = Room.objects.all().order_by('?')[:1]
+    two_random_room = Room.objects.all().order_by('?')[:1]
+    reviews = Review.objects.filter(room = room, checked = True).order_by('-created')
     context = {
         'setting' : setting,
-        'room' : room
+        'room' : room,
+        'reviews' : reviews,
+        'one_random_room' : one_random_room,
+        'two_random_room' : two_random_room
     }
     return render(request, 'room/room_detail.html', context)
 

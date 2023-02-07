@@ -1,4 +1,5 @@
 from django.db import models
+from django_resized.forms import ResizedImageField
 
 from apps.rooms.models import Room
 
@@ -114,3 +115,91 @@ class Reservation(models.Model):
     class Meta:
         verbose_name = "Бронь"
         verbose_name_plural = "Брони"
+
+class Review(models.Model):
+    room = models.ForeignKey(
+        Room, 
+        on_delete=models.CASCADE,
+        related_name="room_review",
+        verbose_name="Комната"
+    )
+    name = models.CharField(
+        max_length=100,
+        verbose_name="Имя"
+    )
+    text = models.TextField(
+        verbose_name="Текст"
+    )
+    checked = models.BooleanField(
+        default=False,
+        verbose_name="Проверка"
+    )
+    created = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    def __str__(self):
+        return f"{self.name} {self.text}"
+
+    class Meta:
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
+
+class Gallery(models.Model):
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='gallery_images/',
+        verbose_name="Основная фотография",
+        blank = True, null = True
+    )
+
+    def __str__(self):
+        return f"{self.image}"
+
+    class Meta:
+        verbose_name = "Галерея"
+        verbose_name_plural = "Галерии"
+
+class FAQ(models.Model):
+    question = models.CharField(
+        max_length=300,
+        verbose_name="Вопрос"
+    )
+    answer = models.TextField(
+        verbose_name="Ответ"
+    )
+
+    def __str__(self):
+        return self.question 
+
+    class Meta:
+        verbose_name = "FAQ"
+        verbose_name_plural = "FAQ"
+
+class News(models.Model):
+    title = models.CharField(
+        max_length=255,
+        verbose_name="Заголовок"
+    )
+    description = models.TextField(
+        verbose_name="Описание"
+    )
+    image = ResizedImageField(
+        force_format="WEBP", 
+        quality=100, 
+        upload_to='news_images/',
+        verbose_name="Основная фотография",
+        blank = True, null = True
+    )
+    created = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="Дата создания"
+    )
+
+    def __str__(self):
+        return self.title 
+
+    class Meta:
+        verbose_name = "Новость"
+        verbose_name_plural = "Новости"

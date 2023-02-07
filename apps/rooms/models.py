@@ -34,7 +34,7 @@ class Room(models.Model):
     image = ResizedImageField(
         force_format="WEBP", 
         quality=100, 
-        upload_to='post_images/',
+        upload_to='room_images/',
         verbose_name="Основная фотография",
         blank = True, null = True
     )

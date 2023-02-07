@@ -125,63 +125,40 @@
                   </div>
                   <div id="reviews" class="tab-content-item">
                     <div class="review-tab-contents">
+                        {% for review in reviews %}
                       <div class="review-tab-contents-single">
-                        <div class="rating-wrap">
-                          <div class="ratings">
-                            <span class="hide-rating"></span>
-                            <span class="show-rating"></span>
-                          </div>
-                          <p>
-                            <span class="total-ratings">(167)</span>
-                          </p>
-                        </div>
-                        <p class="about-review-para mt-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a egestas leo. Aliquam ut ante lobortis tellus cursus pellentesque. Praesent feugiat tellus quis aliquet </p>
+                        <p class="about-review-para mt-3"> {{ review.text }} </p>
                         <div class="review-tab-contents-author mt-4">
-                          <h4 class="review-tab-contents-author-name"> Sandra M. Hurt </h4>
-                          <p class="review-tab-contents-author-para mt-2"> TrustPilot </p>
+                          <p class="review-tab-contents-author-para mt-2"> {{ review.name }} </p>
                         </div>
                       </div>
-                      <div class="review-tab-contents-single">
-                        <div class="rating-wrap">
-                          <div class="ratings">
-                            <span class="hide-rating"></span>
-                            <span class="show-rating"></span>
-                          </div>
-                          <p>
-                            <span class="total-ratings">(236)</span>
-                          </p>
-                        </div>
-                        <p class="about-review-para mt-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a egestas leo. Aliquam ut ante lobortis tellus cursus pellentesque. Praesent feugiat tellus quis aliquet </p>
-                        <div class="review-tab-contents-author mt-4">
-                          <h4 class="review-tab-contents-author-name"> Robert Fox </h4>
-                          <p class="review-tab-contents-author-para mt-2"> Designer </p>
-                        </div>
-                      </div>
+                      {% endfor %}
                     </div>
                   </div>
                 </div>
               </div>
               <div class="hotel-view bg-white radius-20 mt-4">
+                {% for one in one_random_room %}
                 <div class="hotel-view-flex">
-                  <a href="hotel_details.html" class="hotel-view-thumb hotel-view-list-thumb bg-image" style="background-image: url({% static 'assets/img/single-page/hotel-list1.jpg' %});"></a>
+                  <a href="{% url 'room_detail' one.id %}" class="hotel-view-thumb hotel-view-list-thumb bg-image" style="background-image: url({{ one.image.url }});"></a>
                   <div class="hotel-view-contents">
                     <div class="hotel-view-contents-header">
                       <div class="hotel-view-contents-header-flex d-flex flex-wrap gap-3 align-items-center justify-content-between">
                         <span class="hotel-view-contents-review">
-                          <i class="las la-star"></i> 4.5 <span class="hotel-view-contents-review-count"> (380) </span>
+                          <i class="las la-star"></i> 5 <span class="hotel-view-contents-review-count"> (2) </span>
                         </span>
                         <div class="btn-wrapper">
-                          <a href="javascript:void(0)" class="cmn-btn btn-bg-1 btn-small"> Reserve Now </a>
+                          <a href="{% url 'room_detail' one.id %}" class="cmn-btn btn-bg-1 btn-small"> Посмотреть </a>
                         </div>
                       </div>
                       <h3 class="hotel-view-contents-title">
-                        <a href="hotel_details.html"> King Suite Room </a>
+                        <a href="{% url 'room_detail' one.id %}"> {{ one.title }} </a>
                       </h3>
                       <div class="hotel-view-contents-location mt-2">
                         <span class="hotel-view-contents-location-icon">
                           <i class="las la-map-marker-alt"></i>
                         </span>
-                        <span class="hotel-view-contents-location-para"> 4140 Parker Rd. Allentown, New Mexico 31134 </span>
+                        <span class="hotel-view-contents-location-para"> {{ setting.address }} </span>
                       </div>
                     </div>
                     <div class="hotel-view-contents-middle">
@@ -190,7 +167,7 @@
                           <span>
                             <i class="las la-parking"></i>
                           </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Parking </p>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Паркинг </p>
                         </div>
                         <div class="hotel-view-contents-icon d-flex gap-1">
                           <span>
@@ -202,41 +179,38 @@
                           <span>
                             <i class="las la-coffee"></i>
                           </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Breakfast </p>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Завтрак </p>
                         </div>
                         <div class="hotel-view-contents-icon d-flex gap-1">
                           <span>
                             <i class="las la-quidditch"></i>
                           </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Room Service </p>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Уборка </p>
                         </div>
                         <div class="hotel-view-contents-icon d-flex gap-1">
                           <span>
                             <i class="las la-swimming-pool"></i>
                           </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Pool </p>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Бассейн </p>
                         </div>
                         <div class="hotel-view-contents-icon d-flex gap-1">
                           <span>
                             <i class="las la-receipt"></i>
                           </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Reception </p>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Ресепшн </p>
                         </div>
                         <div class="hotel-view-contents-icon d-flex gap-1">
                           <span>
                             <i class="las la-dumbbell"></i>
                           </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Gym </p>
-                        </div>
-                        <div class="hotel-view-contents-icon d-flex gap-1">
-                          <a class="hotel-view-contents-icon-more" href="javascript:void(0)"> +8 More </a>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Зал </p>
                         </div>
                       </div>
                     </div>
                     <div class="hotel-view-contents-bottom">
                       <div class="hotel-view-contents-bottom-flex">
                         <div class="hotel-view-contents-bottom-contents d-flex flex-wrap gap-4">
-                          <h4 class="hotel-view-contents-bottom-title"> $230 <sub>/Night</sub>
+                          <h4 class="hotel-view-contents-bottom-title"> {{ one.price_day }} {{ one.currency }} <sub>/День</sub>
                           </h4>
                           <p class="hotel-view-contents-bottom-para"> (4 Nights, 2 Rooms, 4 Persons) </p>
                         </div>
@@ -244,6 +218,7 @@
                     </div>
                   </div>
                 </div>
+                {% endfor %}
               </div>
             </div>
           </div>
@@ -309,19 +284,20 @@
                 </div>
               </div>
               <div class="hotel-details-widget widget bg-white radius-10">
+                {% for two in two_random_room %}
                 <div class="hotel-view">
-                  <div class="hotel-view-thumb hotel-view-grid-thumb bg-image" style="background-image: url({% static 'assets/img/single-page/hotel-grid1.jpg' %});"></div>
+                  <div class="hotel-view-thumb hotel-view-list-thumb bg-image" style="background-image: url({{ two.image.url }});"></div>
                   <div class="hotel-view-contents">
                     <div class="hotel-view-contents-header">
                       <span class="hotel-view-contents-review">
-                        <i class="las la-star"></i> 4.5 <span class="hotel-view-contents-review-count"> (380) </span>
+                        <i class="las la-star"></i> 5 <span class="hotel-view-contents-review-count"> (380) </span>
                       </span>
-                      <h3 class="hotel-view-contents-title"> King Suite Room </h3>
+                      <h3 class="hotel-view-contents-title"> {{ two.title }} </h3>
                       <div class="hotel-view-contents-location mt-2">
                         <span class="hotel-view-contents-location-icon">
                           <i class="las la-map-marker-alt"></i>
                         </span>
-                        <span class="hotel-view-contents-location-para"> 4140 Parker Rd. Allentown, New Mexico 31134 </span>
+                        <span class="hotel-view-contents-location-para"> {{ setting.address }} </span>
                       </div>
                     </div>
                     <div class="hotel-view-contents-middle">
@@ -355,17 +331,18 @@
                     <div class="hotel-view-contents-bottom">
                       <div class="hotel-view-contents-bottom-flex">
                         <div class="hotel-view-contents-bottom-contents">
-                          <h4 class="hotel-view-contents-bottom-title"> $230 <sub>/Night</sub>
+                          <h4 class="hotel-view-contents-bottom-title"> {{ two.price_day }} {{ two.currency }} <sub>/День</sub>
                           </h4>
                           <p class="hotel-view-contents-bottom-para"> (4 Nights, 2 Rooms, 4 Persons) </p>
                         </div>
                         <div class="btn-wrapper">
-                          <a href="javascript:void(0)" class="cmn-btn btn-bg-1 btn-small"> Reserve Now </a>
+                          <a href="{% url 'room_detail' two.id %}" class="cmn-btn btn-bg-1 btn-small"> Посмотреть </a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                {% endfor %}
               </div>
               <div class="hotel-details-widget hotel-details-widget-padding widget bg-white radius-10">
                 <div class="details-sidebar">
@@ -377,7 +354,7 @@
                       <img src="{% static 'assets/img/single-page/offer.png' %}" alt="">
                     </div>
                     <div class="btn-wrapper mt-5">
-                      <a href="javascript:void(0)" class="cmn-btn btn-bg-white"> Book Now </a>
+                      <a href="javascript:void(0)" class="cmn-btn btn-bg-white"> Акция </a>
                     </div>
                   </div>
                 </div>
