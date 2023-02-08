@@ -1,0 +1,89 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %}
+    <div class="breadcrumb-area breadcrumb-padding">
+      <div class="container custom-container-one">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-contents">
+              <h4 class="breadcrumb-contents-title"> {{ news.title|truncatewords:10 }} </h4>
+              <ul class="breadcrumb-contents-list list-style-none">
+                <li class="breadcrumb-contents-list-item">
+                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Домой </a>
+                </li>
+                <li class="breadcrumb-contents-list-item">
+                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Новости </a>
+                </li>
+                <li class="breadcrumb-contents-list-item"> {{ news.title|truncatewords:5 }} </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="blog-details-area pat-100 pab-100">
+      <div class="container">
+        <div class="shop-contents-wrapper">
+          <div class="row gy-5">
+            <div class="col-xl-8 col-lg-8">
+              <div class="blog-details-wrapper">
+                <div class="single-blog-details">
+                  <div class="single-blog-details-content pt-0">
+                    <h2 class="single-blog-details-content-title fw-500">{{ news.title }} </h2>
+                    <div class="single-blog-details-content-tags mt-3">
+                      <span class="single-blog-details-content-tags-item">
+                        <a href="{% url 'index' %}"> {{ setting.title }} </a>
+                      </span>
+                      <span class="single-blog-details-content-tags-item"> {{ news.created }} </span>
+                    </div>
+                    <div class="single-blog-details-thumb mt-4">
+                      <img class="radius-5" src="{{ news.image.url }}" alt="">
+                    </div>
+                    <p class="single-blog-details-content-para mt-4"> {{ news.description }} </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4">
+              <div class="blog-details-side">
+                <div class="blog-details-side-item radius-10">
+                  <div class="blog-details-side-title open">
+                    <h5 class="title"> Другие посты </h5>
+                    <div class="blog-details-side-inner">
+                      <ul class="recent-list list-style-none">
+                        {% for news in random_news %}
+                        <li class="recent-list-item">
+                          <div class="recent-list-thumb">
+                            <a href="{% url 'news_detail' news.id %}">
+                              <img class="lazyloads radius-5" src="{{ news.image.url }}" alt="">
+                            </a>
+                          </div>
+                          <div class="recent-list-contents">
+                            <h6 class="recent-list-title fs-16">
+                              <a href="{% url 'news_detail' news.id %}"> {{ setting.title }} </a>
+                            </h6>
+                            <span class="recent-list-dates light-color fs-14 mt-2"> {{ news.created }} </span>
+                          </div>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% include 'include/footer.html' %}
+    <div class="back-to-top">
+      <span class="back-top">
+        <i class="las la-angle-up"></i>
+      </span>
+    </div>
+    <div class="mouse-move mouse-outer"></div>
+    <div class="mouse-move mouse-inner"></div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+{% endblock %}

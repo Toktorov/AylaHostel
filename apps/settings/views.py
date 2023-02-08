@@ -5,12 +5,16 @@ from apps.rooms.models import Room
 
 # Create your views here.
 def index(request):
-    setting = Setting.objects.latest('id')
-    rooms = Room.objects.all()
+    try:
+        setting = Setting.objects.latest('id')
+    except:
+        return redirect('error_page')
+    rooms = Room.objects.all().order_by('?')[:10]
     reviews = Review.objects.all().order_by('?')[:5]
     faqs = FAQ.objects.all().order_by('id')
     news = News.objects.all().order_by('-id')[:3]
     galleries = Gallery.objects.all().order_by('-id')[:10]
+    benefits = Benefit.objects.all().order_by('-id')
     if request.method == "POST":
         name = request.POST.get('name')
         phone_number = request.POST.get('phone_number')
@@ -25,6 +29,7 @@ def index(request):
         'faqs' : faqs,
         'news' : news,
         'galleries' : galleries,
+        'benefits' : benefits,
     }
     return render(request, 'index.html', context)
 
@@ -48,3 +53,17 @@ def contact(request):
         'setting' : setting
     }
     return render(request, 'contact.html', context)
+
+def news_detail(request, id):
+    setting = Setting.objects.latest('id')
+    news = News.objects.get(id = id)
+    random_news = News.objects.all().order_by('?')[:5]
+    context = {
+        'setting' : setting,
+        'news' : news,
+        'random_news' : random_news
+    }
+    return render(request, 'news/detail.html', context)
+
+def error_settings_page(request):
+    return render(request, 'error.html')

@@ -22,12 +22,16 @@
             <li>
               <a href="{% url 'about' %}"> О нас </a>
             </li>
+            {% if rooms %}
             <li>
               <a href="{% url 'rooms' %}"> Комнаты </a>
             </li>
-            
-            
-            
+            {% endif %}
+            {% if news %}
+            <li>
+              <a href="{% url 'rooms' %}"> Новости </a>
+            </li>
+            {% endif %}
             <li>
               <a href="{% url 'contact' %}"> Связаться </a>
             </li>

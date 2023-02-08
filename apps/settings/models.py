@@ -32,6 +32,7 @@ class Setting(models.Model):
         blank = True, null = True
     )
     address_url = models.URLField(
+        max_length=1000,
         verbose_name="Ссылка на адрес",
         blank = True, null = True
     )

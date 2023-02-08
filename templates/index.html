@@ -220,6 +220,7 @@
         </div>
       </div>
     </div>
+    {% if benefits %}
     <section class="booking-area pat-100 pab-50">
       <div class="container">
         <div class="section-title center-text">
@@ -227,61 +228,25 @@
           <div class="section-title-shapes"></div>
         </div>
         <div class="row gy-4 mt-5">
+          {% for benefit in benefits %}
           <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInRight" data-wow-delay=".2s">
             <div class="single-why center-text bg-white single-why-border radius-10">
               <div class="single-why-icon">
-                <img src="{% static 'assets/img/icons/b1.svg' %}" alt="icon">
+                <img src="{{ benefit.icon.url }}" alt="icon">
               </div>
               <div class="single-why-contents mt-3">
                 <h4 class="single-why-contents-title">
-                  <a href="javascript:void(0)"> Комфортабельные кровати </a>
+                  <a href="javascript:void(0)"> {{ benefit.title }} </a>
                 </h4>
-                <p class="single-why-contents-para mt-3"> Book your hotel from our website without any hassle. </p>
+                <p class="single-why-contents-para mt-3"> {{ benefit.description }} </p>
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-4 col-md-6 wow zoomIn" data-wow-delay=".4s">
-            <div class="single-why center-text bg-white single-why-border radius-10">
-              <div class="single-why-icon">
-                <img src="{% static 'assets/img/icons/b2.svg' %}" alt="icon">
-              </div>
-              <div class="single-why-contents mt-3">
-                <h4 class="single-why-contents-title">
-                  <a href="javascript:void(0)"> 28 Отзывов </a>
-                </h4>
-                <p class="single-why-contents-para mt-3"> Book your hotel from our website without any hassle. </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInLeft" data-wow-delay=".2s">
-            <div class="single-why center-text bg-white single-why-border radius-10">
-              <div class="single-why-icon">
-                <img src="{% static 'assets/img/icons/b3.svg' %}" alt="icon">
-              </div>
-              <div class="single-why-contents mt-3">
-                <h4 class="single-why-contents-title">
-                  <a href="javascript:void(0)"> Бесплатный WIFI и Parking </a>
-                </h4>
-                <p class="single-why-contents-para mt-3"> Book your hotel from our website without any hassle. </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInLeft" data-wow-delay=".2s">
-            <div class="single-why center-text bg-white single-why-border radius-10">
-              <div class="single-why-icon">
-                <img src="{% static 'assets/img/icons/b4.svg' %}" alt="icon">
-              </div>
-              <div class="single-why-contents mt-3">
-                <h4 class="single-why-contents-title">
-                  <a href="javascript:void(0)"> 24/7 Поддержка </a>
-                </h4>
-                <p class="single-why-contents-para mt-3"> Book your hotel from our website without any hassle. </p>
-              </div>
-            </div>
-          </div>
-        </div>
+          {% endfor %}
       </div>
     </section>
+    {% endif %}
+    {% if rooms %}
     <section class="attraction-area pat-50 pab-50">
       <div class="container">
         <div class="section-title text-left append-flex">
@@ -320,6 +285,8 @@
         </div>
       </div>
     </section>
+    {% endif %}
+    {% if galleries %}
     <section class="shots-area pat-50 pab-50">
       <div class="container">
         <div class="section-title center-text">
@@ -347,6 +314,8 @@
         </div>
       </div>
     </section>
+    {% endif %}
+    {% if faqs %}
     <section class="question-area pat-50 pab-50">
       <div class="container">
         <div class="section-title center-text">
@@ -398,6 +367,8 @@
         </div>
       </div>
     </section>
+    {% endif %}
+    {% if news %}
     <section class="blog-area pat-50 pab-50">
       <div class="container">
         <div class="section-title center-text">
@@ -409,7 +380,7 @@
           <div class="col-xxl-4 col-lg-4 col-md-6">
             <div class="single-blog">
               <div class="single-blog-thumbs">
-                <a href="{% url 'index' %}">
+                <a href="{% url 'news_detail' new.id %}">
                   <img class="lazyloads" src="{{ new.image.url }}" alt="">
                 </a>
                 
@@ -425,7 +396,7 @@
                   </span>
                 </div>
                 <h4 class="single-blog-contents-title mt-3">
-                  <a href="blog_details.html"> {{ new.title }} </a>
+                  <a href="{% url 'news_detail' new.id %}"> {{ new.title }} </a>
                   <p>{{ new.description|truncatewords:5 }}</p>
                 </h4>
               </div>
@@ -435,7 +406,7 @@
         </div>
       </div>
     </section>
-    
+    {% endif %}
     <div class="newsletter-area pat-50">
       <div class="container">
         <div class="row">
@@ -453,12 +424,7 @@
                     <ul class="footer-widget-social-list list-style-none justify-content-center">
                       <li class="footer-widget-social-list-item">
                         <a class="footer-widget-social-list-link" href="javascript:void(0)">
-                          <i class="lab la-facebook-f"></i>
-                        </a>
-                      </li>
-                      <li class="footer-widget-social-list-item">
-                        <a class="footer-widget-social-list-link" href="javascript:void(0)">
-                          <i class="lab la-twitter"></i>
+                          <i class="lab la-telegram"></i>
                         </a>
                       </li>
                       <li class="footer-widget-social-list-item">
@@ -468,7 +434,12 @@
                       </li>
                       <li class="footer-widget-social-list-item">
                         <a class="footer-widget-social-list-link" href="javascript:void(0)">
-                          <i class="lab la-youtube"></i>
+                          <i class="lab la-whatsapp"></i>
+                        </a>
+                      </li>
+                      <li class="footer-widget-social-list-item">
+                        <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                          <i class="lab la-facebook-f"></i>
                         </a>
                       </li>
                     </ul>
