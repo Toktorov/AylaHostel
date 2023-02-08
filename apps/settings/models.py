@@ -36,6 +36,11 @@ class Setting(models.Model):
         verbose_name="Ссылка на адрес",
         blank = True, null = True
     )
+    backround_image = models.ImageField(
+        upload_to="backround_image/",
+        verbose_name="Изображение на заднем плане в главной странице",
+        null = True
+    )
     facebook = models.URLField(
         verbose_name="Ссылка на Facebook",
         blank = True, null = True

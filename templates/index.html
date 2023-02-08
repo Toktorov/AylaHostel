@@ -10,242 +10,18 @@
               <div class="banner-single-content">
                 <h2 class="banner-single-content-title fw-700"> Добро пожаловать в {{ setting.title }} </h2>
                 <p class="banner-single-content-para mt-3"> {{ setting.description }} </p>
-                <div class="banner-location banner-location-one bg-white radius-5 mt-5">
-                  <div class="banner-location-flex">
-                    <!-- <div class="banner-location-single">
-                      <div class="banner-location-single-flex">
-                        <div class="banner-location-single-icon">
-                          <i class="las la-map-marker-alt"></i>
-                        </div>
-                        <div class="banner-location-single-contents">
-                          <span class="banner-location-single-contents-subtitle"> Location </span>
-                          <div class="banner-location-single-contents-dropdown">
-                            <select class="js-select select-style-two" name="state">
-                              <option value="1">Allentown, New Mexico</option>
-                              <option value="2">Allentown, New NewYork</option>
-                              <option value="3">Allentown, New Barcelona</option>
-                              <option value="4">Allentown, Paris</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
-                    <div class="banner-location-single">
-                      <div class="banner-location-single-flex">
-                        <div class="banner-location-single-icon">
-                          <i class="las la-calendar"></i>
-                        </div>
-                        <div class="banner-location-single-contents">
-                          <span class="banner-location-single-contents-subtitle"> Дата заезда </span>
-                          <div class="banner-location-single-contents-dropdown custom-select">
-                            <select class="js-select select-style-two" name="state">
-                              <option value="1">20 Jun 2022</option>
-                              <option value="2">21 Jun 2022</option>
-                              <option value="3">22 Jun 2022</option>
-                              <option value="4">23 Jun 2022</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
+                <div class="banner mt-3">
+                    <div class="btn-wrapper">
+                      <a href="{% url 'reservation' %}" class="cmn-btn btn-bg-1 btn-small"> Забронировать </a>
                     </div>
-                    <div class="banner-location-single">
-                      <div class="banner-location-single-flex">
-                        <div class="banner-location-single-icon">
-                          <i class="las la-calendar"></i>
-                        </div>
-                        <div class="banner-location-single-contents">
-                          <span class="banner-location-single-contents-subtitle"> Дата отъезда </span>
-                          <div class="banner-location-single-contents-dropdown custom-select">
-                            <select class="js-select select-style-two" name="state">
-                              <option value="1">20 Jul 2022</option>
-                              <option value="2">21 Jul 2022</option>
-                              <option value="3">22 Jul 2022</option>
-                              <option value="4">23 Jul 2022</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="banner-location-single">
-                      <div class="banner-location-single-flex">
-                        <div class="banner-location-single-icon">
-                          <i class="las la-user-friends"></i>
-                        </div>
-                        <div class="banner-location-single-contents">
-                          <span class="banner-location-single-contents-subtitle"> Взрослых </span>
-                          <div class="banner-location-single-contents-dropdown custom-select">
-                            <select class="js-select select-style-two" name="state">
-                              <option value="1">2 People</option>
-                              <option value="2">3 People</option>
-                              <option value="3">4 People</option>
-                              <option value="4">5 People</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="banner-location-single">
-                      <div class="banner-location-single-flex">
-                        <div class="banner-location-single-icon">
-                          <i class="las la-user-friends"></i>
-                        </div>
-                        <div class="banner-location-single-contents">
-                          <span class="banner-location-single-contents-subtitle"> Детей </span>
-                          <div class="banner-location-single-contents-dropdown custom-select">
-                            <select class="js-select select-style-two" name="state">
-                              <option value="1">2 Children</option>
-                              <option value="2">3 Children</option>
-                              <option value="3">4 Children</option>
-                              <option value="4">5 Children</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="banner-location-single-search">
-                      <div class="search-suggestions-wrapper">
-                        <div class="search-click-icon">
-                          <i class="las la-search"></i>
-                        </div>
-                        <div class="search-show">
-                          <div class="search-show-inner">
-                            <form action="#">
-                              <div class="search-show-form">
-                                <input autocomplete="off" class="form--control" id="search_form_input" type="text" placeholder="Search here....">
-                                <button type="submit">
-                                  <i class="las la-search"></i>
-                                </button>
-                                <span class="suggestions-icon-close">
-                                  <i class="las la-times"></i>
-                                </span>
-                              </div>
-                              <div class="search-product" id="search_suggestions_wrap">
-                                <div class="search-product-inner">
-                                  <h6 class="search-product-title">Product Suggestions</h6>
-                                  <ul class="search-product-list mt-4">
-                                    <li class="search-product-list-item">
-                                      <a href="javascript:void(0)" class="search-product-list-link">
-                                        <div class="search-product-list-image">
-                                          <img src="{% static 'assets/img/search_suggestion/s1.jpg' %}" alt="img">
-                                        </div>
-                                        <div class="search-product-list-info">
-                                          <div class="search-product-list-info-top">
-                                            <h6 class="earch-product-list-info-title"> Apple Original Air pod Collection for most popular and best price item in market </h6>
-                                          </div>
-                                          <div class="search-product-list-info-price mt-2">
-                                            <div class="search-product-list-info-price-through">
-                                              <span class="flash-price"> $330.00 </span>
-                                              <span class="old-price"> $300.00 </span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </a>
-                                    </li>
-                                    <li class="search-product-list-item">
-                                      <a href="javascript:void(0)" class="search-product-list-link">
-                                        <div class="search-product-list-image">
-                                          <img src="{% static 'assets/img/search_suggestion/s2.jpg' %}" alt="img">
-                                        </div>
-                                        <div class="search-product-list-info">
-                                          <div class="search-product-list-info-top">
-                                            <h6 class="earch-product-list-info-title"> Apple Original Airpod Collection </h6>
-                                          </div>
-                                          <div class="search-product-list-info-price mt-2">
-                                            <span class="main-price fw-500 color-light">$269.00</span>
-                                          </div>
-                                        </div>
-                                      </a>
-                                    </li>
-                                    <li class="search-product-list-item">
-                                      <a href="javascript:void(0)" class="search-product-list-link">
-                                        <div class="search-product-list-image">
-                                          <img src="{% static 'assets/img/search_suggestion/s3.jpg' %}" alt="img">
-                                        </div>
-                                        <div class="search-product-list-info">
-                                          <div class="search-product-list-info-top">
-                                            <h6 class="earch-product-list-info-title"> Apple Original Airpod Collection </h6>
-                                          </div>
-                                          <div class="search-product-list-info-price mt-2">
-                                            <span class="main-price fw-500 color-light">$499.00</span>
-                                            <span class="stock-out"> Stock Out </span>
-                                          </div>
-                                        </div>
-                                      </a>
-                                    </li>
-                                    <li class="search-product-list-item">
-                                      <a href="javascript:void(0)" class="search-product-list-link">
-                                        <div class="search-product-list-image">
-                                          <img src="{% static 'assets/img/search_suggestion/s4.jpg' %}" alt="img">
-                                        </div>
-                                        <div class="search-product-list-info">
-                                          <div class="search-product-list-info-top">
-                                            <h6 class="earch-product-list-info-title"> Apple Original Airpod Collection </h6>
-                                          </div>
-                                          <div class="search-product-list-info-price mt-2">
-                                            <span class="main-price fw-500 color-light">$499.00</span>
-                                          </div>
-                                        </div>
-                                      </a>
-                                    </li>
-                                    <li class="search-product-list-item">
-                                      <a href="javascript:void(0)" class="search-product-list-link">
-                                        <div class="search-product-list-image">
-                                          <img src="{% static 'assets/img/search_suggestion/s5.jpg' %}" alt="img">
-                                        </div>
-                                        <div class="search-product-list-info">
-                                          <div class="search-product-list-info-top">
-                                            <h6 class="earch-product-list-info-title"> Apple Original Airpod Collection </h6>
-                                          </div>
-                                          <div class="search-product-list-info-price mt-2">
-                                            <span class="main-price fw-500 color-light">$499.00</span>
-                                          </div>
-                                        </div>
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="search-suggestion-overlay"></div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 bg-image banner-right-bg radius-20" style="background-image: url({% static 'assets/img/banner/banner.jpg' %});"></div>
+          <div class="col-lg-6 bg-image banner-right-bg radius-20" style="background-image: url({{ setting.backround_image.url }});"></div>
         </div>
       </div>
     </div>
-    {% if benefits %}
-    <section class="booking-area pat-100 pab-50">
-      <div class="container">
-        <div class="section-title center-text">
-          <h2 class="title"> Почему мы? </h2>
-          <div class="section-title-shapes"></div>
-        </div>
-        <div class="row gy-4 mt-5">
-          {% for benefit in benefits %}
-          <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInRight" data-wow-delay=".2s">
-            <div class="single-why center-text bg-white single-why-border radius-10">
-              <div class="single-why-icon">
-                <img src="{{ benefit.icon.url }}" alt="icon">
-              </div>
-              <div class="single-why-contents mt-3">
-                <h4 class="single-why-contents-title">
-                  <a href="javascript:void(0)"> {{ benefit.title }} </a>
-                </h4>
-                <p class="single-why-contents-para mt-3"> {{ benefit.description }} </p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-      </div>
-    </section>
-    {% endif %}
     {% if rooms %}
     <section class="attraction-area pat-50 pab-50">
       <div class="container">
@@ -283,6 +59,32 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+    {% endif %}
+    {% if benefits %}
+    <section class="booking-area pat-100 pab-50">
+      <div class="container">
+        <div class="section-title center-text">
+          <h2 class="title"> Почему мы? </h2>
+          <div class="section-title-shapes"></div>
+        </div>
+        <div class="row gy-4 mt-5">
+          {% for benefit in benefits %}
+          <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInRight" data-wow-delay=".2s">
+            <div class="single-why center-text bg-white single-why-border radius-10">
+              <div class="single-why-icon">
+                <img src="{{ benefit.icon.url }}" alt="icon">
+              </div>
+              <div class="single-why-contents mt-3">
+                <h4 class="single-why-contents-title">
+                  <a href="javascript:void(0)"> {{ benefit.title }} </a>
+                </h4>
+                <p class="single-why-contents-para mt-3"> {{ benefit.description }} </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
       </div>
     </section>
     {% endif %}
@@ -359,7 +161,7 @@
                     <label class="label-title"> Вопрос </label>
                     <textarea name="message" name = "message" class="form--control form-message radius-10" placeholder="Ваше сообщение..."></textarea>
                   </div>
-                  <button class="submit-btn w-100 radius-10" type="submit"> Отправить </button>
+                  <button class="submit-btn w-100 radius-10" type="submit" name = "contact"> Отправить </button>
                 </form>
               </div>
             </div>

@@ -16,12 +16,13 @@ def index(request):
     galleries = Gallery.objects.all().order_by('-id')[:10]
     benefits = Benefit.objects.all().order_by('-id')
     if request.method == "POST":
-        name = request.POST.get('name')
-        phone_number = request.POST.get('phone_number')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        contact = Contact.objects.create(name = name, phone_number = phone_number, email = email, message = message)
-        return redirect('index')
+        if 'contact' in request.POST:
+            name = request.POST.get('name')
+            phone_number = request.POST.get('phone_number')
+            email = request.POST.get('email')
+            message = request.POST.get('message')
+            contact = Contact.objects.create(name = name, phone_number = phone_number, email = email, message = message)
+            return redirect('index')
     context = {
         'setting' : setting,
         'rooms' : rooms,
