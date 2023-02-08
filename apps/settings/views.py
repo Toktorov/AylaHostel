@@ -54,6 +54,15 @@ def contact(request):
     }
     return render(request, 'contact.html', context)
 
+def news_index(request):
+    setting = Setting.objects.latest('id')
+    news = News.objects.all().order_by('-id')[:12]
+    context = {
+        'setting' : setting,
+        'news' : news
+    }
+    return render(request, 'news/index.html', context)
+
 def news_detail(request, id):
     setting = Setting.objects.latest('id')
     news = News.objects.get(id = id)
@@ -64,6 +73,13 @@ def news_detail(request, id):
         'random_news' : random_news
     }
     return render(request, 'news/detail.html', context)
+
+def user_login(request):
+    setting = Setting.objects.latest('id')
+    context = {
+        'setting' : setting
+    }
+    return render(request, 'custom_admin/login.html', context)
 
 def error_settings_page(request):
     return render(request, 'error.html')

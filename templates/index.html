@@ -422,26 +422,34 @@
                 <div class="footer-widget widget">
                   <div class="footer-widget-social mt-4">
                     <ul class="footer-widget-social-list list-style-none justify-content-center">
+                      {% if setting.telegram %}
                       <li class="footer-widget-social-list-item">
-                        <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                        <a class="footer-widget-social-list-link" href="{{ setting.telegram }}">
                           <i class="lab la-telegram"></i>
                         </a>
                       </li>
+                      {% endif %}
+                      {% if setting.instagram %}
                       <li class="footer-widget-social-list-item">
-                        <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                        <a class="footer-widget-social-list-link" href="{{ setting.instagram }}">
                           <i class="lab la-instagram"></i>
                         </a>
                       </li>
+                      {% endif %}
+                      {% if setting.whatsapp %}
                       <li class="footer-widget-social-list-item">
-                        <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                        <a class="footer-widget-social-list-link" href="{{ setting.whatsapp }}">
                           <i class="lab la-whatsapp"></i>
                         </a>
                       </li>
+                      {% endif %}
+                      {% if setting.facebook %}
                       <li class="footer-widget-social-list-item">
-                        <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                        <a class="footer-widget-social-list-link" href="{{ setting.facebook }}">
                           <i class="lab la-facebook-f"></i>
                         </a>
                       </li>
+                      {% endif %}
                     </ul>
                   </div>
               </div>

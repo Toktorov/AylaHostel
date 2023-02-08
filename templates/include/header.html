@@ -7,7 +7,7 @@
           </a>
         </div>
         <div class="responsive-mobile-menu d-lg-none">
-          <a href="javascript:void(0)" class="click-nav-right-icon">
+          <a href="{% url 'index' %}" class="click-nav-right-icon">
             <i class="las la-ellipsis-v"></i>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hotel_booking_menu">
@@ -22,14 +22,12 @@
             <li>
               <a href="{% url 'about' %}"> О нас </a>
             </li>
-            {% if rooms %}
             <li>
               <a href="{% url 'rooms' %}"> Комнаты </a>
             </li>
-            {% endif %}
             {% if news %}
             <li>
-              <a href="{% url 'rooms' %}"> Новости </a>
+              <a href="{% url 'news_index' %}"> Новости </a>
             </li>
             {% endif %}
             <li>
@@ -44,7 +42,7 @@
                 <a href="login.html"> Log In </a>
               </div> -->
               <div class="btn-wrapper">
-                <a href="signup.html" class="cmn-btn btn-bg-1 radius-10"> Войти </a>
+                <a href="{% url 'admin_login_user' %}" class="cmn-btn btn-bg-1 radius-10"> Войти </a>
               </div>
             </div>
           </div>
