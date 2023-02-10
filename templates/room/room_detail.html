@@ -344,21 +344,19 @@
                 </div>
                 {% endfor %}
               </div>
+              {% if promotions %}
+              {% for promotion in promotions %}
               <div class="hotel-details-widget hotel-details-widget-padding widget bg-white radius-10">
                 <div class="details-sidebar">
-                  <div class="details-sidebar-offer center-text radius-10">
-                    <div class="details-sidebar-offer-shapes">
-                      <img src="{% static 'assets/img/single-page/offer_shapes.png' %}" alt="shapes">
-                    </div>
+                  <div class="details-sidebar-offe radius-10">
                     <div class="details-sidebar-offer-thumb">
-                      <img src="{% static 'assets/img/single-page/offer.png' %}" alt="">
-                    </div>
-                    <div class="btn-wrapper mt-5">
-                      <a href="javascript:void(0)" class="cmn-btn btn-bg-white"> Акция </a>
+                      <a href="{{ promotion.url }}"><img src="{{ promotion.image.url }}" alt=""></a>
                     </div>
                   </div>
                 </div>
               </div>
+              {% endfor %}
+              {% endif %}
             </div>
           </div>
         </div>
