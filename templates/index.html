@@ -1,0 +1,302 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %}
+    <div class="banner-area banner-area-one">
+      <div class="container-fluid p-0">
+        <div class="row align-items-center flex-column-reverse flex-lg-row">
+          <div class="col-lg-6">
+            <div class="banner-single banner-single-one percent-padding">
+              <div class="banner-single-content">
+                <h2 class="banner-single-content-title fw-700"> Добро пожаловать в {{ setting.title }} </h2>
+                <p class="banner-single-content-para mt-3"> {{ setting.description }} </p>
+                <div class="banner mt-3">
+                    <div class="btn-wrapper">
+                      <a href="{% url 'reservation' %}" class="cmn-btn btn-bg-1 btn-small"> Забронировать </a>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 bg-image banner-right-bg radius-20" style="background-image: url({{ setting.backround_image.url }});"></div>
+        </div>
+      </div>
+    </div>
+    {% if rooms %}
+    <section class="attraction-area pat-50 pab-50">
+      <div class="container">
+        <div class="section-title text-left append-flex">
+          <h2 class="banner-single-content-title fw-700"> Наши номера </h2>
+          <div class="append-attraction"></div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="global-slick-init attraction-slider nav-style-one slider-inner-margin" data-appendArrows=".append-attraction" data-infinite="true" data-arrows="true" data-dots="false" data-slidesToShow="4" data-swipeToSlide="true" data-autoplay="true" data-autoplaySpeed="2500" data-prevArrow='
+																															<div class="prev-icon">
+																																<i class="las la-angle-left"></i>
+																															</div>' data-nextArrow='
+																															<div class="next-icon">
+																																<i class="las la-angle-right"></i>
+																															</div>' data-responsive='[{"breakpoint": 1400,"settings": {"slidesToShow": 4}},{"breakpoint": 1200,"settings": {"slidesToShow": 3}},{"breakpoint": 992,"settings": {"slidesToShow": 2}},{"breakpoint": 480, "settings": {"slidesToShow": 1} }]'>
+              {% for room in rooms %}
+              <div class="attraction-item">
+                <div class="single-attraction radius-20">
+                  <div class="single-attraction-thumb">
+                    <a href="{% url 'room_detail' room.id %}">
+                      <img src="{{ room.image.url }}" alt="img">
+                    </a>
+                  </div>
+                  <div class="single-attraction-contents">
+                    <h4 class="single-attraction-contents-title">
+                      <a href="{% url 'room_detail' room.id %}"> {{ room.title }} </a>
+                    </h4>
+                    <p class="single-attraction-contents-para"> Цена от: {{ room.price_day }} {{ room.currency }} </p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    
+    {% if benefits %}
+    <section class="booking-area pat-100 pab-50">
+      <div class="container">
+        <div class="section-title center-text">
+          <h2 class="title"> Почему мы? </h2>
+          <div class="section-title-shapes"></div>
+        </div>
+        <div class="row gy-4 mt-5">
+          {% for benefit in benefits %}
+          <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInRight" data-wow-delay=".2s">
+            <div class="single-why center-text bg-white single-why-border radius-10">
+              <div class="single-why-icon">
+                <img src="{{ benefit.icon.url }}" alt="icon">
+              </div>
+              <div class="single-why-contents mt-3">
+                <h4 class="single-why-contents-title">
+                  <a href="javascript:void(0)"> {{ benefit.title }} </a>
+                </h4>
+                <p class="single-why-contents-para mt-3"> {{ benefit.description }} </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+    {% if weare %}
+    <section class="partner-area pat-50 pab-100">
+      <div class="container">
+        <div class="section-title center-text">
+          <h2 class="title"> Где мы есть ? </h2>
+          <div class="section-title-line"></div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="global-slick-init attraction-slider slider-inner-margin" data-slidesToShow="6" data-infinite="true" data-arrows="false" data-dots="false" data-swipeToSlide="true" data-autoplay="true" data-autoplaySpeed="2500" data-prevArrow='
+																														<div class="prev-icon">
+																															<i class="las la-angle-left"></i>
+																														</div>' data-nextArrow='
+																														<div class="next-icon">
+																															<i class="las la-angle-right"></i>
+																														</div>' data-responsive='[{"breakpoint": 1400,"settings": {"slidesToShow": 5}},{"breakpoint": 1200,"settings": {"slidesToShow": 4}},{"breakpoint": 992,"settings": {"slidesToShow": 3}},{"breakpoint": 576, "settings": {"slidesToShow": 2} }]'>
+              {% for we in weare %}                                             
+                <div class="single-brand">
+                  <a href="{{we.url}}" class="single-brand-thumb">
+                    <img src="{{we.image.url}}" alt="brandLogo">
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif%}
+    {% if galleries %}
+    <section class="shots-area pat-50 pab-50">
+      <div class="container">
+        <div class="section-title center-text">
+          <h2 class="title"> Наша галерея </h2>
+          <div class="section-title-shapes"></div>
+        </div>
+        <div class="imgLoaded mt-5">
+          <div class="row g-4 masonry-grid">
+            {% for gallery in galleries %}
+            <div class="col-lg-2 col-md-4 col-sm-6 grid-item">
+              <div class="single-shots bg-image" style="background-image: url({{ gallery.image.url }});">
+                <a href="{{ gallery.image.url }}" class="single-shots-icon gallery-popup-two">
+                  <i class="las la-image"></i>
+                </a>
+                <div class="single-shots-contents">
+                  <!-- <h4 class="single-shots-contents-title">
+                    <a href="hotel_details.html"> Disneyland </a>
+                  </h4> -->
+                  <!-- <p class="single-shots-contents-para"> We have over 28K reviews to assure you top notch service. We have over 28K reviews to assure you top notch service.We have over 28K reviews to assure you top notch service. We have over 28K reviews to assure you top notch service. </p> -->
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    {% if faqs %}
+    <section class="question-area pat-50 pab-50">
+      <div class="container">
+        <div class="section-title center-text">
+          <h2 class="title"> Часто задаваемые вопросы </h2>
+          <div class="section-title-shapes"></div>
+        </div>
+        <div class="row g-4 mt-4">
+          <div class="col-xl-8 col-lg-7">
+            <div class="faq-wrapper">
+              <div class="faq-contents">
+                {% for faq in faqs %}
+                <div class="faq-item wow fadeInLeft" data-wow-delay=".1s">
+                  <h3 class="faq-title"> {{ faq.question }} </h3>
+                  <div class="faq-panel">
+                    <p class="faq-para"> {{ faq.answer }} </p>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-5">
+            <div class="faq-question faq-question-border radius-10 sticky-top">
+              <h3 class="faq-question-title"> У вас есть вопросы? </h3>
+              <div class="faq-question-form custom-form mat-20">
+                <form method="post">
+                  {% csrf_token %}
+                  <div class="single-input">
+                    <label class="label-title"> Имя </label>
+                    <input type="text" name = "name" class="form--control radius-10" placeholder="Ваше имя">
+                  </div>
+                  <div class="single-input">
+                    <label class="label-title"> Номер </label>
+                    <input type="text" name = "phone_number" class="form--control radius-10" placeholder="Ваш номер">
+                  </div>
+                  <div class="single-input">
+                    <label class="label-title"> Почта </label>
+                    <input type="text" name = "email" class="form--control radius-10" placeholder="Ваша почта">
+                  </div>
+                  <div class="single-input">
+                    <label class="label-title"> Вопрос </label>
+                    <textarea name="message" name = "message" class="form--control form-message radius-10" placeholder="Ваше сообщение..."></textarea>
+                  </div>
+                  <button class="submit-btn w-100 radius-10" type="submit" name = "contact"> Отправить </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    {% if news %}
+    <section class="blog-area pat-50 pab-50">
+      <div class="container">
+        <div class="section-title center-text">
+          <h2 class="title"> Последние новости </h2>
+          <div class="section-title-shapes"></div>
+        </div>
+        <div class="row gy-4 mt-4">
+          {% for new in news %}
+          <div class="col-xxl-4 col-lg-4 col-md-6">
+            <div class="single-blog">
+              <div class="single-blog-thumbs">
+                <a href="{% url 'news_detail' new.id %}">
+                  <img class="lazyloads" src="{{ new.image.url }}" alt="">
+                </a>
+                
+              </div>
+              <div class="single-blog-contents mt-3">
+                <div class="single-blog-contents-tags mt-3">
+                  <span class="single-blog-contents-tags-item">
+                    <a href="javascript:void(0)">
+                      <i class="las la-tag"></i> {{ setting.title }} </a>
+                  </span>
+                  <span class="single-blog-contents-tags-item">
+                    <a href="javascript:void(0)"> {{ new.created }} </a>
+                  </span>
+                </div>
+                <h4 class="single-blog-contents-title mt-3">
+                  <a href="{% url 'news_detail' new.id %}"> {{ new.title }} </a>
+                  <p>{{ new.description|truncatewords:5 }}</p>
+                </h4>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    <div class="newsletter-area pat-50">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="newsletter-wrapper newsletter-bg radius-20 newsletter-wrapper-padding wow zoomIn" data-wow-delay=".3s">
+              <div class="newsletter-wrapper-shapes">
+                <img src="{% static 'assets/img/single-page/newsletter-shape1.png' %}" alt="shapes">
+                <img src="{% static 'assets/img/single-page/newsletter-shape2.png' %}" alt="shapes">
+              </div>
+              <div class="newsletter-contents center-text">
+                <h3 class="newsletter-contents-title"> Подпишитесь на наши социальные сети </h3>
+                <p class="newsletter-contents-para mt-3"> Подпишитесь на наши социальные сети, чтобы получать актуальную информацию </p>
+                <div class="footer-widget widget">
+                  <div class="footer-widget-social mt-4">
+                    <ul class="footer-widget-social-list list-style-none justify-content-center">
+                      {% if setting.telegram %}
+                      <li class="footer-widget-social-list-item">
+                        <a class="footer-widget-social-list-link" href="{{ setting.telegram }}">
+                          <i class="lab la-telegram"></i>
+                        </a>
+                      </li>
+                      {% endif %}
+                      {% if setting.instagram %}
+                      <li class="footer-widget-social-list-item">
+                        <a class="footer-widget-social-list-link" href="{{ setting.instagram }}">
+                          <i class="lab la-instagram"></i>
+                        </a>
+                      </li>
+                      {% endif %}
+                      {% if setting.whatsapp %}
+                      <li class="footer-widget-social-list-item">
+                        <a class="footer-widget-social-list-link" href="{{ setting.whatsapp }}">
+                          <i class="lab la-whatsapp"></i>
+                        </a>
+                      </li>
+                      {% endif %}
+                      {% if setting.facebook %}
+                      <li class="footer-widget-social-list-item">
+                        <a class="footer-widget-social-list-link" href="{{ setting.facebook }}">
+                          <i class="lab la-facebook-f"></i>
+                        </a>
+                      </li>
+                      {% endif %}
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include 'include/footer.html' %}
+    
+    
+    <div class="back-to-top">
+      <span class="back-top">
+        <i class="las la-angle-up"></i>
+      </span>
+    </div>
+
+{% endblock %}

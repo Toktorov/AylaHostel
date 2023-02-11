@@ -1,0 +1,42 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %}
+    <section class="login-area padding-top-100 padding-bottom-100">
+      <div class="container">
+        <div class="login-wrapper login-shadow bg-white">
+          <div class="login-wrapper-flex">
+            <div class="login-wrapper-thumb">
+              <img src="{% static 'assets/img/single-page/login.jpg' %}" alt="img">
+            </div>
+            <div class="login-wrapper-contents login-padding">
+              <h2 class="single-title"> Здраствуйте! </h2>
+              <p class="sigle-para mt-2"> Зайдите чтобы войти в админ панель </p>
+              <form class="login-wrapper-contents-form custom-form" action="#">
+                <div class="single-input mt-4">
+                  <label class="label-title mb-3"> Имя пользователя </label>
+                  <input class="form--control" type="text" placeholder="Ваше имя пользователя">
+                </div>
+                <div class="single-input mt-4">
+                  <label class="label-title mb-3"> Пароль </label>
+                  <input class="form--control" type="password" placeholder="Пароль от аккаунта">
+                  <div class="icon toggle-password">
+                    <div class="show-icon">
+                      <i class="las la-eye-slash"></i>
+                    </div>
+                    <span class="hide-icon">
+                      <i class="las la-eye"></i>
+                    </span>
+                  </div>
+                </div>
+                <button class="submit-btn w-100 mt-4" type="submit"> Войти </button>
+                </span>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="mouse-move mouse-outer"></div>
+    <div class="mouse-move mouse-inner"></div>
+{% endblock %}

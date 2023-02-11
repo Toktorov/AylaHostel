@@ -1,0 +1,32 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %}
+    <div class="error-area pat-100 pab-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="error-wrapper center-text">
+              <div class="error-wrapper-thumb">
+                <img src="{% static 'assets/img/single-page/404.png' %}" alt="img">
+              </div>
+              <div class="error-contents mat-60">
+                <h2 class="error-contents-title"> Page Not Found </h2>
+                <div class="btn-wrapper mat-25">
+                  <a href="index.html" class="cmn-btn btn-bg-1"> Back To Home </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include 'include/footer.html' %}
+    <div class="back-to-top">
+      <span class="back-top">
+        <i class="las la-angle-up"></i>
+      </span>
+    </div>
+    <div class="mouse-move mouse-outer"></div>
+    <div class="mouse-move mouse-inner"></div>
+{% endblock %}

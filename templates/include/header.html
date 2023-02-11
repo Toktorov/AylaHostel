@@ -1,0 +1,52 @@
+<header class="header-style-01">
+    <nav class="navbar navbar-area navbar-border navbar-padding navbar-expand-lg">
+      <div class="container custom-container-one nav-container">
+        <div class="logo-wrapper">
+          <a href="{% url 'index' %}" class="logo">
+            <img src="{{ setting.logo.url }}" width="100px" alt="">
+          </a>
+        </div>
+        <div class="responsive-mobile-menu d-lg-none">
+          <a href="{% url 'index' %}" class="click-nav-right-icon">
+            <i class="las la-ellipsis-v"></i>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hotel_booking_menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="hotel_booking_menu">
+          <ul class="navbar-nav">
+            <li>
+                <a href="{% url 'index' %}"> Домой </a>
+            </li>
+            <li>
+              <a href="{% url 'about' %}"> О нас </a>
+            </li>
+            <li>
+              <a href="{% url 'rooms' %}"> Комнаты </a>
+            </li>
+            {% if news %}
+            <li>
+              <a href="{% url 'news_index' %}"> Новости </a>
+            </li>
+            {% endif %}
+            <li>
+              <a href="{% url 'contact' %}"> Связаться </a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-right-content show-nav-content">
+          <div class="single-right-content">
+            <div class="navbar-right-flex">
+              <!-- <div class="navbar-right-btn">
+                <a href="login.html"> Log In </a>
+              </div> -->
+              <div class="btn-wrapper">
+                <a href="{% url 'admin_login_user' %}" class="cmn-btn btn-bg-1 radius-10"> Войти </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>

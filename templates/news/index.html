@@ -1,0 +1,91 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %}
+    <div class="breadcrumb-area breadcrumb-padding">
+      <div class="container custom-container-one">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-contents">
+              <h4 class="breadcrumb-contents-title"> Новости о {{ setting.title }} </h4>
+              <ul class="breadcrumb-contents-list list-style-none">
+                <li class="breadcrumb-contents-list-item">
+                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Домой </a>
+                </li>
+                <li class="breadcrumb-contents-list-item"> Новости </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="blog-area section-bg-1 pat-100 pab-100">
+      <div class="container">
+        <div class="row gy-5">
+        {% for new in news %}
+          <div class="col-xxl-4 col-lg-4 col-md-6">
+            <div class="single-blog">
+              <div class="single-blog-thumbs">
+                <a href="{% url 'news_detail' new.id %}">
+                  <img class="lazyloads" src="{{ new.image.url }}" alt="">
+                </a>
+              </div>
+              <div class="single-blog-contents mt-3">
+                <div class="single-blog-contents-tags mt-3">
+                  <span class="single-blog-contents-tags-item">
+                    <a href="{% url 'index' %}">
+                      <i class="las la-tag"></i> {{ setting.title }} </a>
+                  </span>
+                  <span class="single-blog-contents-tags-item">
+                    <a href="{% url 'news_detail' new.id %}"> {{ new.created }} </a>
+                  </span>
+                </div>
+                <h4 class="single-blog-contents-title mt-3">
+                  <a href="{% url 'news_detail' new.id %}"> {{ new.title }} </a>
+                  <p>{{ new.description|truncatewords:10 }}</p>
+                </h4>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+        <!-- <div class="row mt-5">
+          <div class="col">
+            <div class="pagination-wrapper">
+              <ul class="pagination-list list-style-none">
+                <li class="pagination-list-item-prev">
+                  <a href="javascript:void(0)" class="pagination-list-item-button"> Prev </a>
+                </li>
+                <li class="pagination-list-item">
+                  <a href="javascript:void(0)" class="pagination-list-item-link"> 1 </a>
+                </li>
+                <li class="pagination-list-item active">
+                  <a href="javascript:void(0)" class="pagination-list-item-link"> 2 </a>
+                </li>
+                <li class="pagination-list-item">
+                  <a href="javascript:void(0)" class="pagination-list-item-link"> 3 </a>
+                </li>
+                <li class="pagination-list-item">
+                  <a href="javascript:void(0)" class="pagination-list-item-link"> 4 </a>
+                </li>
+                <li class="pagination-list-item">
+                  <a href="javascript:void(0)" class="pagination-list-item-link"> 5 </a>
+                </li>
+                <li class="pagination-list-item-next">
+                  <a href="javascript:void(0)" class="pagination-list-item-button"> Next </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </section>
+    {% include 'include/footer.html' %}
+    <div class="back-to-top">
+      <span class="back-top">
+        <i class="las la-angle-up"></i>
+      </span>
+    </div>
+    <div class="mouse-move mouse-outer"></div>
+    <div class="mouse-move mouse-inner"></div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %}
+    <div class="breadcrumb-area breadcrumb-padding">
+      <div class="container custom-container-one">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-contents">
+              <h4 class="breadcrumb-contents-title"> Детали вашего бронирования </h4>
+              <ul class="breadcrumb-contents-list list-style-none">
+                <li class="breadcrumb-contents-list-item">
+                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Домой </a>
+                </li>
+                <li class="breadcrumb-contents-list-item"> Ваша заявка оставлена </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="confirmation-area section-bg-2 pat-100 pab-100">
+      <div class="container">
+        <div class="confirmation-contents center-text">
+          <div class="confirmation-contents-icon">
+            <i class="las la-check"></i>
+          </div>
+          <h4 class="confirmation-contents-title"> Ваша заявка оставлена </h4>
+          <p class="confirmation-contents-para"> {{ reservation.first_name }} {{ reservation.last_name }}, ваша заявка на бронирование <a href="javascript:void(0)"> #{{ reservation.id }} </a> успешно оставлена. В скором времени с вами свяжутся ) </p>
+          <div class="btn-wrapper flex-btn mt-4 mt-lg-5">
+            <a href="{% url 'index' %}" class="cmn-btn btn-outline-1 color-one"> Домой </a>
+           
+          </div>
+        </div>
+      </div>
+    </section>
+    {% include 'include/footer.html' %}
+    <div class="back-to-top">
+      <span class="back-top">
+        <i class="las la-angle-up"></i>
+      </span>
+    </div>
+    <div class="mouse-move mouse-outer"></div>
+    <div class="mouse-move mouse-inner"></div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+{% endblock %}
