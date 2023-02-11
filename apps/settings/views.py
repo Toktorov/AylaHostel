@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
 
-from apps.settings.models import Setting, Contact, Gallery, FAQ, News, Promotion, Benefit, Team
-from apps.rooms.models import Room, Review
-from apps.users.models import User
+from apps.settings.models import Setting, Contact, Review, Gallery, FAQ, News, Promotion, Benefit, Team,WeAre
+from apps.rooms.models import Room
 
 # Create your views here.
 def index(request):
@@ -11,6 +9,7 @@ def index(request):
         setting = Setting.objects.latest('id')
     except:
         return redirect('error_page')
+    weare = WeAre.objects.all().order_by('-id')[:10]
     rooms = Room.objects.all().order_by('?')[:10]
     reviews = Review.objects.all().order_by('?')[:5]
     faqs = FAQ.objects.all().order_by('id')
@@ -33,6 +32,7 @@ def index(request):
         'news' : news,
         'galleries' : galleries,
         'benefits' : benefits,
+        'weare' : weare,
     }
     return render(request, 'index.html', context)
 
@@ -79,16 +79,6 @@ def news_detail(request, id):
 
 def user_login(request):
     setting = Setting.objects.latest('id')
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        # try:
-        user = User.objects.get(username = username)
-        user = authenticate(username = username, password = password)
-        login(request, user)
-        return redirect('index')
-        # except:
-        #     return redirect('news_index')
     context = {
         'setting' : setting
     }

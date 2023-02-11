@@ -1,16 +1,14 @@
 from django.shortcuts import render, redirect
-from apps.settings.models import Setting, Promotion
-from apps.rooms.models import Room, Reservation, Review
+from apps.settings.models import Setting, Reservation, Review
+from apps.rooms.models import Room
 
 # Create your views here.
 def rooms(request):
     setting = Setting.objects.latest('id')
     rooms = Room.objects.all()
-    promotions = Promotion.objects.all().order_by('-id')[:1]
     context = {
         'setting' : setting,
-        'rooms' : rooms,
-        'promotions' : promotions,
+        'rooms' : rooms
     }
     return render(request, 'room/rooms.html', context)
 
@@ -20,22 +18,12 @@ def room_detail(request, id):
     one_random_room = Room.objects.all().order_by('?')[:1]
     two_random_room = Room.objects.all().order_by('?')[:1]
     reviews = Review.objects.filter(room = room, checked = True).order_by('-created')
-    promotions = Promotion.objects.all().order_by('-id')[:1]
-    if request.method == "POST":
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        phone_number = request.POST.get('phone_number')
-        arrival_date = request.POST.get('arrival_date')
-        departure_date = request.POST.get('departure_date')
-        reservation_id = Reservation.objects.create(room = room, first_name = first_name, last_name = last_name, phone_number = phone_number, arrival_date = arrival_date, departure_date = departure_date)
-        return redirect('confirmation', reservation_id.id)
     context = {
         'setting' : setting,
         'room' : room,
         'reviews' : reviews,
         'one_random_room' : one_random_room,
-        'two_random_room' : two_random_room,
-        'promotions' : promotions,
+        'two_random_room' : two_random_room
     }
     return render(request, 'room/room_detail.html', context)
 

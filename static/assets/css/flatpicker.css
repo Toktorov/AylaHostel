@@ -190,7 +190,7 @@
     -ms-user-select: none;
     user-select: none;
     text-decoration: none;
-    cursor: pointer;
+    /* cursor: pointer; */
     position: absolute;
     top: 0;
     height: 34px;
@@ -297,7 +297,7 @@
     height: 50%;
     line-height: 50%;
     opacity: 0;
-    cursor: pointer;
+    /* cursor: pointer; */
     border: 1px solid rgba(57, 57, 57, 0.15);
     -webkit-box-sizing: border-box;
     box-sizing: border-box
@@ -442,7 +442,7 @@
     border-radius: 0;
     box-sizing: border-box;
     color: inherit;
-    cursor: pointer;
+    /* cursor: pointer; */
     font-size: inherit;
     font-family: inherit;
     font-weight: 300;
@@ -502,7 +502,7 @@
 }
 
 span.flatpickr-weekday {
-    cursor: default;
+    /* cursor: default; */
     font-size: 90%;
     background: transparent;
     color: rgba(0, 0, 0, 0.54);
@@ -577,7 +577,7 @@ span.flatpickr-weekday {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     color: #393939;
-    cursor: pointer;
+    /* cursor: pointer; */
     font-weight: 400;
     width: 14.2857143%;
     -webkit-flex-basis: 14.2857143%;
@@ -608,7 +608,7 @@ span.flatpickr-weekday {
 .flatpickr-day:focus,
 .flatpickr-day.prevMonthDay:focus,
 .flatpickr-day.nextMonthDay:focus {
-    cursor: pointer;
+    /* cursor: pointer; */
     outline: 0;
     background: #e6e6e6;
     border-color: #e6e6e6
@@ -691,14 +691,14 @@ span.flatpickr-weekday {
     color: rgba(57, 57, 57, 0.3);
     background: transparent;
     border-color: transparent;
-    cursor: default
+    /* cursor: default */
 }
 
-.flatpickr-day.flatpickr-disabled,
+/* .flatpickr-day.flatpickr-disabled,
 .flatpickr-day.flatpickr-disabled:hover {
     cursor: not-allowed;
     color: rgba(57, 57, 57, 0.1)
-}
+} */
 
 .flatpickr-day.week.selected {
     border-radius: 0;
@@ -737,7 +737,7 @@ span.flatpickr-weekday {
     max-width: none;
     color: rgba(57, 57, 57, 0.3);
     background: transparent;
-    cursor: default;
+    /* cursor: default; */
     border: none
 }
 
@@ -862,7 +862,7 @@ span.flatpickr-weekday {
 .flatpickr-time .flatpickr-am-pm {
     outline: 0;
     width: 18%;
-    cursor: pointer;
+    /* cursor: pointer; */
     text-align: center;
     font-weight: 400
 }
@@ -874,9 +874,9 @@ span.flatpickr-weekday {
     background: #eee
 }
 
-.flatpickr-input[readonly] {
+/* .flatpickr-input[readonly] {
     cursor: pointer
-}
+} */
 
 @-webkit-keyframes fpFadeInDown {
     from {
