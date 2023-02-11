@@ -123,34 +123,6 @@ class Reservation(models.Model):
         verbose_name = "Бронь"
         verbose_name_plural = "Брони"
 
-class Review(models.Model):
-    room = models.ForeignKey(
-        Room, 
-        on_delete=models.CASCADE,
-        related_name="room_review",
-        verbose_name="Комната"
-    )
-    name = models.CharField(
-        max_length=100,
-        verbose_name="Имя"
-    )
-    text = models.TextField(
-        verbose_name="Текст"
-    )
-    checked = models.BooleanField(
-        default=False,
-        verbose_name="Проверка"
-    )
-    created = models.DateTimeField(
-        auto_now_add=True
-    )
-
-    def __str__(self):
-        return f"{self.name} {self.text}"
-
-    class Meta:
-        verbose_name = "Отзыв"
-        verbose_name_plural = "Отзывы"
 
 class Gallery(models.Model):
     image = ResizedImageField(
