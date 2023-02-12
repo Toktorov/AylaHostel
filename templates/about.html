@@ -28,7 +28,7 @@
         </div>
       </div>
     </section>
-
+    {% if team%}
       <section class="team-area pat-50 pab-50">
         <div class="container">
           <div class="section-title center-text">
@@ -55,7 +55,7 @@
           {% endfor %}
         </div>
       </section>
-
+    {% endif%}
     <section class="partner-area pat-50 pab-100">
       <div class="container">
         <div class="section-title center-text">
@@ -71,41 +71,13 @@
 																														<div class="next-icon">
 																															<i class="las la-angle-right"></i>
 																														</div>' data-responsive='[{"breakpoint": 1400,"settings": {"slidesToShow": 5}},{"breakpoint": 1200,"settings": {"slidesToShow": 4}},{"breakpoint": 992,"settings": {"slidesToShow": 3}},{"breakpoint": 576, "settings": {"slidesToShow": 2} }]'>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo1.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo2.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo3.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo4.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo5.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo6.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo3.png' %}" alt="brandLogo">
-                </a>
-              </div>
+              {% for we in partners %}                                             
+                <div class="single-brand">
+                  <a href="{{we.url}}" class="single-brand-thumb">
+                    <img src="{{we.image.url}}" alt="brandLogo">
+                  </a>
+                </div>
+              {% endfor %}
             </div>
           </div>
         </div>
