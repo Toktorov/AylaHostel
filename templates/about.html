@@ -28,69 +28,34 @@
         </div>
       </div>
     </section>
-    
-    <section class="team-area pat-50 pab-50">
-      <div class="container">
-        <div class="section-title center-text">
-          <h2 class="title"> Наша команда </h2>
-          <div class="section-title-line"></div>
+
+      <section class="team-area pat-50 pab-50">
+        <div class="container">
+          <div class="section-title center-text">
+            <h2 class="title"> Наша команда </h2>
+            <div class="section-title-line"></div>
+          </div>
+          {% for team in team %}
+            <div class="row g-5 mt-2">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="single-team center-text">
+                  <div class="single-team-thumb">
+                    <a href="javascript:void(0)">
+                      <img src="{{team.image.url}}" alt="img">
+                    </a>
+                  </div>
+                  <div class="single-team-contents">
+                    <h4 class="single-team-contents-title"> {{team.full_name}} </h4>
+                    <p class="single-team-contents-subtitle"> {{team.job_title}} </p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          {% endfor %}
         </div>
-        <div class="row g-5 mt-2">
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="single-team center-text">
-              <div class="single-team-thumb">
-                <a href="javascript:void(0)">
-                  <img src="{% static 'assets/img/single-page/team1.jpg' %}" alt="img">
-                </a>
-              </div>
-              <div class="single-team-contents">
-                <h4 class="single-team-contents-title"> Riyad Hossain </h4>
-                <p class="single-team-contents-subtitle"> Founder & Ceo </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="single-team center-text">
-              <div class="single-team-thumb">
-                <a href="javascript:void(0)">
-                  <img src="{% static 'assets/img/single-page/team2.jpg' %}" alt="img">
-                </a>
-              </div>
-              <div class="single-team-contents">
-                <h4 class="single-team-contents-title"> Wade M Warren </h4>
-                <p class="single-team-contents-subtitle"> Web Designer </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="single-team center-text">
-              <div class="single-team-thumb">
-                <a href="javascript:void(0)">
-                  <img src="{% static 'assets/img/single-page/team3.jpg' %}" alt="img">
-                </a>
-              </div>
-              <div class="single-team-contents">
-                <h4 class="single-team-contents-title"> Rajia Akter </h4>
-                <p class="single-team-contents-subtitle"> Ui/Ux Designer </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="single-team center-text">
-              <div class="single-team-thumb">
-                <a href="javascript:void(0)">
-                  <img src="{% static 'assets/img/single-page/team4.jpg' %}" alt="img">
-                </a>
-              </div>
-              <div class="single-team-contents">
-                <h4 class="single-team-contents-title"> Arafat Hossain </h4>
-                <p class="single-team-contents-subtitle"> Web Developer </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+
     <section class="partner-area pat-50 pab-100">
       <div class="container">
         <div class="section-title center-text">

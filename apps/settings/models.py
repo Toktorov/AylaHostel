@@ -263,3 +263,7 @@ class WeAre(models.Model):
     class Meta:
         verbose_name = "Где мы есть ?"
         verbose_name_plural = "Где мы есть ?"
+        
+
+    
+        
