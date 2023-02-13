@@ -1,8 +1,6 @@
 from django.db import models
 from django_resized.forms import ResizedImageField
 
-from apps.rooms.models import Room
-
 # Create your models here.
 class Setting(models.Model):
     title = models.CharField(
