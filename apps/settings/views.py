@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from apps.settings.models import Setting, Contact,Partners,  Gallery, FAQ, News, Promotion, Benefit, Team,WeAre
 from apps.rooms.models import Room,Review
 
+
 # Create your views here.
 def index(request):
     try:

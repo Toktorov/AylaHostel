@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from apps.settings.models import Setting, Reservation
-from apps.rooms.models import Room,Review
+
+from apps.settings.models import Setting
+from apps.rooms.models import Room, Reservation, Review
 
 # Create your views here.
 def rooms(request):
