@@ -28,69 +28,34 @@
         </div>
       </div>
     </section>
-    
-    <section class="team-area pat-50 pab-50">
-      <div class="container">
-        <div class="section-title center-text">
-          <h2 class="title"> Наша команда </h2>
-          <div class="section-title-line"></div>
+    {% if team%}
+      <section class="team-area pat-50 pab-50">
+        <div class="container">
+          <div class="section-title center-text">
+            <h2 class="title"> Наша команда </h2>
+            <div class="section-title-line"></div>
+          </div>
+          {% for team in team %}
+            <div class="row g-5 mt-2">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="single-team center-text">
+                  <div class="single-team-thumb">
+                    <a href="javascript:void(0)">
+                      <img src="{{team.image.url}}" alt="img">
+                    </a>
+                  </div>
+                  <div class="single-team-contents">
+                    <h4 class="single-team-contents-title"> {{team.full_name}} </h4>
+                    <p class="single-team-contents-subtitle"> {{team.job_title}} </p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          {% endfor %}
         </div>
-        <div class="row g-5 mt-2">
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="single-team center-text">
-              <div class="single-team-thumb">
-                <a href="javascript:void(0)">
-                  <img src="{% static 'assets/img/single-page/team1.jpg' %}" alt="img">
-                </a>
-              </div>
-              <div class="single-team-contents">
-                <h4 class="single-team-contents-title"> Riyad Hossain </h4>
-                <p class="single-team-contents-subtitle"> Founder & Ceo </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="single-team center-text">
-              <div class="single-team-thumb">
-                <a href="javascript:void(0)">
-                  <img src="{% static 'assets/img/single-page/team2.jpg' %}" alt="img">
-                </a>
-              </div>
-              <div class="single-team-contents">
-                <h4 class="single-team-contents-title"> Wade M Warren </h4>
-                <p class="single-team-contents-subtitle"> Web Designer </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="single-team center-text">
-              <div class="single-team-thumb">
-                <a href="javascript:void(0)">
-                  <img src="{% static 'assets/img/single-page/team3.jpg' %}" alt="img">
-                </a>
-              </div>
-              <div class="single-team-contents">
-                <h4 class="single-team-contents-title"> Rajia Akter </h4>
-                <p class="single-team-contents-subtitle"> Ui/Ux Designer </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="single-team center-text">
-              <div class="single-team-thumb">
-                <a href="javascript:void(0)">
-                  <img src="{% static 'assets/img/single-page/team4.jpg' %}" alt="img">
-                </a>
-              </div>
-              <div class="single-team-contents">
-                <h4 class="single-team-contents-title"> Arafat Hossain </h4>
-                <p class="single-team-contents-subtitle"> Web Developer </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    {% endif%}
     <section class="partner-area pat-50 pab-100">
       <div class="container">
         <div class="section-title center-text">
@@ -106,41 +71,13 @@
 																														<div class="next-icon">
 																															<i class="las la-angle-right"></i>
 																														</div>' data-responsive='[{"breakpoint": 1400,"settings": {"slidesToShow": 5}},{"breakpoint": 1200,"settings": {"slidesToShow": 4}},{"breakpoint": 992,"settings": {"slidesToShow": 3}},{"breakpoint": 576, "settings": {"slidesToShow": 2} }]'>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo1.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo2.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo3.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo4.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo5.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo6.png' %}" alt="brandLogo">
-                </a>
-              </div>
-              <div class="single-brand">
-                <a href="javascript:void(0)" class="single-brand-thumb">
-                  <img src="{% static 'assets/img/single-page/logo3.png' %}" alt="brandLogo">
-                </a>
-              </div>
+              {% for we in partners %}                                             
+                <div class="single-brand">
+                  <a href="{{we.url}}" class="single-brand-thumb">
+                    <img src="{{we.image.url}}" alt="brandLogo">
+                  </a>
+                </div>
+              {% endfor %}
             </div>
           </div>
         </div>

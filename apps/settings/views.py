@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 
-from apps.settings.models import Setting, Contact, Gallery, FAQ, News, Promotion, Benefit, Team, WeAre
-from apps.rooms.models import Room, Review
+from apps.settings.models import Setting, Contact,Partners,  Gallery, FAQ, News, Promotion, Benefit, Team,WeAre
+from apps.rooms.models import Room,Review
+
 
 # Create your views here.
 def index(request):
@@ -38,8 +39,14 @@ def index(request):
 
 def about(request):
     setting = Setting.objects.latest('id')
+    team = Team.objects.all()
+    partners = Partners.objects.all()
+    
     context = {
-        'setting' : setting
+        'setting' : setting,
+        'team' : team,
+        'partners' : partners,
+        
     }
     return render(request, 'about.html', context)
 
