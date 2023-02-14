@@ -1,0 +1,419 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %}
+    {% if user.is_authenticated and user.is_superuser %} 
+    <div class="breadcrumb-area breadcrumb-padding">
+      <div class="container custom-container-one">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-contents">
+              <h4 class="breadcrumb-contents-title"> Админ панель {{ setting.title }} </h4>
+              <ul class="breadcrumb-contents-list list-style-none">
+                <li class="breadcrumb-contents-list-item">
+                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Домой </a>
+                </li>
+                <li class="breadcrumb-contents-list-item"> Админ панель </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body-overlay"></div>
+    <div class="dashboard-area section-bg-2 dashboard-padding">
+      <div class="container">
+        <div class="dashboard-contents-wrapper">
+          <div class="dashboard-icon">
+            <div class="sidebar-icon">
+              <i class="las la-bars"></i>
+            </div>
+          </div>
+          <div class="dashboard-left-content">
+            <div class="dashboard-close-main">
+              <div class="close-bars">
+                <i class="las la-times"></i>
+              </div>
+              <div class="dashboard-bottom">
+                <ul class="dashboard-list list-style-none">
+                  <li class="list active">
+                    <a href="dashboard.html">
+                      <i class="las la-briefcase"></i> Главная </a>
+                  </li>
+                  <li class="list">
+                    <a href="dashboard_cancellation.html">
+                      <i class="las la-check-circle"></i> Принятые брони </a>
+                  </li>
+                  <li class="list">
+                    <a href="dashboard_cancellation.html">
+                      <i class="las la-envelope"></i> Брони на рассмотрении </a>
+                  </li>
+                  <li class="list">
+                    <a href="dashboard_cancellation.html">
+                      <i class="las la-receipt"></i> Отзывы на рассмотрении </a>
+                  </li>
+                  <li class="list has-children">
+                    <a href="javascript:void(0)">
+                      <i class="las la-user-circle"></i> Комнаты </a>
+                    <ul class="submenu list-style-none">
+                      <li class="list">
+                        <a href="dashboard_profile.html"> Profile </a>
+                      </li>
+                      <li class="list">
+                        <a href="dashboard_edit_profile.html"> Edit Profile </a>
+                      </li>
+                      <li class="list">
+                        <a href="dashboard_pass_change.html"> Password Change </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="list has-children">
+                    <a href="javascript:void(0)">
+                      <i class="las la-headset"></i> Контакты </a>
+                    <ul class="submenu list-style-none">
+                      <li class="list">
+                        <a href="dashboard_support.html"> Support </a>
+                      </li>
+                      <li class="list">
+                        <a href="dashboard_tickets.html"> Tickets </a>
+                      </li>
+                      <li class="list">
+                        <a href="dashboard_add_tickets.html"> Add Tickets </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="list">
+                    <a href="{% url 'logout' %}">
+                      <i class="las la-sign-out-alt"></i> Выйти </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-right-contents mt-4 mt-lg-0">
+            <div class="dashboard-promo">
+              <div class="row gy-4 justify-content-center">
+                <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
+                  <div class="single-order">
+                    <div class="single-order-flex">
+                      <div class="single-order-contents">
+                        <span class="single-order-contents-subtitle"> Брони </span>
+                        <h2 class="single-order-contents-title"> {{ reservations.all.count }} </h2>
+                      </div>
+                      <div class="single-order-icon">
+                        <i class="las la-history"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
+                  <div class="single-order">
+                    <div class="single-order-flex">
+                      <div class="single-order-contents">
+                        <span class="single-order-contents-subtitle"> Приняты брони </span>
+                        <h2 class="single-order-contents-title"> {{ reservations.all.count }} </h2>
+                      </div>
+                      <div class="single-order-icon">
+                        <i class="las la-check-circle"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
+                  <div class="single-order">
+                    <div class="single-order-flex">
+                      <div class="single-order-contents">
+                        <span class="single-order-contents-subtitle"> Неприняты брони </span>
+                        <h2 class="single-order-contents-title"> {{ reservations.all.count }}</h2>
+                      </div>
+                      <div class="single-order-icon">
+                        <i class="las la-times-circle"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
+                  <div class="single-order">
+                    <div class="single-order-contents">
+                      <span class="single-order-contents-subtitle"> Комнат </span>
+                      <h2 class="single-order-contents-title"> {{ rooms.all.count }} </h2>
+                    </div>
+                    <div class="single-order-icon">
+                      <i class="las la-clipboard-check"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-reservation">
+            {% for reservation in reservations %}
+              <div class="single-reservation bg-white base-padding">
+                <div class="single-reservation-expandIcon">
+                  <i class="las la-angle-down"></i>
+                </div>
+                <div class="single-reservation-head">
+                  <div class="single-reservation-flex">
+                    <div class="single-reservation-content">
+                      <h5 class="single-reservation-content-title"> {{ reservation.first_name }} {{ reservation.last_name }} {{ reservation.room }} </h5>
+                      <span class="single-reservation-content-id"> #{{ reservation.id }} </span>
+                    </div>
+                    <div class="single-reservation-btn">
+                      <a href="javascript:void(0)" class="dash-btn btn-pending"> В рассмотрении </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-reservation-inner">
+                  <div class="single-reservation-item">
+                    <div class="single-reservation-name">
+                      <h5 class="single-reservation-name-title"> {{ reservation.first_name }} {{ reservation.last_name }} </h5>
+                      <p class="single-reservation-name-para"> {{ reservation.phone_number }} · {{ reservation.created }} </p>
+                    </div>
+                  </div>
+                  <div class="single-reservation-item">
+                    <div class="single-reservation-details">
+                      <div class="single-reservation-details-item">
+                        <span class="single-reservation-details-subtitle"> Дата заезда </span>
+                        <h5 class="single-reservation-details-title"> 10:30 AM, 23 Jun 22 </h5>
+                      </div>
+                      <div class="single-reservation-details-item">
+                        <span class="single-reservation-details-subtitle"> Дата отъезда </span>
+                        <h5 class="single-reservation-details-title"> 10:30 AM, 28 Jun 22 </h5>
+                      </div>
+                      <div class="single-reservation-details-item">
+                        <span class="single-reservation-details-subtitle"> Комната </span>
+                        <h5 class="single-reservation-details-title"> {{ reservation.room }} </h5>
+                      </div>
+                      <div class="single-reservation-details-item">
+                        <span class="single-reservation-details-subtitle"> Дата брони </span>
+                        <h5 class="single-reservation-details-title"> {{ reservation.created }} </h5>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="single-reservation-item">
+                    <div class="single-reservation-flex">
+                      <div class="single-reservation-name">
+                        <h5 class="single-reservation-name-title"> {{ reservation.room }} </h5>
+                        <p class="single-reservation-name-para"> {{ setting.address }} </p>
+                      </div>
+                      <div class="single-reservation-btn">
+                        <a href="javascript:void(0)" class="dash-btn btn-small"> Принят </a>
+                        <a href="javascript:void(0)" class="dash-btn btn-cancelled"> Не принят </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% empty %}
+              <div class="single-reservation bg-white base-padding">
+                <div class="single-reservation-head">
+                  <div class="single-reservation-flex">
+                    <div class="single-reservation-content">
+                      <h5 class="single-reservation-content-title"> К сожелению на данный момент нет брони</h5>
+                      <span class="single-reservation-content-id"> {{ setting.title }} </span>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="row mt-5">
+              <div class="col">
+                <div class="pagination-wrapper">
+                  <ul class="pagination-list list-style-none">
+                    <li class="pagination-list-item-prev">
+                      <a href="javascript:void(0)" class="pagination-list-item-button"> Назад </a>
+                    </li>
+                    <li class="pagination-list-item">
+                      <a href="javascript:void(0)" class="pagination-list-item-link"> 1 </a>
+                    </li>
+                    <li class="pagination-list-item">
+                      <a href="javascript:void(0)" class="pagination-list-item-link"> 2 </a>
+                    </li>
+                    <li class="pagination-list-item">
+                      <a href="javascript:void(0)" class="pagination-list-item-link"> 3 </a>
+                    </li>
+                    <li class="pagination-list-item">
+                      <a href="javascript:void(0)" class="pagination-list-item-link"> 4 </a>
+                    </li>
+                    <li class="pagination-list-item active">
+                      <a href="javascript:void(0)" class="pagination-list-item-link"> 5 </a>
+                    </li>
+                    <li class="pagination-list-item-next">
+                      <a href="javascript:void(0)" class="pagination-list-item-button"> Вперед </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-overlay"></div>
+    <div class="popup-fixed">
+      <div class="popup-contents popup-cancell-modal">
+        <h2 class="popup-contents-title"> Why do you want to cancel? </h2>
+        <div class="popup-contents-select">
+          <label class="popup-contents-select-label"> Choose a reason </label>
+          <div class="js-select">
+            <select>
+              <option value="1">Don't want to Book</option>
+              <option value="2">Booked Accidentally</option>
+              <option value="3">Don't want to Book</option>
+            </select>
+          </div>
+        </div>
+        <div class="popup-contents-btn flex-btn">
+          <a href="javascript:void(0)" class="dash-btn popup-close">
+            <i class="las la-arrow-left"></i> Go Back </a>
+          <a href="javascript:void(0)" class="dash-btn btn-cancelled popup-close"> Cancel </a>
+        </div>
+      </div>
+    </div>
+    <footer class="footer-area footer-bg-1">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="footer-wrapper">
+              <div class="footer-wrapper-flex">
+                <div class="footer-wrapper-single">
+                  <div class="footer-widget widget">
+                    <div class="footer-widget-contents">
+                      <div class="footer-widget-logo">
+                        <a href="index.html">
+                          <img src="assets/img/03_logo.png" alt="logo">
+                        </a>
+                      </div>
+                      <div class="footer-widget-inner mt-4">
+                        <p class="footer-widget-contents-para"> Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit. </p>
+                        <div class="copyright-contents-items mt-5">
+                          <div class="copyright-contents-single">
+                            <div class="copyright-contents-single-flex">
+                              <div class="copyright-contents-single-icon">
+                                <i class="las la-phone"></i>
+                              </div>
+                              <div class="copyright-contents-single-details">
+                                <span class="copyright-contents-single-details-title"> Have a question? </span>
+                                <a href="tel:3104372766" class="copyright-contents-single-details-link"> 310-437-2766 </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="copyright-contents-single">
+                            <div class="copyright-contents-single-flex">
+                              <div class="copyright-contents-single-icon">
+                                <i class="las la-envelope"></i>
+                              </div>
+                              <div class="copyright-contents-single-details">
+                                <span class="copyright-contents-single-details-title"> Have a question? </span>
+                                <a href="/cdn-cgi/l/email-protection#1f6a716d7a7e735f7a677e726f737a317c7072" class="copyright-contents-single-details-link">
+                                  <span class="__cf_email__" data-cfemail="88fde6faede9e4c8edf0e9e5f8e4eda6ebe7e5">[email&#160;protected]</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="footer-wrapper-single">
+                  <div class="footer-widget widget">
+                    <h3 class="footer-widget-title text-white"> Discounts, Newsletters </h3>
+                    <div class="footer-widget-inner mt-4">
+                      <p class="footer-widget-para"> Get discounts and newsletters on our hotels in your email. We promise to not spam. Unsubscribe anytime </p>
+                      <div class="footer-widget-form mt-5">
+                        <form action="#">
+                          <div class="footer-widget-form-single">
+                            <input class="footer-widget-form-control" type="text" placeholder="Enter Your Email">
+                            <button type="submit"> Submit </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-navbar">
+        <div class="container">
+          <div class="footer-widget widget">
+            <div class="footer-widget-nav">
+              <ul class="footer-widget-nav-list list-style-none">
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> About </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Jobs </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Blog </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Press </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Careers </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Terms of use </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Privacy Policy </a>
+                </li>
+                <li class="footer-widget-nav-list-item">
+                  <a href="javascript:void(0)" class="footer-widget-nav-list-link"> Contact </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright-area footer-padding copyright-bg-1">
+        <div class="container">
+          <div class="copyright-contents">
+            <div class="copyright-contents-flex">
+              <div class="footer-widget-social">
+                <ul class="footer-widget-social-list list-style-none justify-content-center">
+                  <li class="footer-widget-social-list-item">
+                    <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                      <i class="lab la-facebook-f"></i>
+                    </a>
+                  </li>
+                  <li class="footer-widget-social-list-item">
+                    <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                      <i class="lab la-twitter"></i>
+                    </a>
+                  </li>
+                  <li class="footer-widget-social-list-item">
+                    <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                      <i class="lab la-instagram"></i>
+                    </a>
+                  </li>
+                  <li class="footer-widget-social-list-item">
+                    <a class="footer-widget-social-list-link" href="javascript:void(0)">
+                      <i class="lab la-youtube"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <span class="copyright-contents-main"> © 2000-2022, All Rights Reserved by <a href="02_index.html"> Beyond Hotel </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="back-to-top">
+      <span class="back-top">
+        <i class="las la-angle-up"></i>
+      </span>
+    </div>
+    <div class="mouse-move mouse-outer"></div>
+    <div class="mouse-move mouse-inner"></div>
+    {% endif %}
+{% endblock %}

@@ -33,6 +33,19 @@
             <li>
               <a href="{% url 'contact' %}"> Связаться </a>
             </li>
+            {% if user.is_authenticated and user.is_superuser %} 
+            <li class="menu-item-has-children current-menu-item">
+              <a href="javascript:void(0)">{{ user.username }}</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="{% url 'admin_panel' %}">Админ панель</a>
+                </li>
+                <li>
+                  <a href="{% url 'logout' %}"> Выйти </a>
+                </li>
+              </ul>
+            </li>
+            {% endif %}
           </ul>
         </div>
         <div class="navbar-right-content show-nav-content">
@@ -41,9 +54,12 @@
               <!-- <div class="navbar-right-btn">
                 <a href="login.html"> Log In </a>
               </div> -->
+              {% if user.is_authenticated and user.is_superuser %} 
+              {% else %}
               <div class="btn-wrapper">
                 <a href="{% url 'admin_login_user' %}" class="cmn-btn btn-bg-1 radius-10"> Войти </a>
               </div>
+              {% endif %}
             </div>
           </div>
         </div>

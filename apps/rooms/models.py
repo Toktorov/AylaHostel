@@ -101,6 +101,10 @@ class Reservation(models.Model):
         max_length=100,
         verbose_name="Телефонный номер"
     )
+    checked = models.BooleanField(
+        default=False,
+        verbose_name="Проверка"
+    )
     created = models.DateTimeField(
         auto_now_add=True,
         verbose_name="Дата создания"

@@ -84,12 +84,5 @@ def news_detail(request, id):
     }
     return render(request, 'news/detail.html', context)
 
-def user_login(request):
-    setting = Setting.objects.latest('id')
-    context = {
-        'setting' : setting
-    }
-    return render(request, 'custom_admin/login.html', context)
-
 def error_settings_page(request):
     return render(request, 'error.html')
