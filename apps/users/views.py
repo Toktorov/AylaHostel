@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate
 
 from apps.settings.models import Setting
 from apps.users.models import User
-from apps.rooms.models import Room, Reservation
+from apps.rooms.models import Room, Reservation, Review
 
 # Create your views here.
 def user_login(request):
@@ -26,7 +26,7 @@ def user_login(request):
 def admin_panel(request):
     setting = Setting.objects.latest('id')
     rooms = Room.objects.all()
-    reservations = Reservation.objects.all().order_by('-created')
+    reservations = Reservation.objects.all().order_by('-created').order_by('checked')
     accept_reservations = Reservation.objects.filter(checked = True)
     refusal_reservations = Reservation.objects.filter(checked = False)
     if request.method == "POST":
@@ -47,3 +47,47 @@ def admin_panel(request):
         'refusal_reservations' : refusal_reservations,
     }
     return render(request, 'custom_admin/index.html', context)
+
+def accept_reservations(request):
+    setting = Setting.objects.latest('id')
+    accept_reservations = Reservation.objects.filter(checked = True)
+    if request.method == "POST":
+        if 'delete' in request.POST:
+            reservation_id = request.POST.get('reservation_id')
+            reservation_delete = Reservation.objects.get(id = int(reservation_id))
+            reservation_delete.delete()
+    context = {
+        'setting' : setting,
+        'accept_reservations' : accept_reservations, 
+    }
+    return render(request, 'custom_admin/accept_reservation.html', context)
+
+def refusal_reservations(request):
+    setting = Setting.objects.latest('id')
+    refusal_reservations = Reservation.objects.filter(checked = False)
+    if request.method == "POST":
+        if 'accept' in request.POST:
+            reservation_id = request.POST.get('reservation_id')
+            reservation_checked = Reservation.objects.get(id = int(reservation_id))
+            reservation_checked.checked = True
+            reservation_checked.save()
+    context = {
+        'setting' : setting,
+        'refusal_reservations' : refusal_reservations,
+    }
+    return render(request, 'custom_admin/refusal_reservation.html', context)
+    
+def refusal_reviews(request):
+    setting = Setting.objects.latest('id')
+    reviews = Review.objects.filter(checked=False)
+    if request.method == "POST":
+        if 'accept' in request.POST:
+            review_id = request.POST.get('review_id')
+            review_checked = Review.objects.get(id = int(review_id))
+            review_checked.checked = True 
+            review_checked.save()
+    context = {
+        'setting' : setting,
+        'reviews' : reviews,
+    }
+    return render(request, 'custom_admin/refusal_review.html', context)

@@ -36,11 +36,11 @@
               </div>
               <div class="dashboard-bottom">
                 <ul class="dashboard-list list-style-none">
-                  <li class="list active">
+                  <li class="list">
                     <a href="{% url 'admin_panel' %}">
                       <i class="las la-briefcase"></i> Главная </a>
                   </li>
-                  <li class="list">
+                  <li class="list active">
                     <a href="{% url 'accept_reservations' %}">
                       <i class="las la-check-circle"></i> Принятые брони </a>
                   </li>
@@ -91,62 +91,8 @@
             </div>
           </div>
           <div class="dashboard-right-contents mt-4 mt-lg-0">
-            <div class="dashboard-promo">
-              <div class="row gy-4 justify-content-center">
-                <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
-                  <div class="single-order">
-                    <div class="single-order-flex">
-                      <div class="single-order-contents">
-                        <span class="single-order-contents-subtitle"> Брони </span>
-                        <h2 class="single-order-contents-title"> {{ reservations.all.count }} </h2>
-                      </div>
-                      <div class="single-order-icon">
-                        <i class="las la-history"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
-                  <div class="single-order">
-                    <div class="single-order-flex">
-                      <div class="single-order-contents">
-                        <span class="single-order-contents-subtitle"> Приняты брони </span>
-                        <h2 class="single-order-contents-title"> {{ accept_reservations.all.count }} </h2>
-                      </div>
-                      <div class="single-order-icon">
-                        <i class="las la-check-circle"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
-                  <div class="single-order">
-                    <div class="single-order-flex">
-                      <div class="single-order-contents">
-                        <span class="single-order-contents-subtitle"> Неприняты брони </span>
-                        <h2 class="single-order-contents-title"> {{ refusal_reservations.all.count }}</h2>
-                      </div>
-                      <div class="single-order-icon">
-                        <i class="las la-times-circle"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
-                  <div class="single-order">
-                    <div class="single-order-contents">
-                      <span class="single-order-contents-subtitle"> Комнат </span>
-                      <h2 class="single-order-contents-title"> {{ rooms.all.count }} </h2>
-                    </div>
-                    <div class="single-order-icon">
-                      <i class="las la-clipboard-check"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div class="dashboard-reservation">
-            {% for reservation in reservations %}
+            {% for reservation in accept_reservations %}
               <div class="single-reservation bg-white base-padding">
                 <div class="single-reservation-expandIcon">
                   <i class="las la-angle-down"></i>
