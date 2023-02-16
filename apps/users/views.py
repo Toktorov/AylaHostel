@@ -102,7 +102,6 @@ def create_room(request):
             image = request.FILES.get('image')
             price = request.POST.get('price')
             currency = request.POST.get('currency')
-            print(title, description, image, price, currency)
             room = Room.objects.create(title = title, description = description, image = image, price_day = int(price), currency_id = int(currency))
             return redirect('room_detail', room.id)
     context = {
@@ -118,6 +117,7 @@ def delete_room(request):
         if 'delete' in request.POST:
             room_id = request.POST.get('room_id')
             room = Room.objects.get(id = int(room_id))
+            room.image.delete()
             room.delete()
     context = {
         'setting' : setting,
@@ -127,7 +127,41 @@ def delete_room(request):
 
 def update_room(request):
     setting = Setting.objects.latest('id')
+    rooms = Room.objects.all().order_by('-id')
     context = {
-        'setting' : setting
+        'setting' : setting,
+        'rooms' : rooms
     }
     return render(request, 'custom_admin/update_room.html', context)
+
+def update_room_detail(request, id):
+    setting = Setting.objects.latest('id')
+    room = Room.objects.get(id = id)
+    currency = Currency.objects.all()
+    if request.method == "POST":
+        if 'update' in request.POST:
+            title = request.POST.get('title')
+            description = request.POST.get('description')
+            image = request.FILES.get('image')
+            price = request.POST.get('price')
+            currency = request.POST.get('currency')
+            print(title, description, image, price, currency)
+            room = Room.objects.get(id = id)
+            if image:
+                room.title = title 
+                room.description = description
+                room.image = image 
+                room.price_day = int(price)
+                room.currency_id = int(currency)
+            else:
+                room.title = title 
+                room.description = description
+                room.price_day = int(price)
+                room.currency_id = int(currency)
+            return redirect('room_detail', room.id)
+    context = {
+        'setting' : setting,
+        'room' : room,
+        'currency' : currency
+    }
+    return render(request, 'custom_admin/update_room_detail.html', context)
