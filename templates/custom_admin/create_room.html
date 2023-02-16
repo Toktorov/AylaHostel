@@ -2,18 +2,20 @@
 {% load static %}
 {% block content %}
     {% include 'include/header.html' %}
-    {% if user.is_authenticated and user.is_superuser %} 
     <div class="breadcrumb-area breadcrumb-padding">
       <div class="container custom-container-one">
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-contents">
-              <h4 class="breadcrumb-contents-title"> Админ панель {{ setting.title }} </h4>
+              <h4 class="breadcrumb-contents-title"> Добавить комнату </h4>
               <ul class="breadcrumb-contents-list list-style-none">
                 <li class="breadcrumb-contents-list-item">
                   <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Домой </a>
                 </li>
-                <li class="breadcrumb-contents-list-item"> Админ панель </li>
+                <li class="breadcrumb-contents-list-item">
+                  <a href="{% url 'admin_panel' %}" class="breadcrumb-contents-list-item-link"> Комнаты </a>
+                </li>
+                <li class="breadcrumb-contents-list-item"> Добавить комнату </li>
               </ul>
             </div>
           </div>
@@ -48,15 +50,15 @@
                     <a href="{% url 'refusal_reservations' %}">
                       <i class="las la-envelope"></i> Брони на рассмотрении </a>
                   </li>
-                  <li class="list active">
+                  <li class="list">
                     <a href="{% url 'refusal_reviews' %}">
                       <i class="las la-receipt"></i> Отзывы на рассмотрении </a>
                   </li>
-                  <li class="list has-children">
+                  <li class="list has-children active open show">
                     <a href="javascript:void(0)">
                       <i class="las la-user-circle"></i> Комнаты </a>
                     <ul class="submenu list-style-none">
-                      <li class="list">
+                      <li class="list selected">
                         <a href="{% url 'create_room' %}"> Добавить комнату </a>
                       </li>
                       <li class="list">
@@ -92,98 +94,51 @@
           </div>
           <div class="dashboard-right-contents mt-4 mt-lg-0">
             <div class="dashboard-reservation">
-            {% for review in reviews %}
               <div class="single-reservation bg-white base-padding">
-                <div class="single-reservation-expandIcon">
-                  <i class="las la-angle-down"></i>
-                </div>
-                <div class="single-reservation-head">
-                  <div class="single-reservation-flex">
-                    <div class="single-reservation-content">
-                      <h5 class="single-reservation-content-title"> {{ review.name }} - {{ review.text|truncatewords:10 }} </h5>
-                      <span class="single-reservation-content-id"> {{ review.created }} </span>
+                <h3 class="single-reservation-title"> Добавить комнату </h3>
+                <div class="custom--form dashboard-form">
+                  <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="dashboard-flex-input">
+                        <div class="dashboard-input mt-4">
+                            <label class="label-title"> Название </label>
+                            <input type="text" class="form--control" name = "title" placeholder="Название комнаты">
+                        </div>
                     </div>
-                    {% if review.checked == False %}
-                    <div class="single-reservation-btn">
-                      <a href="javascript:void(0)" class="dash-btn btn-pending"> В рассмотрении </a>
+                    <div class="dashboard-flex-input">
+                        <div class="dashboard-input mt-4">
+                            <label class="label-title"> Описание </label>
+                            <textarea type="text" class="form--control" name = "description" placeholder="Описание комнаты"></textarea>
+                        </div>
                     </div>
-                    {% else %}
-                    <div class="single-reservation-btn">
-                      <a href="javascript:void(0)" class="dash-btn btn-bg-1"> Принят </a>
+                    <div class="dashboard-flex-input">
+                        <div class="dashboard-input mt-4">
+                          <label class="label-title"> Фотография </label>
+                          <input type="file" name = "image">
+                        </div>
                     </div>
-                    {% endif %}
-                  </div>
-                </div>
-                <div class="single-reservation-inner">
-                  <div class="single-reservation-item">
-                    <div class="single-reservation-name">
-                      <h5 class="single-reservation-name-title"> {{ review.name }} </h5>
-                      <p class="single-reservation-name-para"> {{ review.text }} </p>
+                    <div class="dashboard-flex-input">
+                        <div class="dashboard-input mt-4">
+                          <label class="label-title"> Цена </label>
+                          <input type="text" class="form--control" name = "price" placeholder="Цена комнаты за день"></input>
+                        </div>
                     </div>
-                  </div>
-                  <div class="single-reservation-item">
-                    <div class="single-reservation-flex">
-                      {% if review.checked == False %}
-                      <div class="single-reservation-btn">
-                        <form method="post">
-                          {% csrf_token %}
-                          <input type="hidden" name = "review_id" value="{{ review.id }}">
-                          <button type="submit" name = "accept" class="dash-btn btn-bg-1"> Принять </button>
-                        </form>
+                    <div class="dashboard-flex-input flex-input-3">
+                      <div class="dashboard-input mt-4">
+                        <label class="popup-contents-select-label"> Валюта </label>
+                        <div class="js-select">
+                          <select name = "currency">
+                            {% for cur in currency %}
+                            <option value="{{ cur.id }}">{{ cur.title }}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
                       </div>
-                      {% else %}
-                      <div class="single-reservation-btn">
-                        <form method="post">
-                          {% csrf_token %}
-                          <input type="hidden" name = "reservation_id" value="{{ reservation.id }}">
-                          <button type="submit" name = "delete" class="dash-btn btn-cancelled"> Удалить </button>
-                        </form>
-                      </div>
-                      {% endif %}
                     </div>
-                  </div>
-                </div>
-              </div>
-              {% empty %}
-              <div class="single-reservation bg-white base-padding">
-                <div class="single-reservation-head">
-                  <div class="single-reservation-flex">
-                    <div class="single-reservation-content">
-                      <h5 class="single-reservation-content-title"> К сожелению на данный момент нет комментарии для рассмотрения</h5>
-                      <span class="single-reservation-content-id"> {{ setting.title }} </span>
+                    <div class="btn-wrapper mt-4">
+                        <button class="cmn-btn btn-bg-1" name = "create" type="submit"> Добавить </button>
                     </div>
-                    
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-            <div class="row mt-5">
-              <div class="col">
-                <div class="pagination-wrapper">
-                  <ul class="pagination-list list-style-none">
-                    <li class="pagination-list-item-prev">
-                      <a href="javascript:void(0)" class="pagination-list-item-button"> Назад </a>
-                    </li>
-                    <li class="pagination-list-item">
-                      <a href="javascript:void(0)" class="pagination-list-item-link"> 1 </a>
-                    </li>
-                    <li class="pagination-list-item">
-                      <a href="javascript:void(0)" class="pagination-list-item-link"> 2 </a>
-                    </li>
-                    <li class="pagination-list-item">
-                      <a href="javascript:void(0)" class="pagination-list-item-link"> 3 </a>
-                    </li>
-                    <li class="pagination-list-item">
-                      <a href="javascript:void(0)" class="pagination-list-item-link"> 4 </a>
-                    </li>
-                    <li class="pagination-list-item active">
-                      <a href="javascript:void(0)" class="pagination-list-item-link"> 5 </a>
-                    </li>
-                    <li class="pagination-list-item-next">
-                      <a href="javascript:void(0)" class="pagination-list-item-button"> Вперед </a>
-                    </li>
-                  </ul>
+                  </form>
                 </div>
               </div>
             </div>
@@ -220,5 +175,4 @@
     </div>
     <div class="mouse-move mouse-outer"></div>
     <div class="mouse-move mouse-inner"></div>
-    {% endif %}
 {% endblock %}

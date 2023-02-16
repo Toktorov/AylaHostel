@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate
 
 from apps.settings.models import Setting
 from apps.users.models import User
-from apps.rooms.models import Room, Reservation, Review
+from apps.rooms.models import Room, Reservation, Review, Currency
 
 # Create your views here.
 def user_login(request):
@@ -91,3 +91,36 @@ def refusal_reviews(request):
         'reviews' : reviews,
     }
     return render(request, 'custom_admin/refusal_review.html', context)
+
+def create_room(request):
+    setting = Setting.objects.latest('id')
+    currency = Currency.objects.all()
+    if request.method == "POST":
+        if 'create' in request.POST:
+            title = request.POST.get('title')
+            description = request.POST.get('description')
+            image = request.FILES.get('image')
+            price = request.POST.get('price')
+            currency = request.POST.get('currency')
+            print(title, description, image, price, currency)
+            room = Room.objects.create(title = title, description = description, image = image, price_day = int(price), currency_id = int(currency))
+            return redirect('room_detail', room.id)
+    context = {
+        'setting' : setting,
+        'currency' : currency,
+    }
+    return render(request, 'custom_admin/create_room.html', context)
+
+def delete_room(request):
+    setting = Setting.objects.latest('id')
+    context = {
+        'setting' : setting
+    }
+    return render(request, 'custom_admin/delete_room.html', context)
+
+def update_room(request):
+    setting = Setting.objects.latest('id')
+    context = {
+        'setting' : setting
+    }
+    return render(request, 'custom_admin/update_room.html', context)

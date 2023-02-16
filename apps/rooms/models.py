@@ -23,14 +23,6 @@ class Room(models.Model):
     description = models.TextField(
         verbose_name="Описание комнаты"
     )
-    sleeps = models.CharField(
-        max_length=255,
-        verbose_name="Спальных мест"
-    )
-    beds = models.CharField(
-        max_length=100,
-        verbose_name="Количество кроватей"
-    )
     image = ResizedImageField(
         force_format="WEBP", 
         quality=100, 

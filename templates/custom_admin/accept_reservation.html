@@ -57,30 +57,19 @@
                       <i class="las la-user-circle"></i> Комнаты </a>
                     <ul class="submenu list-style-none">
                       <li class="list">
-                        <a href="dashboard_profile.html"> Profile </a>
+                        <a href="{% url 'create_room' %}"> Добавить комнату </a>
                       </li>
                       <li class="list">
-                        <a href="dashboard_edit_profile.html"> Edit Profile </a>
+                        <a href="{% url 'delete_room' %}"> Удалить комнату </a>
                       </li>
                       <li class="list">
-                        <a href="dashboard_pass_change.html"> Password Change </a>
+                        <a href="{% url 'update_room' %}"> Обновить комнату </a>
                       </li>
                     </ul>
                   </li>
                   <li class="list has-children">
                     <a href="javascript:void(0)">
                       <i class="las la-headset"></i> Контакты </a>
-                    <ul class="submenu list-style-none">
-                      <li class="list">
-                        <a href="dashboard_support.html"> Support </a>
-                      </li>
-                      <li class="list">
-                        <a href="dashboard_tickets.html"> Tickets </a>
-                      </li>
-                      <li class="list">
-                        <a href="dashboard_add_tickets.html"> Add Tickets </a>
-                      </li>
-                    </ul>
                   </li>
                   <li class="list">
                     <a href="{% url 'logout' %}">
