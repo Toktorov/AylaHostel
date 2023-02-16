@@ -1,0 +1,178 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %}
+    <div class="breadcrumb-area breadcrumb-padding">
+      <div class="container custom-container-one">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-contents">
+              <h4 class="breadcrumb-contents-title"> Добавить комнату </h4>
+              <ul class="breadcrumb-contents-list list-style-none">
+                <li class="breadcrumb-contents-list-item">
+                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Домой </a>
+                </li>
+                <li class="breadcrumb-contents-list-item">
+                  <a href="{% url 'admin_panel' %}" class="breadcrumb-contents-list-item-link"> Комнаты </a>
+                </li>
+                <li class="breadcrumb-contents-list-item"> Добавить комнату </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body-overlay"></div>
+    <div class="dashboard-area section-bg-2 dashboard-padding">
+      <div class="container">
+        <div class="dashboard-contents-wrapper">
+          <div class="dashboard-icon">
+            <div class="sidebar-icon">
+              <i class="las la-bars"></i>
+            </div>
+          </div>
+          <div class="dashboard-left-content">
+            <div class="dashboard-close-main">
+              <div class="close-bars">
+                <i class="las la-times"></i>
+              </div>
+              <div class="dashboard-bottom">
+                <ul class="dashboard-list list-style-none">
+                  <li class="list">
+                    <a href="{% url 'admin_panel' %}">
+                      <i class="las la-briefcase"></i> Главная </a>
+                  </li>
+                  <li class="list">
+                    <a href="{% url 'accept_reservations' %}">
+                      <i class="las la-check-circle"></i> Принятые брони </a>
+                  </li>
+                  <li class="list">
+                    <a href="{% url 'refusal_reservations' %}">
+                      <i class="las la-envelope"></i> Брони на рассмотрении </a>
+                  </li>
+                  <li class="list">
+                    <a href="{% url 'refusal_reviews' %}">
+                      <i class="las la-receipt"></i> Отзывы на рассмотрении </a>
+                  </li>
+                  <li class="list has-children active open show">
+                    <a href="javascript:void(0)">
+                      <i class="las la-user-circle"></i> Комнаты </a>
+                    <ul class="submenu list-style-none">
+                      <li class="list">
+                        <a href="{% url 'create_room' %}"> Добавить комнату </a>
+                      </li>
+                      <li class="list">
+                        <a href="{% url 'delete_room' %}"> Удалить комнату </a>
+                      </li>
+                      <li class="list selected">
+                        <a href="{% url 'update_room' %}"> Обновить комнату </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="list has-children">
+                    <a href="javascript:void(0)">
+                      <i class="las la-headset"></i> Контакты </a>
+                    <ul class="submenu list-style-none">
+                      <li class="list">
+                        <a href="dashboard_support.html"> Support </a>
+                      </li>
+                      <li class="list">
+                        <a href="dashboard_tickets.html"> Tickets </a>
+                      </li>
+                      <li class="list">
+                        <a href="dashboard_add_tickets.html"> Add Tickets </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="list">
+                    <a href="{% url 'logout' %}">
+                      <i class="las la-sign-out-alt"></i> Выйти </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-right-contents mt-4 mt-lg-0">
+            <div class="dashboard-reservation">
+              <div class="single-reservation bg-white base-padding">
+                <h3 class="single-reservation-title"> Добавить комнату </h3>
+                <div class="custom--form dashboard-form">
+                  <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="dashboard-flex-input">
+                        <div class="dashboard-input mt-4">
+                            <label class="label-title"> Название </label>
+                            <input type="text" class="form--control" name = "title" placeholder="Название комнаты">
+                        </div>
+                    </div>
+                    <div class="dashboard-flex-input">
+                        <div class="dashboard-input mt-4">
+                            <label class="label-title"> Описание </label>
+                            <textarea type="text" class="form--control" name = "description" placeholder="Описание комнаты"></textarea>
+                        </div>
+                    </div>
+                    <div class="dashboard-flex-input">
+                        <div class="dashboard-input mt-4">
+                          <label class="label-title"> Фотография </label>
+                          <input type="file" name = "image">
+                        </div>
+                    </div>
+                    <div class="dashboard-flex-input">
+                        <div class="dashboard-input mt-4">
+                          <label class="label-title"> Цена </label>
+                          <input type="text" class="form--control" name = "price" placeholder="Цена комнаты за день"></input>
+                        </div>
+                    </div>
+                    <div class="dashboard-flex-input flex-input-3">
+                      <div class="dashboard-input mt-4">
+                        <label class="popup-contents-select-label"> Валюта </label>
+                        <div class="js-select">
+                          <select name = "currency">
+                            {% for cur in currency %}
+                            <option value="{{ cur.id }}">{{ cur.title }}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="btn-wrapper mt-4">
+                        <button class="cmn-btn btn-bg-1" name = "create" type="submit"> Добавить </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-overlay"></div>
+    <div class="popup-fixed">
+      <div class="popup-contents popup-cancell-modal">
+        <h2 class="popup-contents-title"> Why do you want to cancel? </h2>
+        <div class="popup-contents-select">
+          <label class="popup-contents-select-label"> Choose a reason </label>
+          <div class="js-select">
+            <select>
+              <option value="1">Don't want to Book</option>
+              <option value="2">Booked Accidentally</option>
+              <option value="3">Don't want to Book</option>
+            </select>
+          </div>
+        </div>
+        <div class="popup-contents-btn flex-btn">
+          <a href="javascript:void(0)" class="dash-btn popup-close">
+            <i class="las la-arrow-left"></i> Go Back </a>
+          <a href="javascript:void(0)" class="dash-btn btn-cancelled popup-close"> Cancel </a>
+        </div>
+      </div>
+    </div>
+    {% include 'include/footer.html' %}
+    <div class="back-to-top">
+      <span class="back-top">
+        <i class="las la-angle-up"></i>
+      </span>
+    </div>
+    <div class="mouse-move mouse-outer"></div>
+    <div class="mouse-move mouse-inner"></div>
+{% endblock %}

@@ -113,8 +113,15 @@ def create_room(request):
 
 def delete_room(request):
     setting = Setting.objects.latest('id')
+    rooms = Room.objects.all().order_by('-id')
+    if request.method == "POST":
+        if 'delete' in request.POST:
+            room_id = request.POST.get('room_id')
+            room = Room.objects.get(id = int(room_id))
+            room.delete()
     context = {
-        'setting' : setting
+        'setting' : setting,
+        'rooms' : rooms
     }
     return render(request, 'custom_admin/delete_room.html', context)
 
