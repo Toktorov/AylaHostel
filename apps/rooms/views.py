@@ -27,6 +27,7 @@ def room_detail(request, id):
         phone_number = request.POST.get('phone_number')
         arrival_date = request.POST.get('arrival_date')
         departure_date = request.POST.get('departure_date')
+        print(arrival_date, departure_date)
         reservation_id = Reservation.objects.create(room = room, first_name = first_name, last_name = last_name, phone_number = phone_number, arrival_date = arrival_date, departure_date = departure_date)
         return redirect('confirmation', reservation_id.id)
     context = {

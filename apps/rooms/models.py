@@ -109,6 +109,7 @@ class Reservation(models.Model):
         max_length=255,
         verbose_name="Дата отьезда"
     )
+    
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 

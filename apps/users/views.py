@@ -117,7 +117,8 @@ def delete_room(request):
         if 'delete' in request.POST:
             room_id = request.POST.get('room_id')
             room = Room.objects.get(id = int(room_id))
-            room.image.delete()
+            if room.image:
+                room.image.delete()
             room.delete()
     context = {
         'setting' : setting,
