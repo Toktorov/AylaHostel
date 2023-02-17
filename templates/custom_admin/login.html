@@ -7,19 +7,20 @@
         <div class="login-wrapper login-shadow bg-white">
           <div class="login-wrapper-flex">
             <div class="login-wrapper-thumb">
-              <img src="{% static 'assets/img/single-page/login.jpg' %}" alt="img">
+              <img src="{{ setting.backround_image.url }}" alt="img">
             </div>
             <div class="login-wrapper-contents login-padding">
               <h2 class="single-title"> Здраствуйте! </h2>
               <p class="sigle-para mt-2"> Зайдите чтобы войти в админ панель </p>
-              <form class="login-wrapper-contents-form custom-form" action="#">
+              <form class="login-wrapper-contents-form custom-form" method="post">
+                {% csrf_token %}
                 <div class="single-input mt-4">
                   <label class="label-title mb-3"> Имя пользователя </label>
-                  <input class="form--control" type="text" placeholder="Ваше имя пользователя">
+                  <input class="form--control" type="text" name = "username" placeholder="Ваше имя пользователя">
                 </div>
                 <div class="single-input mt-4">
                   <label class="label-title mb-3"> Пароль </label>
-                  <input class="form--control" type="password" placeholder="Пароль от аккаунта">
+                  <input class="form--control" type="password" name = "password" placeholder="Пароль от аккаунта">
                   <div class="icon toggle-password">
                     <div class="show-icon">
                       <i class="las la-eye-slash"></i>

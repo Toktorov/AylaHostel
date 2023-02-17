@@ -23,14 +23,6 @@ class Room(models.Model):
     description = models.TextField(
         verbose_name="Описание комнаты"
     )
-    sleeps = models.CharField(
-        max_length=255,
-        verbose_name="Спальных мест"
-    )
-    beds = models.CharField(
-        max_length=100,
-        verbose_name="Количество кроватей"
-    )
     image = ResizedImageField(
         force_format="WEBP", 
         quality=100, 
@@ -101,11 +93,22 @@ class Reservation(models.Model):
         max_length=100,
         verbose_name="Телефонный номер"
     )
+    checked = models.BooleanField(
+        default=False,
+        verbose_name="Проверка"
+    )
     created = models.DateTimeField(
         auto_now_add=True,
         verbose_name="Дата создания"
     )
-
+    arrival_date = models.CharField(
+        max_length=255,
+        verbose_name="Дата заезда"
+    )
+    departure_date = models.CharField(
+        max_length=255,
+        verbose_name="Дата отьезда"
+    )
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 

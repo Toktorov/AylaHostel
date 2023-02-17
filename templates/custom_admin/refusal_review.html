@@ -1,0 +1,224 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+    {% include 'include/header.html' %}
+    {% if user.is_authenticated and user.is_superuser %} 
+    <div class="breadcrumb-area breadcrumb-padding">
+      <div class="container custom-container-one">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="breadcrumb-contents">
+              <h4 class="breadcrumb-contents-title"> Админ панель {{ setting.title }} </h4>
+              <ul class="breadcrumb-contents-list list-style-none">
+                <li class="breadcrumb-contents-list-item">
+                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Домой </a>
+                </li>
+                <li class="breadcrumb-contents-list-item"> Админ панель </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body-overlay"></div>
+    <div class="dashboard-area section-bg-2 dashboard-padding">
+      <div class="container">
+        <div class="dashboard-contents-wrapper">
+          <div class="dashboard-icon">
+            <div class="sidebar-icon">
+              <i class="las la-bars"></i>
+            </div>
+          </div>
+          <div class="dashboard-left-content">
+            <div class="dashboard-close-main">
+              <div class="close-bars">
+                <i class="las la-times"></i>
+              </div>
+              <div class="dashboard-bottom">
+                <ul class="dashboard-list list-style-none">
+                  <li class="list">
+                    <a href="{% url 'admin_panel' %}">
+                      <i class="las la-briefcase"></i> Главная </a>
+                  </li>
+                  <li class="list">
+                    <a href="{% url 'accept_reservations' %}">
+                      <i class="las la-check-circle"></i> Принятые брони </a>
+                  </li>
+                  <li class="list">
+                    <a href="{% url 'refusal_reservations' %}">
+                      <i class="las la-envelope"></i> Брони на рассмотрении </a>
+                  </li>
+                  <li class="list active">
+                    <a href="{% url 'refusal_reviews' %}">
+                      <i class="las la-receipt"></i> Отзывы на рассмотрении </a>
+                  </li>
+                  <li class="list has-children">
+                    <a href="javascript:void(0)">
+                      <i class="las la-user-circle"></i> Комнаты </a>
+                    <ul class="submenu list-style-none">
+                      <li class="list">
+                        <a href="{% url 'create_room' %}"> Добавить комнату </a>
+                      </li>
+                      <li class="list">
+                        <a href="{% url 'delete_room' %}"> Удалить комнату </a>
+                      </li>
+                      <li class="list">
+                        <a href="{% url 'update_room' %}"> Обновить комнату </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="list has-children">
+                    <a href="javascript:void(0)">
+                      <i class="las la-headset"></i> Контакты </a>
+                    <ul class="submenu list-style-none">
+                      <li class="list">
+                        <a href="dashboard_support.html"> Support </a>
+                      </li>
+                      <li class="list">
+                        <a href="dashboard_tickets.html"> Tickets </a>
+                      </li>
+                      <li class="list">
+                        <a href="dashboard_add_tickets.html"> Add Tickets </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="list">
+                    <a href="{% url 'logout' %}">
+                      <i class="las la-sign-out-alt"></i> Выйти </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-right-contents mt-4 mt-lg-0">
+            <div class="dashboard-reservation">
+            {% for review in reviews %}
+              <div class="single-reservation bg-white base-padding">
+                <div class="single-reservation-expandIcon">
+                  <i class="las la-angle-down"></i>
+                </div>
+                <div class="single-reservation-head">
+                  <div class="single-reservation-flex">
+                    <div class="single-reservation-content">
+                      <h5 class="single-reservation-content-title"> {{ review.name }} - {{ review.text|truncatewords:10 }} </h5>
+                      <span class="single-reservation-content-id"> {{ review.created }} </span>
+                    </div>
+                    {% if review.checked == False %}
+                    <div class="single-reservation-btn">
+                      <a href="javascript:void(0)" class="dash-btn btn-pending"> В рассмотрении </a>
+                    </div>
+                    {% else %}
+                    <div class="single-reservation-btn">
+                      <a href="javascript:void(0)" class="dash-btn btn-bg-1"> Принят </a>
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="single-reservation-inner">
+                  <div class="single-reservation-item">
+                    <div class="single-reservation-name">
+                      <h5 class="single-reservation-name-title"> {{ review.name }} </h5>
+                      <p class="single-reservation-name-para"> {{ review.text }} </p>
+                    </div>
+                  </div>
+                  <div class="single-reservation-item">
+                    <div class="single-reservation-flex">
+                      {% if review.checked == False %}
+                      <div class="single-reservation-btn">
+                        <form method="post">
+                          {% csrf_token %}
+                          <input type="hidden" name = "review_id" value="{{ review.id }}">
+                          <button type="submit" name = "accept" class="dash-btn btn-bg-1"> Принять </button>
+                        </form>
+                      </div>
+                      {% else %}
+                      <div class="single-reservation-btn">
+                        <form method="post">
+                          {% csrf_token %}
+                          <input type="hidden" name = "reservation_id" value="{{ reservation.id }}">
+                          <button type="submit" name = "delete" class="dash-btn btn-cancelled"> Удалить </button>
+                        </form>
+                      </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% empty %}
+              <div class="single-reservation bg-white base-padding">
+                <div class="single-reservation-head">
+                  <div class="single-reservation-flex">
+                    <div class="single-reservation-content">
+                      <h5 class="single-reservation-content-title"> К сожелению на данный момент нет комментарии для рассмотрения</h5>
+                      <span class="single-reservation-content-id"> {{ setting.title }} </span>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="row mt-5">
+              <div class="col">
+                <div class="pagination-wrapper">
+                  <ul class="pagination-list list-style-none">
+                    <li class="pagination-list-item-prev">
+                      <a href="javascript:void(0)" class="pagination-list-item-button"> Назад </a>
+                    </li>
+                    <li class="pagination-list-item">
+                      <a href="javascript:void(0)" class="pagination-list-item-link"> 1 </a>
+                    </li>
+                    <li class="pagination-list-item">
+                      <a href="javascript:void(0)" class="pagination-list-item-link"> 2 </a>
+                    </li>
+                    <li class="pagination-list-item">
+                      <a href="javascript:void(0)" class="pagination-list-item-link"> 3 </a>
+                    </li>
+                    <li class="pagination-list-item">
+                      <a href="javascript:void(0)" class="pagination-list-item-link"> 4 </a>
+                    </li>
+                    <li class="pagination-list-item active">
+                      <a href="javascript:void(0)" class="pagination-list-item-link"> 5 </a>
+                    </li>
+                    <li class="pagination-list-item-next">
+                      <a href="javascript:void(0)" class="pagination-list-item-button"> Вперед </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-overlay"></div>
+    <div class="popup-fixed">
+      <div class="popup-contents popup-cancell-modal">
+        <h2 class="popup-contents-title"> Why do you want to cancel? </h2>
+        <div class="popup-contents-select">
+          <label class="popup-contents-select-label"> Choose a reason </label>
+          <div class="js-select">
+            <select>
+              <option value="1">Don't want to Book</option>
+              <option value="2">Booked Accidentally</option>
+              <option value="3">Don't want to Book</option>
+            </select>
+          </div>
+        </div>
+        <div class="popup-contents-btn flex-btn">
+          <a href="javascript:void(0)" class="dash-btn popup-close">
+            <i class="las la-arrow-left"></i> Go Back </a>
+          <a href="javascript:void(0)" class="dash-btn btn-cancelled popup-close"> Cancel </a>
+        </div>
+      </div>
+    </div>
+    {% include 'include/footer.html' %}
+    <div class="back-to-top">
+      <span class="back-top">
+        <i class="las la-angle-up"></i>
+      </span>
+    </div>
+    <div class="mouse-move mouse-outer"></div>
+    <div class="mouse-move mouse-inner"></div>
+    {% endif %}
+{% endblock %}
