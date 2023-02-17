@@ -64,12 +64,4 @@ class Migration(migrations.Migration):
                 ('checked', models.BooleanField(default=False, verbose_name='Проверка')),
                 ('created', models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')),
                 ('arrival_date', models.CharField(max_length=255, verbose_name='Дата заезда')),
-                ('departure_date', models.CharField(max_length=255, verbose_name='Дата отьезда')),
-                ('room', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='room_reservation', to='rooms.room')),
-            ],
-            options={
-                'verbose_name': 'Бронь',
-                'verbose_name_plural': 'Брони',
-            },
-        ),
-    ]
+                ('departure_date', models.CharField(max_length=255, verbose_name='Дата отьезда'))
