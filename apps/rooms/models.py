@@ -101,7 +101,14 @@ class Reservation(models.Model):
         auto_now_add=True,
         verbose_name="Дата создания"
     )
-
+    arrival_date = models.CharField(
+        max_length=255,
+        verbose_name="Дата заезда"
+    )
+    departure_date = models.CharField(
+        max_length=255,
+        verbose_name="Дата отьезда"
+    )
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
