@@ -56,8 +56,19 @@ def reservation(request):
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         phone_number = request.POST.get('phone_number')
+        arrival_date = request.POST.get('arrival_date')
+        departure_date = request.POST.get('departure_date')
         if first_name and last_name and phone_number:
-            reservation = Reservation.objects.create(room_id = None,first_name = first_name, last_name = last_name, phone_number = phone_number)
+            reservation = Reservation.objects.create(room_id = None, first_name = first_name, last_name = last_name, phone_number = phone_number, arrival_date = arrival_date, departure_date = departure_date)
+            get_reservation_text(f"""Заявка на бронь #{reservation.id}:
+Фамилия: {reservation.first_name}
+Имя: {reservation.last_name}
+Номер: {reservation.phone_number}
+Комната: {reservation.room}
+Дата заезда: {reservation.arrival_date}
+Дата отъезда {reservation.departure_date}
+
+Дата создания: {reservation.created.date()}""")
             return redirect('confirmation', reservation.id)
     context = {
         'setting' : setting,
@@ -70,9 +81,19 @@ def reservation_room(request, id):
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         phone_number = request.POST.get('phone_number')
+        arrival_date = request.POST.get('arrival_date')
+        departure_date = request.POST.get('departure_date')
         if first_name and last_name and phone_number:
-            reservation = Reservation.objects.create(room_id = id,first_name = first_name, last_name = last_name, phone_number = phone_number)
-            get_reservation_text(f"Заявка на бронь #{reservation.id}:\nФамилия: {reservation.first_name}\nИмя: {reservation.last_name}\nНомер: {reservation.phone_number}\nКомната: {reservation.room}\nДата создания: {reservation.created.date()}")
+            reservation = Reservation.objects.create(room_id = id,first_name = first_name, last_name = last_name, phone_number = phone_number, arrival_date = arrival_date, departure_date =departure_date)
+            get_reservation_text(f"""Заявка на бронь #{reservation.id}:
+Фамилия: {reservation.first_name}
+Имя: {reservation.last_name}
+Номер: {reservation.phone_number}
+Комната: {reservation.room}
+Дата заезда: {reservation.arrival_date}
+Дата отъезда {reservation.departure_date}
+
+Дата создания: {reservation.created.date()}""")
             return redirect('confirmation', reservation.id)
     context = {
         'setting' : setting,
