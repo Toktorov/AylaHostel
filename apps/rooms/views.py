@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
+
 from apps.settings.models import Setting, Promotion
 from apps.rooms.models import Room, Reservation, Review
+from apps.telegram.views import get_reservation_text
 
 # Create your views here.
 def rooms(request):
@@ -27,8 +29,16 @@ def room_detail(request, id):
         phone_number = request.POST.get('phone_number')
         arrival_date = request.POST.get('arrival_date')
         departure_date = request.POST.get('departure_date')
-        print(arrival_date, departure_date)
         reservation_id = Reservation.objects.create(room = room, first_name = first_name, last_name = last_name, phone_number = phone_number, arrival_date = arrival_date, departure_date = departure_date)
+        get_reservation_text(f"""Заявка на бронь #{reservation_id.id}:
+Фамилия: {reservation_id.first_name}
+Имя: {reservation_id.last_name}
+Номер: {reservation_id.phone_number}
+Комната: {reservation_id.room}
+Дата заезда: {reservation_id.arrival_date}
+Дата отъезда {reservation_id.departure_date}
+
+Дата создания: {reservation_id.created.date()}""")
         return redirect('confirmation', reservation_id.id)
     context = {
         'setting' : setting,
@@ -62,6 +72,7 @@ def reservation_room(request, id):
         phone_number = request.POST.get('phone_number')
         if first_name and last_name and phone_number:
             reservation = Reservation.objects.create(room_id = id,first_name = first_name, last_name = last_name, phone_number = phone_number)
+            get_reservation_text(f"Заявка на бронь #{reservation.id}:\nФамилия: {reservation.first_name}\nИмя: {reservation.last_name}\nНомер: {reservation.phone_number}\nКомната: {reservation.room}\nДата создания: {reservation.created.date()}")
             return redirect('confirmation', reservation.id)
     context = {
         'setting' : setting,
