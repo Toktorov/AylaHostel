@@ -45,7 +45,13 @@ def room_detail(request, id):
             name = request.POST.get('name')
             text = request.POST.get('text')
             review = Review.objects.create(room = room, name = name, text = text)
-        
+            get_reservation_text(f"""Оставлен отзыв #{review.id}
+Комната: {review.room}
+Имя: {review.name}
+Текст: {review.text}
+Статус: {review.checked}
+Дата {review.created}""", -618622809)
+            return redirect('review_confirmation')
     context = {
         'setting' : setting,
         'room' : room,
@@ -55,6 +61,13 @@ def room_detail(request, id):
         'promotions' : promotions,
     }
     return render(request, 'room/room_detail.html', context)
+
+def review_confirmation(request):
+    setting = Setting.objects.latest('id')
+    context = {
+        'setting' : setting
+    }
+    return render(request, 'confirm_comment.html', context)
 
 def reservation(request):
     setting = Setting.objects.latest('id')
