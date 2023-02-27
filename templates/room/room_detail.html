@@ -44,7 +44,7 @@
                 <div class="hotel-view-contents">
                   <div class="hotel-view-contents-header">
                     <span class="hotel-view-contents-review">
-                      <i class="las la-star"></i> 4.5 <span class="hotel-view-contents-review-count"> (380) </span>
+                      <i class="las la-star"></i> 10 <span class="hotel-view-contents-review-count"> ({{ reviews.all.count }}) </span>
                     </span>
                     <h3 class="hotel-view-contents-title"> {{ room.title }} </h3>
                     <div class="hotel-view-contents-location mt-2">
@@ -68,36 +68,28 @@
                         </span>
                         <p class="hotel-view-contents-icon-title flex-fill"> Wifi </p>
                       </div>
-                      <div class="hotel-view-contents-icon d-flex gap-1">
-                        <span>
-                          <i class="las la-coffee"></i>
-                        </span>
-                        <p class="hotel-view-contents-icon-title flex-fill"> Завтрак </p>
-                      </div>
+                      
+                       <div class="hotel-view-contents-icon d-flex gap-1">
+                          <span>
+                            <i class="las la-coffee"></i>
+                          </span>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Кухня </p>
+                        </div>
+
                       <div class="hotel-view-contents-icon d-flex gap-1">
                         <span>
                           <i class="las la-quidditch"></i>
                         </span>
                         <p class="hotel-view-contents-icon-title flex-fill"> Уборка </p>
                       </div>
-                      <div class="hotel-view-contents-icon d-flex gap-1">
-                        <span>
-                          <i class="las la-swimming-pool"></i>
-                        </span>
-                        <p class="hotel-view-contents-icon-title flex-fill"> Басейн </p>
-                      </div>
+                      
                       <div class="hotel-view-contents-icon d-flex gap-1">
                         <span>
                           <i class="las la-receipt"></i>
                         </span>
                         <p class="hotel-view-contents-icon-title flex-fill"> Ресепшн </p>
                       </div>
-                      <div class="hotel-view-contents-icon d-flex gap-1">
-                        <span>
-                          <i class="las la-dumbbell"></i>
-                        </span>
-                        <p class="hotel-view-contents-icon-title flex-fill"> Зал </p>
-                      </div>
+                      
                     </div>
                   </div>
                   <div class="hotel-view-contents-bottom">
@@ -105,7 +97,7 @@
                       <div class="hotel-view-contents-bottom-contents">
                         <h4 class="hotel-view-contents-bottom-title"> {{ room.price_day }} {{ room.currency }} <sub>/День</sub>
                         </h4>
-                        <p class="hotel-view-contents-bottom-para"> (4 Nights, 2 Rooms, 4 Persons) </p>
+                        <p class="hotel-view-contents-bottom-para"> Цена указана на 1 человека </p>
                       </div>
                       <div class="btn-wrapper">
                         <a href="{% url 'reservation_room' room.id %}" class="cmn-btn btn-bg-1 btn-small"> Забронировать </a>
@@ -133,6 +125,28 @@
                         </div>
                       </div>
                       {% endfor %}
+                    
+                        <!-- <div class="contact-wrapper contact-padding bg-white radius-20"> -->
+                          <div class="contact-contents mt-4">
+                            <h4 class="contact-contents-title"> Оставить отзыв </h4>
+                            <p class="contact-contents-para mt-2"> Наша дружная команда будет рада услышать вас. </p>
+                            <div class="contact-contents-form custom-form">
+                              <form method="POST">
+                                {% csrf_token %}
+                                <div class="single-flex-input mt-4">
+                                  <div class="single-input mt-4">
+                                    <input type="text" name = "name" class="form--control radius-5" placeholder="Имя">
+                                  </div>
+                                </div>
+                                <div class="single-input mt-4">
+                                  <input type="text" name = "text" class="form--control radius-5" placeholder="Сообщение">
+                                </div>
+                                <button type="submit" name = "review" class="submit-btn radius-5"> Отправить </button>
+                              </form>
+                            </div>
+                          </div>
+                        
+                      <!-- </div> -->
                     </div>
                   </div>
                 </div>
@@ -145,7 +159,7 @@
                     <div class="hotel-view-contents-header">
                       <div class="hotel-view-contents-header-flex d-flex flex-wrap gap-3 align-items-center justify-content-between">
                         <span class="hotel-view-contents-review">
-                          <i class="las la-star"></i> 5 <span class="hotel-view-contents-review-count"> (2) </span>
+                          <i class="las la-star"></i> 10 <span class="hotel-view-contents-review-count"> ({{ reviews.all.count }}) </span>
                         </span>
                         <div class="btn-wrapper">
                           <a href="{% url 'room_detail' one.id %}" class="cmn-btn btn-bg-1 btn-small"> Посмотреть </a>
@@ -179,7 +193,7 @@
                           <span>
                             <i class="las la-coffee"></i>
                           </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Завтрак </p>
+                          <p class="hotel-view-contents-icon-title flex-fill"> Кухня </p>
                         </div>
                         <div class="hotel-view-contents-icon d-flex gap-1">
                           <span>
@@ -187,24 +201,14 @@
                           </span>
                           <p class="hotel-view-contents-icon-title flex-fill"> Уборка </p>
                         </div>
-                        <div class="hotel-view-contents-icon d-flex gap-1">
-                          <span>
-                            <i class="las la-swimming-pool"></i>
-                          </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Бассейн </p>
-                        </div>
+                        
                         <div class="hotel-view-contents-icon d-flex gap-1">
                           <span>
                             <i class="las la-receipt"></i>
                           </span>
                           <p class="hotel-view-contents-icon-title flex-fill"> Ресепшн </p>
                         </div>
-                        <div class="hotel-view-contents-icon d-flex gap-1">
-                          <span>
-                            <i class="las la-dumbbell"></i>
-                          </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Зал </p>
-                        </div>
+                        
                       </div>
                     </div>
                     <div class="hotel-view-contents-bottom">
@@ -212,7 +216,7 @@
                         <div class="hotel-view-contents-bottom-contents d-flex flex-wrap gap-4">
                           <h4 class="hotel-view-contents-bottom-title"> {{ one.price_day }} {{ one.currency }} <sub>/День</sub>
                           </h4>
-                          <p class="hotel-view-contents-bottom-para"> (4 Nights, 2 Rooms, 4 Persons) </p>
+                          <p class="hotel-view-contents-bottom-para"> Цена указана на 1 человека </p>
                         </div>
                       </div>
                     </div>
@@ -250,7 +254,7 @@
                         <input class="form--control date-picker" name = "departure_date" type="text" placeholder="Дата">
                       </div>
                       <div class="btn-wrapper mt-4">
-                        <button type="submit" class="cmn-btn btn-bg-1 btn-small"> Забронировать </button>
+                        <button type="submit" name = "reservation" class="cmn-btn btn-bg-1 btn-small"> Забронировать </button>
                       </div>
                     </form>
                   </div>
@@ -263,7 +267,7 @@
                   <div class="hotel-view-contents">
                     <div class="hotel-view-contents-header">
                       <span class="hotel-view-contents-review">
-                        <i class="las la-star"></i> 5 <span class="hotel-view-contents-review-count"> (380) </span>
+                        <i class="las la-star"></i> 10 <span class="hotel-view-contents-review-count"> ({{ reviews.all.count }}) </span>
                       </span>
                       <h3 class="hotel-view-contents-title"> {{ two.title }} </h3>
                       <div class="hotel-view-contents-location mt-2">
@@ -275,29 +279,20 @@
                     </div>
                     <div class="hotel-view-contents-middle">
                       <div class="hotel-view-contents-flex">
-                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Car Parking">
+                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Паркинг">
                           <i class="las la-parking"></i>
                         </div>
-                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Free Wifi">
+                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Wifi">
                           <i class="las la-wifi"></i>
                         </div>
-                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Free Breakfast">
+                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Кухня">
                           <i class="las la-coffee"></i>
                         </div>
-                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Home Service">
+                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Уборка">
                           <i class="las la-quidditch"></i>
                         </div>
-                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Swimming Pool">
-                          <i class="las la-swimming-pool"></i>
-                        </div>
-                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Reception">
+                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Ресепшн">
                           <i class="las la-receipt"></i>
-                        </div>
-                        <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Gym">
-                          <i class="las la-dumbbell"></i>
-                        </div>
-                        <div class="hotel-view-contents-icon">
-                          <a class="hotel-view-contents-icon-more" href="javascript:void(0)"> +8 More </a>
                         </div>
                       </div>
                     </div>
@@ -306,7 +301,7 @@
                         <div class="hotel-view-contents-bottom-contents">
                           <h4 class="hotel-view-contents-bottom-title"> {{ two.price_day }} {{ two.currency }} <sub>/День</sub>
                           </h4>
-                          <p class="hotel-view-contents-bottom-para"> (4 Nights, 2 Rooms, 4 Persons) </p>
+                          <p class="hotel-view-contents-bottom-para"> Цена указана на 1 человека </p>
                         </div>
                         <div class="btn-wrapper">
                           <a href="{% url 'room_detail' two.id %}" class="cmn-btn btn-bg-1 btn-small"> Посмотреть </a>

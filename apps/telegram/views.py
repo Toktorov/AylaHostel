@@ -26,8 +26,8 @@ def send_mailing(message:types.Message):
     msg = bot.send_message(message.chat.id, "Тест рассылки: ")
     bot.register_next_step_handler(msg, get_message)
 
-def get_reservation_text(message):
-    bot.send_message(-1001605378830, message)
+def get_reservation_text(message, id):
+    bot.send_message(id, message)
 
 @bot.message_handler()  
 def not_found(message:types.Message):

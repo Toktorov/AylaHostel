@@ -24,13 +24,14 @@ def room_detail(request, id):
     reviews = Review.objects.filter(room = room, checked = True).order_by('-created')
     promotions = Promotion.objects.all().order_by('-id')[:1]
     if request.method == "POST":
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        phone_number = request.POST.get('phone_number')
-        arrival_date = request.POST.get('arrival_date')
-        departure_date = request.POST.get('departure_date')
-        reservation_id = Reservation.objects.create(room = room, first_name = first_name, last_name = last_name, phone_number = phone_number, arrival_date = arrival_date, departure_date = departure_date)
-        get_reservation_text(f"""Заявка на бронь #{reservation_id.id}:
+        if 'reservation' in request.POST:
+            first_name = request.POST.get('first_name')
+            last_name = request.POST.get('last_name')
+            phone_number = request.POST.get('phone_number')
+            arrival_date = request.POST.get('arrival_date')
+            departure_date = request.POST.get('departure_date')
+            reservation_id = Reservation.objects.create(room = room, first_name = first_name, last_name = last_name, phone_number = phone_number, arrival_date = arrival_date, departure_date = departure_date)
+            get_reservation_text(f"""Заявка на бронь #{reservation_id.id}:
 Фамилия: {reservation_id.first_name}
 Имя: {reservation_id.last_name}
 Номер: {reservation_id.phone_number}
@@ -38,8 +39,13 @@ def room_detail(request, id):
 Дата заезда: {reservation_id.arrival_date}
 Дата отъезда {reservation_id.departure_date}
 
-Дата создания: {reservation_id.created.date()}""")
-        return redirect('confirmation', reservation_id.id)
+Дата создания: {reservation_id.created.date()}""", -1001605378830)
+            return redirect('confirmation', reservation_id.id)
+        if 'review' in request.POST:
+            name = request.POST.get('name')
+            text = request.POST.get('text')
+            review = Review.objects.create(room = room, name = name, text = text)
+        
     context = {
         'setting' : setting,
         'room' : room,
@@ -64,11 +70,10 @@ def reservation(request):
 Фамилия: {reservation.first_name}
 Имя: {reservation.last_name}
 Номер: {reservation.phone_number}
-Комната: {reservation.room}
 Дата заезда: {reservation.arrival_date}
 Дата отъезда {reservation.departure_date}
 
-Дата создания: {reservation.created.date()}""")
+Дата создания: {reservation.created.date()}""", -1001605378830)
             return redirect('confirmation', reservation.id)
     context = {
         'setting' : setting,
@@ -93,7 +98,7 @@ def reservation_room(request, id):
 Дата заезда: {reservation.arrival_date}
 Дата отъезда {reservation.departure_date}
 
-Дата создания: {reservation.created.date()}""")
+Дата создания: {reservation.created.date()}""", -1001605378830)
             return redirect('confirmation', reservation.id)
     context = {
         'setting' : setting,
