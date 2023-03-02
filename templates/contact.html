@@ -35,7 +35,9 @@
               <div class="contact-contents">
                 <h4 class="contact-contents-title"> Связаться </h4>
                 <p class="contact-contents-para mt-2"> Наша дружная команда будет рада услышать вас. </p>
-                <p class="contact-contents-para mt-2"> {{ setting.phone }} </p>
+                {% for phon in phone %}
+                <p class="contact-contents-para mt-2"> {{ phon.phone }} </p>
+                {% endfor %}
                 <p class="contact-contents-para mt-2"> {{ setting.email }} </p>
                 <p class="contact-contents-para mt-2"> {{ setting.address }} </p>
                 <div class="contact-contents-form custom-form">
