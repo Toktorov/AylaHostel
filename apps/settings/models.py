@@ -15,11 +15,6 @@ class Setting(models.Model):
         upload_to="logos/",
         verbose_name="Логотип сайта"
     )
-    phone = models.CharField(
-        max_length=100,
-        verbose_name="Телефонный номер",
-        blank = True, null = True
-    )
     email = models.EmailField(
         verbose_name="Почта",
         blank = True, null = True
@@ -77,6 +72,19 @@ class Setting(models.Model):
     class Meta:
         verbose_name = "Настройка"
         verbose_name_plural = "Настройки"
+
+class PhoneNumber(models.Model):
+    phone = models.CharField(
+        max_length=100,
+        verbose_name="Телефонный номер"
+    )
+
+    def __str__(self):
+        return self.phone
+    
+    class Meta:
+        verbose_name = "Телефонный номер"
+        verbose_name_plural = "Телефонные номера"
 
 class Contact(models.Model):
     name = models.CharField(

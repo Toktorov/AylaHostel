@@ -26,8 +26,8 @@
     <section class="attraction-area pat-50 pab-50">
       <div class="container">
         <div class="section-title center-text mt-5">
-          <h2 class="banner-single-content-title"> Наши номера </h2>
-          <div class="append-attraction"></div>
+          <h2 class="banner-single-content-title fw-700 mt-5"> Наши номера </h2>
+          <div class="append-attraction" style="display: none;"></div>
         </div>
         <div class="row mt-5">
           <div class="col-12">
@@ -134,16 +134,11 @@
           <div class="row g-4 masonry-grid">
             {% for gallery in galleries %}
             <div class="col-lg-2 col-md-4 col-sm-6 grid-item">
-              <div class="single-shots bg-image" style="background-image: url({{ gallery.image.url }});">
+              <div class="single-shots bg-image" style="background-image: url({{ gallery.image.url }}); height:200px;" s>
                 <a href="{{ gallery.image.url }}" class="single-shots-icon gallery-popup-two">
                   <i class="las la-image"></i>
                 </a>
-                <div class="single-shots-contents">
-                  <!-- <h4 class="single-shots-contents-title">
-                    <a href="hotel_details.html"> Disneyland </a>
-                  </h4> -->
-                  <!-- <p class="single-shots-contents-para"> We have over 28K reviews to assure you top notch service. We have over 28K reviews to assure you top notch service.We have over 28K reviews to assure you top notch service. We have over 28K reviews to assure you top notch service. </p> -->
-                </div>
+               
               </div>
             </div>
             {% endfor %}
@@ -198,7 +193,7 @@
                   </div>
                   <button class="submit-btn w-100 radius-10" type="submit" name = "contact"> Отправить </button>
                 </form>
-              </div>
+              </div>single-shots
             </div>
           </div>
         </div>
@@ -216,7 +211,7 @@
           {% for new in news %}
           <div class="col-xxl-4 col-lg-4 col-md-6">
             <div class="single-blog">
-              <div class="single-blog-thumbs">
+              <div class="single-blog-thumbs">    
                 <a href="{% url 'news_detail' new.id %}">
                   <img class="lazyloads" src="{{ new.image.url }}" alt="">
                 </a>
@@ -233,8 +228,7 @@
                   </span>
                 </div>
                 <h4 class="single-blog-contents-title mt-3">
-                  <a href="{% url 'news_detail' new.id %}"> {{ new.title }} </a>
-                  <p>{{ new.description|truncatewords:5 }}</p>
+                  <a href="{% url 'news_detail' new.id %}"> style="background-image: url({{ gallery.image.url }});" sp>
                 </h4>
               </div>
             </div>
@@ -272,7 +266,7 @@
                           <i class="lab la-instagram"></i>
                         </a>
                       </li>
-                      {% endif %}
+                      {% endif %}    
                       {% if setting.whatsapp %}
                       <li class="footer-widget-social-list-item">
                         <a class="footer-widget-social-list-link" href="{{ setting.whatsapp }}">
@@ -285,7 +279,7 @@
                         <a class="footer-widget-social-list-link" href="{{ setting.facebook }}">
                           <i class="lab la-facebook-f"></i>
                         </a>
-                      </li>
+                      </li>    
                       {% endif %}
                     </ul>
                   </div>
@@ -296,7 +290,7 @@
       </div>
     </div>
     {% include 'include/footer.html' %}
-    
+
     
     <div class="back-to-top">
       <span class="back-top">

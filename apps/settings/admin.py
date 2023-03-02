@@ -1,9 +1,10 @@
 from django.contrib import admin
 
-from apps.settings.models import Setting,Partners, Contact, Gallery, FAQ, News, Promotion, Benefit, Team,WeAre, About
+from apps.settings.models import Setting, PhoneNumber ,Partners, Contact, Gallery, FAQ, News, Promotion, Benefit, Team,WeAre, About
 
 # Register your models here.
 admin.site.register(Setting)
+admin.site.register(PhoneNumber)
 admin.site.register(Contact)
 admin.site.register(Gallery)
 admin.site.register(FAQ)

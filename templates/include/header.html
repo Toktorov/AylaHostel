@@ -44,6 +44,13 @@
               </ul>
             </li>
             {% endif %}
+            {% if phone %}
+            {% for phon in phone %}
+            <li>
+              <a href="tel:{{ phon.phone }}"> {{ phon.phone }} </a>
+            </li>
+            {% endfor %}
+            {% endif %}
           </ul>
         </div>
         <div class="navbar-right-content show-nav-content">

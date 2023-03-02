@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from apps.settings.models import Setting, Contact,Partners,  Gallery, FAQ, News, Promotion, Benefit, Team,WeAre, About
+from apps.settings.models import Setting, PhoneNumber, Contact, Partners,  Gallery, FAQ, News, Promotion, Benefit, Team,WeAre, About
 from apps.rooms.models import Room,Review
 from apps.telegram.views import get_reservation_text
 
@@ -8,6 +8,7 @@ from apps.telegram.views import get_reservation_text
 def index(request):
     try:
         setting = Setting.objects.latest('id')
+        phone = PhoneNumber.objects.all().order_by('id')
     except:
         return redirect('error_page')
     weare = WeAre.objects.all().order_by('-id')[:10]
@@ -40,11 +41,13 @@ def index(request):
         'galleries' : galleries,
         'benefits' : benefits,
         'weare' : weare,
+        'phone' : phone
     }
     return render(request, 'index.html', context)
 
 def about(request):
     setting = Setting.objects.latest('id')
+    phone = PhoneNumber.objects.all().order_by('id')
     team = Team.objects.all()
     partners = Partners.objects.all()
     about = About.objects.latest('id')
@@ -53,12 +56,13 @@ def about(request):
         'team' : team,
         'partners' : partners,
         'about' : about,
-        
+        'phone' : phone,
     }
     return render(request, 'about.html', context)
 
 def contact(request):
     setting = Setting.objects.latest('id')
+    phone = PhoneNumber.objects.all().order_by('id')
     if request.method == "POST":
         name = request.POST.get('name')
         phone_number = request.POST.get('phone_number')
@@ -73,34 +77,41 @@ def contact(request):
 Создан: {contact.created.ctime()}""", int(setting.id_contact))
         return redirect('confirm_contact')
     context = {
-        'setting' : setting
+        'setting' : setting,
+        'phone' : phone
     }
     return render(request, 'contact.html', context)
 
 def confirm_contact(request):
     setting = Setting.objects.latest('id')
+    phone = PhoneNumber.objects.all().order_by('id')
     context = {
-        'setting' : setting
+        'setting' : setting,
+        'phone' : phone
     }
     return render(request, 'confirm_contact.html', context)
 
 def news_index(request):
     setting = Setting.objects.latest('id')
     news = News.objects.all().order_by('-id')[:12]
+    phone = PhoneNumber.objects.all().order_by('id')
     context = {
         'setting' : setting,
-        'news' : news
+        'news' : news,
+        'phone' : phone
     }
     return render(request, 'news/index.html', context)
 
 def news_detail(request, id):
     setting = Setting.objects.latest('id')
+    phone = PhoneNumber.objects.all().order_by('id')
     news = News.objects.get(id = id)
     random_news = News.objects.all().order_by('?')[:5]
     context = {
         'setting' : setting,
         'news' : news,
-        'random_news' : random_news
+        'random_news' : random_news,
+        'phone' : phone
     }
     return render(request, 'news/detail.html', context)
 

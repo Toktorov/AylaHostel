@@ -1,23 +1,26 @@
 from django.shortcuts import render, redirect
 
-from apps.settings.models import Setting, Promotion
+from apps.settings.models import Setting, PhoneNumber, Promotion
 from apps.rooms.models import Room, Reservation, Review
 from apps.telegram.views import get_reservation_text
 
 # Create your views here.
 def rooms(request):
     setting = Setting.objects.latest('id')
+    phone = PhoneNumber.objects.all().order_by('id')
     rooms = Room.objects.all()
     promotions = Promotion.objects.all().order_by('-id')[:1]
     context = {
         'setting' : setting,
         'rooms' : rooms,
         'promotions' : promotions,
+        'phone' : phone
     }
     return render(request, 'room/rooms.html', context)
 
 def room_detail(request, id):
     setting = Setting.objects.latest('id')
+    phone = PhoneNumber.objects.all().order_by('id')
     room = Room.objects.get(id = id)
     one_random_room = Room.objects.all().order_by('?')[:1]
     two_random_room = Room.objects.all().order_by('?')[:1]
@@ -59,18 +62,22 @@ def room_detail(request, id):
         'one_random_room' : one_random_room,
         'two_random_room' : two_random_room,
         'promotions' : promotions,
+        'phone' : phone
     }
     return render(request, 'room/room_detail.html', context)
 
 def review_confirmation(request):
     setting = Setting.objects.latest('id')
+    phone = PhoneNumber.objects.all().order_by('id')
     context = {
-        'setting' : setting
+        'setting' : setting,
+        'phone' : phone
     }
     return render(request, 'confirm_comment.html', context)
 
 def reservation(request):
     setting = Setting.objects.latest('id')
+    phone = PhoneNumber.objects.all().order_by('id')
     if request.method == "POST":
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
@@ -90,11 +97,13 @@ def reservation(request):
             return redirect('confirmation', reservation.id)
     context = {
         'setting' : setting,
+        'phone' : phone
     }
     return render(request, 'room/reservation.html', context)
 
 def reservation_room(request, id):
     setting = Setting.objects.latest('id')
+    phone = PhoneNumber.objects.all().order_by('id')
     if request.method == "POST":
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
@@ -115,14 +124,17 @@ def reservation_room(request, id):
             return redirect('confirmation', reservation.id)
     context = {
         'setting' : setting,
+        'phone' : phone
     }
     return render(request, 'room/reservation.html', context)
 
 def confirmation(request, id):
     setting = Setting.objects.latest('id')
+    phone = PhoneNumber.objects.all().order_by('id')
     reservation = Reservation.objects.get(id = id)
     context = {
         'setting' : setting,
-        'reservation' : reservation
+        'reservation' : reservation,
+        'phone' : phone
     }
     return render(request, 'room/confirmation.html', context)
