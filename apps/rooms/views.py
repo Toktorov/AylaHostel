@@ -39,7 +39,7 @@ def room_detail(request, id):
 Дата заезда: {reservation_id.arrival_date}
 Дата отъезда {reservation_id.departure_date}
 
-Дата создания: {reservation_id.created.date()}""", -1001605378830)
+Дата создания: {reservation_id.created.date()}""", int(setting.id_reservation))
             return redirect('confirmation', reservation_id.id)
         if 'review' in request.POST:
             name = request.POST.get('name')
@@ -50,7 +50,7 @@ def room_detail(request, id):
 Имя: {review.name}
 Текст: {review.text}
 Статус: {review.checked}
-Дата {review.created}""", -618622809)
+Дата {review.created}""", int(setting.id_review))
             return redirect('review_confirmation')
     context = {
         'setting' : setting,
@@ -86,7 +86,7 @@ def reservation(request):
 Дата заезда: {reservation.arrival_date}
 Дата отъезда {reservation.departure_date}
 
-Дата создания: {reservation.created.date()}""", -1001605378830)
+Дата создания: {reservation.created.date()}""", int(setting.id_reservation))
             return redirect('confirmation', reservation.id)
     context = {
         'setting' : setting,
@@ -111,7 +111,7 @@ def reservation_room(request, id):
 Дата заезда: {reservation.arrival_date}
 Дата отъезда {reservation.departure_date}
 
-Дата создания: {reservation.created.date()}""", -1001605378830)
+Дата создания: {reservation.created.date()}""", int(setting.id_reservation))
             return redirect('confirmation', reservation.id)
     context = {
         'setting' : setting,

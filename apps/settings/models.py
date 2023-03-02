@@ -55,6 +55,21 @@ class Setting(models.Model):
         verbose_name="Ссылка на Telegram",
         blank = True, null = True
     )
+    id_reservation = models.CharField(
+        max_length=100,
+        verbose_name="ID чата для бронь",
+        blank=True, null=True
+    )
+    id_contact = models.CharField(
+        max_length=100,
+        verbose_name="ID чата для контактов",
+        blank=True, null=True
+    )
+    id_review = models.CharField(
+        max_length=100,
+        verbose_name="ID чата для отзывов",
+        blank=True, null=True
+    )
 
     def __str__(self):
         return self.title 

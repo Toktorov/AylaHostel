@@ -29,7 +29,7 @@ def index(request):
 Номер: {contact.phone_number}
 Почта: {contact.email}
 Сообщение: {contact.message}
-Создан: {contact.created.ctime()}""", -851422112)
+Создан: {contact.created.ctime()}""", int(setting.id_contact))
             return redirect('confirm_contact')
     context = {
         'setting' : setting,
@@ -70,7 +70,7 @@ def contact(request):
 Номер: {contact.phone_number}
 Почта: {contact.email}
 Сообщение: {contact.message}
-Создан: {contact.created.ctime()}""", -851422112)
+Создан: {contact.created.ctime()}""", int(setting.id_contact))
         return redirect('confirm_contact')
     context = {
         'setting' : setting
