@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from apps.settings.models import Setting, Contact,Partners,  Gallery, FAQ, News, Promotion, Benefit, Team,WeAre
+from apps.settings.models import Setting, Contact,Partners,  Gallery, FAQ, News, Promotion, Benefit, Team,WeAre, About
 from apps.rooms.models import Room,Review
 from apps.telegram.views import get_reservation_text
 
@@ -24,7 +24,13 @@ def index(request):
             email = request.POST.get('email')
             message = request.POST.get('message')
             contact = Contact.objects.create(name = name, phone_number = phone_number, email = email, message = message)
-            return redirect('index')
+            get_reservation_text(f"""Заявка на контакт #{contact.id}
+Имя: {contact.name}
+Номер: {contact.phone_number}
+Почта: {contact.email}
+Сообщение: {contact.message}
+Создан: {contact.created.ctime()}""", -851422112)
+            return redirect('confirm_contact')
     context = {
         'setting' : setting,
         'rooms' : rooms,
@@ -41,10 +47,12 @@ def about(request):
     setting = Setting.objects.latest('id')
     team = Team.objects.all()
     partners = Partners.objects.all()
+    about = About.objects.latest('id')
     context = {
         'setting' : setting,
         'team' : team,
         'partners' : partners,
+        'about' : about,
         
     }
     return render(request, 'about.html', context)

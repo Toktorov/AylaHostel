@@ -209,7 +209,19 @@ class Team(models.Model):
     class Meta:
         verbose_name = "Команда"
         verbose_name_plural = "Команды"
+
+class About(models.Model):
+    title = models.TextField(
+        verbose_name="О нас"
+    )
         
+    def __str__(self):
+        return self.title 
+    
+    class Meta:
+        verbose_name = "О нас"
+        verbose_name_plural = "О нас"
+
 class WeAre(models.Model):
     url = models.URLField(
         verbose_name="Основная ссылка",
@@ -227,8 +239,8 @@ class WeAre(models.Model):
         return f"{self.url} -- {self.image}"
 
     class Meta:
-        verbose_name = "Где мы есть ?"
-        verbose_name_plural = "Где мы есть ?"
+        verbose_name = "Где мы есть?"
+        verbose_name_plural = "Где мы есть?"
 
 class Partners(models.Model):
     url = models.URLField(

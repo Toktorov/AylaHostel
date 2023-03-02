@@ -50,7 +50,12 @@
                     <h4 class="single-attraction-contents-title">
                       <a href="{% url 'room_detail' room.id %}"> {{ room.title }} </a>
                     </h4>
-                    <p class="single-attraction-contents-para"> Цена от: {{ room.price_day }} {{ room.currency }} </p>
+                    <div class="hotel-view-contents-bottom-contents">
+                      <h4 class="hotel-view-contents-bottom-title"> От {{ room.price_day }} {{ room.currency }} </h4>
+                    </div>
+                    <div class="btn-wrapper mt-3">
+                      <a href="{% url 'reservation_room' room.id %}" class="cmn-btn btn-bg-1 btn-small"> Забронировать </a>
+                    </div>
                   </div>
                 </div>
               </div>

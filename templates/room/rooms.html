@@ -75,9 +75,7 @@
                     <a href="{% url 'room_detail' room.id %}" class="hotel-view-thumb hotel-view-grid-thumb bg-image" style="background-image: url({{ room.image.url }});"></a>
                     <div class="hotel-view-contents">
                       <div class="hotel-view-contents-header">
-                        <span class="hotel-view-contents-review">
-                          <i class="las la-star"></i> 4.5 <span class="hotel-view-contents-review-count"> (380) </span>
-                        </span>
+                        
                         <h3 class="hotel-view-contents-title">
                           <a href="{% url 'room_detail' room.id %}"> {{ room.title }} </a>
                         </h3>
@@ -90,38 +88,29 @@
                       </div>
                       <div class="hotel-view-contents-middle">
                         <div class="hotel-view-contents-flex">
-                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Car Parking">
+                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Паркинг">
                             <i class="las la-parking"></i>
                           </div>
-                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Free Wifi">
+                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="WiFi">
                             <i class="las la-wifi"></i>
                           </div>
-                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Free Breakfast">
+                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Кухня">
                             <i class="las la-coffee"></i>
                           </div>
-                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Home Service">
+                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Уборка">
                             <i class="las la-quidditch"></i>
                           </div>
-                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Swimming Pool">
-                            <i class="las la-swimming-pool"></i>
-                          </div>
-                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Reception">
+                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Ресепшн">
                             <i class="las la-receipt"></i>
-                          </div>
-                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Gym">
-                            <i class="las la-dumbbell"></i>
-                          </div>
-                          <div class="hotel-view-contents-icon">
-                            <a class="hotel-view-contents-icon-more" href="javascript:void(0)"> +8 More </a>
                           </div>
                         </div>
                       </div>
                       <div class="hotel-view-contents-bottom">
                         <div class="hotel-view-contents-bottom-flex">
                           <div class="hotel-view-contents-bottom-contents">
-                            <h4 class="hotel-view-contents-bottom-title"> {{ room.price_day }} {{ room.currency }} <sub>/День</sub>
+                            <h4 class="hotel-view-contents-bottom-title"> {{ room.price_day }} {{ room.currency }} <sub>/ День</sub>
                             </h4>
-                            <p class="hotel-view-contents-bottom-para"> (4 Nights, 2 Rooms, 4 Persons) </p>
+                            <p class="hotel-view-contents-bottom-para"> Цена указана на 1 человека </p>
                           </div>
                           <div class="btn-wrapper">
                             <a href="{% url 'room_detail' room.id %}" class="cmn-btn btn-bg-1 btn-small"> Смотреть </a>
@@ -147,25 +136,18 @@
                 <div class="col-12">
                   <div class="hotel-view bg-white radius-20">
                     <div class="hotel-view-flex">
-                      <a href="hotel_details.html" class="hotel-view-thumb hotel-view-list-thumb bg-image" style="background-image: url({{ room.image.url }});"></a>
+                      <a href="{% url 'room_detail' room.id %}" class="hotel-view-thumb hotel-view-list-thumb bg-image" style="background-image: url({{ room.image.url }});"></a>
                       <div class="hotel-view-contents">
                         <div class="hotel-view-contents-header">
-                          <div class="hotel-view-contents-header-flex d-flex flex-wrap gap-3 align-items-center justify-content-between">
-                            <span class="hotel-view-contents-review">
-                              <i class="las la-star"></i> 4.5 <span class="hotel-view-contents-review-count"> (380) </span>
-                            </span>
-                            <div class="btn-wrapper">
-                              <a href="javascript:void(0)" class="cmn-btn btn-bg-1 btn-small"> Reserve Now </a>
-                            </div>
-                          </div>
+                          
                           <h3 class="hotel-view-contents-title">
-                            <a href="hotel_details.html"> {{ room.title }} </a>
+                            <a href="{% url 'room_detail' room.id %}"> {{ room.title }} </a>
                           </h3>
                           <div class="hotel-view-contents-location mt-2">
                             <span class="hotel-view-contents-location-icon">
                               <i class="las la-map-marker-alt"></i>
                             </span>
-                            <span class="hotel-view-contents-location-para"> 4140 Parker Rd. Allentown, New Mexico 31134 </span>
+                            <span class="hotel-view-contents-location-para"> {{ setting.address }} </span>
                           </div>
                         </div>
                         <div class="hotel-view-contents-middle">
@@ -174,55 +156,43 @@
                               <span>
                                 <i class="las la-parking"></i>
                               </span>
-                              <p class="hotel-view-contents-icon-title flex-fill"> Parking </p>
+                              <p class="hotel-view-contents-icon-title flex-fill"> Паркинг </p>
                             </div>
                             <div class="hotel-view-contents-icon d-flex gap-1">
                               <span>
                                 <i class="las la-wifi"></i>
                               </span>
-                              <p class="hotel-view-contents-icon-title flex-fill"> Wifi </p>
+                              <p class="hotel-view-contents-icon-title flex-fill"> WiFi </p>
                             </div>
                             <div class="hotel-view-contents-icon d-flex gap-1">
                               <span>
                                 <i class="las la-coffee"></i>
                               </span>
-                              <p class="hotel-view-contents-icon-title flex-fill"> Breakfast </p>
+                              <p class="hotel-view-contents-icon-title flex-fill"> Кухня </p>
                             </div>
                             <div class="hotel-view-contents-icon d-flex gap-1">
                               <span>
                                 <i class="las la-quidditch"></i>
                               </span>
-                              <p class="hotel-view-contents-icon-title flex-fill"> Room Service </p>
-                            </div>
-                            <div class="hotel-view-contents-icon d-flex gap-1">
-                              <span>
-                                <i class="las la-swimming-pool"></i>
-                              </span>
-                              <p class="hotel-view-contents-icon-title flex-fill"> Pool </p>
+                              <p class="hotel-view-contents-icon-title flex-fill"> Уборка </p>
                             </div>
                             <div class="hotel-view-contents-icon d-flex gap-1">
                               <span>
                                 <i class="las la-receipt"></i>
                               </span>
-                              <p class="hotel-view-contents-icon-title flex-fill"> Reception </p>
-                            </div>
-                            <div class="hotel-view-contents-icon d-flex gap-1">
-                              <span>
-                                <i class="las la-dumbbell"></i>
-                              </span>
-                              <p class="hotel-view-contents-icon-title flex-fill"> Gym </p>
-                            </div>
-                            <div class="hotel-view-contents-icon d-flex gap-1">
-                              <a class="hotel-view-contents-icon-more" href="javascript:void(0)"> +8 More </a>
+                              <p class="hotel-view-contents-icon-title flex-fill"> Ресепшн </p>
                             </div>
                           </div>
                         </div>
                         <div class="hotel-view-contents-bottom">
                           <div class="hotel-view-contents-bottom-flex">
-                            <div class="hotel-view-contents-bottom-contents d-flex flex-wrap gap-4 gap-sm-1">
-                              <h4 class="hotel-view-contents-bottom-title"> $230 <sub>/Night</sub>
+                            <div class="hotel-view-contents-bottom-contents">
+                              <h4 class="hotel-view-contents-bottom-title"> {{ room.price_day }} {{ room.currency }} <sub>/ День</sub>
                               </h4>
-                              <p class="hotel-view-contents-bottom-para"> (4 Nights, 2 Rooms, 4 Persons) </p>
+                              <p class="hotel-view-contents-bottom-para"> Цена указана на 1 человека </p>
+                            </div>
+                            <div class="btn-wrapper">
+                              <a href="{% url 'room_detail' room.id %}" class="cmn-btn btn-bg-1 btn-small"> Смотреть </a>
                             </div>
                           </div>
                         </div>
