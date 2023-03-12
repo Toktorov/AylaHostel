@@ -20,7 +20,7 @@ Version: 1.0.0
 # Normalize
 --------------------------------------------------------------*/
 :root {
-  --main-color-one: #1E84FE;
+  --main-color-one: #FF8900;
   --main-color-one-rgb: 30, 132, 254;
   --secondary-color: #FF8C32;
   --secondary-color-rgb: 255, 140, 50;
@@ -4973,9 +4973,9 @@ span {
   }
 }
 .btn-wrapper .cmn-btn.btn-bg-1 {
-  background: var(--main-color-one);
+  background: #FF8900;
   color: #fff;
-  border: 2px solid var(--main-color-one);
+  border: 2px solid #FF8900;
 }
 .btn-wrapper .cmn-btn.btn-bg-1:hover {
   background: none;
