@@ -8,11 +8,17 @@
                 <a href="{% url 'index' %}" class="footer-contents-logo-img">
                   <img src="{{ setting.logo.url }}" width="60%" alt="logo">
                 </a>
-                <h3 class="footer-contents-logo-title text-white">
+                <h3 class="footer-contents-logo-title text-white mt-3">
                   <a href="{{ setting.title }}"> {{ setting.title }} </a>
                 </h3>
-                <p class="footer-contents-logo-para mt-3"> {{ setting.description }} </p>
+                <p class="footer-contents-logo-para mt-2"> {{ setting.description }} </p>
               </div>
+              <h6 class="fw-700 text-white mt-3"> Наши контакты: </h6>
+              <a href="{{ setting.address_url }}"><p class="fw-900 mt-1"> Адрес: {{ setting.address }} </p></a>
+              <a href="mailto:{{ setting.email }}"><p class="fw-900 mt-1"> Почта: {{ setting.email }} </p></a>
+              {% for phon in phone %}
+              <a href="tel:{{ phon.phone }}"><p class="fw-900 mt-1"> {{ phon.phone }} </p></a>
+              {% endfor %}
               <div class="footer-widget widget">
                 <div class="footer-widget-social mt-4">
                   <ul class="footer-widget-social-list list-style-none justify-content-center">

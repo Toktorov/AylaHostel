@@ -10,9 +10,16 @@
               <div class="banner-single-content">
                 <h2 class="banner-single-content-title fw-700"> Добро пожаловать в {{ setting.title }} </h2>
                 <p class="banner-single-content-para mt-3"> {{ setting.description }} </p>
+                <h6 class="fw-900 mt-3"> Наши контакты: </h6>
+                <a href="{{ setting.address_url }}"><p class="fw-900 mt-1"> Адрес: {{ setting.address }} </p></a>
+                <a href="mailto:{{ setting.email }}"><p class="fw-900 mt-1"> Почта: {{ setting.email }} </p></a>
+                {% for phon in phone %}
+                <a href="tel:{{ phon.phone }}"><p class="fw-900 mt-1"> {{ phon.phone }} </p></a>
+                {% endfor %}
                 <div class="banner mt-3">
                     <div class="btn-wrapper">
                       <a href="{% url 'reservation' %}" class="cmn-btn btn-bg-1 btn-small"> Забронировать </a>
+                      <a href="{% url 'contact' %}" class="cmn-btn btn-bg-1 btn-small"> Связаться </a>
                     </div>
                 </div>
               </div>

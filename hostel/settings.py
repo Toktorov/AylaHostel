@@ -38,7 +38,7 @@ SECRET_KEY = config.SECRET_KEY
 DEBUG = config.DEBUG
 
 #Nurbolot
-# ALLOWED_HOSTS =[]
+# ALLOWED_HOSTS =["*"]
 
 #Kurmanbek
 ALLOWED_HOSTS = config.ALLOWED_HOSTS 
