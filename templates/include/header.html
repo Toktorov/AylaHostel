@@ -44,6 +44,28 @@
               </ul>
             </li>
             {% endif %}
+            <li class="menu-item-has-children current-menu-item">
+              <a href="javascript:void(0)">RU</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="{% url 'index' %}">KGZ</a>
+                </li>
+                <li>
+                  <a href="{% url 'index' %}"> ENG </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item-has-children current-menu-item">
+              <a href="javascript:void(0)">USD</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="{% url 'index' %}">KGS</a>
+                </li>
+                <li>
+                  <a href="{% url 'index' %}"> RUB </a>
+                </li>
+              </ul>
+            </li>
             {% if phone %}
             {% for phon in phone %}
             <li>
