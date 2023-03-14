@@ -48,6 +48,8 @@ ALLOWED_HOSTS = config.ALLOWED_HOSTS
 # Application definition
 
 INSTALLED_APPS = [
+    #translate
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -62,9 +64,6 @@ INSTALLED_APPS = [
     'apps.rooms',
     'apps.users',
     'apps.telegram',
-
-    #translate
-    'modeltranslation',
 ]
 
 SITE_ID = 1
@@ -160,12 +159,16 @@ USE_I18N = True
 
 USE_TZ = True
 
+#translation
 gettext = lambda s: s
 LANGUAGES = (
     ('ky', gettext('Kyrgyz')),
-    ('ru', gettext('Russia')),
+    ('ru', gettext('Russian')),
     ('en', gettext('English')),
 )
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+# MODELTRANSLATION_TRANSLATION_REGISTRY = 'rooms.translation'
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
