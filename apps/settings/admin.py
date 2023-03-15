@@ -1,9 +1,13 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin
 
 from apps.settings.models import Setting, PhoneNumber ,Partners, Contact, Gallery, FAQ, News, Promotion, Benefit, Team,WeAre, About
 
 # Register your models here.
-admin.site.register(Setting)
+class SettingAdmin(TranslationAdmin):
+    list_display = ('title', 'description')
+
+admin.site.register(Setting, SettingAdmin)
 admin.site.register(PhoneNumber)
 admin.site.register(Contact)
 admin.site.register(Gallery)
