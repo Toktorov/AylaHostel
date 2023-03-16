@@ -16,31 +16,31 @@
         <div class="collapse navbar-collapse" id="hotel_booking_menu">
           <ul class="navbar-nav">
             <li>
-                <a href="{% url 'index' %}"> Домой </a>
+                <a href="{% url 'index' %}"> {% trans 'Домой' %} </a>
             </li>
             <li>
-              <a href="{% url 'about' %}"> О нас </a>
+              <a href="{% url 'about' %}"> {% trans 'О нас' %} </a>
             </li>
             <li>
-              <a href="{% url 'rooms' %}"> Комнаты </a>
+              <a href="{% url 'rooms' %}"> {% trans 'Комнаты' %} </a>
             </li>
             {% if news %}
             <li>
-              <a href="{% url 'news_index' %}"> Новости </a>
+              <a href="{% url 'news_index' %}"> {% trans 'Новости' %} </a>
             </li>
             {% endif %}
             <li>
-              <a href="{% url 'contact' %}"> Связаться </a>
+              <a href="{% url 'contact' %}"> {% trans 'Связаться' %} </a>
             </li>
             {% if user.is_authenticated and user.is_superuser %} 
             <li class="menu-item-has-children current-menu-item">
               <a href="javascript:void(0)">{{ user.username }}</a>
               <ul class="sub-menu">
                 <li>
-                  <a href="{% url 'admin_panel' %}">Админ панель</a>
+                  <a href="{% url 'admin_panel' %}">{% trans 'Админ панель' %}</a>
                 </li>
                 <li>
-                  <a href="{% url 'logout' %}"> Выйти </a>
+                  <a href="{% url 'logout' %}"> {% trans 'Выйти' %} </a>
                 </li>
               </ul>
             </li>
@@ -92,7 +92,7 @@
               {% if user.is_authenticated and user.is_superuser %} 
               {% else %}
               <div class="btn-wrapper">
-                <a href="{% url 'admin_login_user' %}" class="cmn-btn btn-bg-1 radius-10"> Войти </a>
+                <a href="{% url 'admin_login_user' %}" class="cmn-btn btn-bg-1 radius-10"> {% trans 'Войти' %} </a>
               </div>
               {% endif %}
             </div>

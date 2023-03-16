@@ -1,3 +1,4 @@
+{% load i18n %}
 <footer class="footer-area footer-area-one footer-border-round footer-bg-1">
     <div class="container">
       <div class="row">
@@ -13,9 +14,9 @@
                 </h3>
                 <p class="footer-contents-logo-para mt-2"> {{ setting.description }} </p>
               </div>
-              <h6 class="fw-700 text-white mt-3"> Наши контакты: </h6>
-              <a href="{{ setting.address_url }}"><p class="fw-900 mt-1"> Адрес: {{ setting.address }} </p></a>
-              <a href="mailto:{{ setting.email }}"><p class="fw-900 mt-1"> Почта: {{ setting.email }} </p></a>
+              <h6 class="fw-700 text-white mt-3"> {% trans 'Наши контакты:' %} </h6>
+              <a href="{{ setting.address_url }}"><p class="fw-900 mt-1"> {% trans 'Адрес:' %} {{ setting.address }} </p></a>
+              <a href="mailto:{{ setting.email }}"><p class="fw-900 mt-1"> {% trans 'Почта:' %} {{ setting.email }} </p></a>
               {% for phon in phone %}
               <a href="tel:{{ phon.phone }}"><p class="fw-900 mt-1"> {{ phon.phone }} </p></a>
               {% endfor %}
@@ -57,18 +58,17 @@
                 <div class="footer-widget-nav mt-5">
                   <ul class="footer-widget-nav-list list-style-none">
                     <li class="footer-widget-nav-list-item">
-                      <a href="{% url 'index' %}" class="footer-widget-nav-list-link"> Домой </a>
+                      <a href="{% url 'index' %}" class="footer-widget-nav-list-link"> {% trans 'Домой' %} </a>
                     </li>
                     <li class="footer-widget-nav-list-item">
-                      <a href="{% url 'about' %}" class="footer-widget-nav-list-link"> О нас </a>
+                      <a href="{% url 'about' %}" class="footer-widget-nav-list-link"> {% trans 'О нас' %} </a>
                     </li>
                     <li class="footer-widget-nav-list-item">
-                      <a href="{% url 'rooms' %}" class="footer-widget-nav-list-link"> Комнаты </a>
+                      <a href="{% url 'rooms' %}" class="footer-widget-nav-list-link"> {% trans 'Комнаты' %} </a>
                     </li>
                     <li class="footer-widget-nav-list-item">
-                      <a href="{% url 'contact' %}" class="footer-widget-nav-list-link"> Связаться </a>
+                      <a href="{% url 'contact' %}" class="footer-widget-nav-list-link"> {% trans 'Связаться' %} </a>
                     </li>
-                  
                   </ul>
                 </div>
               </div>
@@ -87,7 +87,7 @@
                   <div class="copyright-contents-single-icon">
                     <i class="las la-phone"></i>
                   </div>
-                  <div class="copyright-contents-single-details">Есть вопросы? </span>
+                  <div class="copyright-contents-single-details">{% trans 'Есть вопросы?' %}' </span>
                     <a href="tel:{{ setting.phone }}" class="copyright-contents-single-details-link"> {{ setting.phone }} </a>
                   </div>
                 </div>
@@ -98,7 +98,7 @@
                     <i class="las la-envelope"></i>
                   </div>
                   <div class="copyright-contents-single-details">
-                    <span class="copyright-contents-single-details-title"> Есть вопрос? </span>
+                    <span class="copyright-contents-single-details-title"> {% trans 'Есть вопрос?' %}' </span>
                     <a href="{% url 'contact' %}" class="copyright-contents-single-details-link">
                       <span class="__cf_email__" data-cfemail="99ecf7ebfcf8f5d9fce1f8f4e9f5fcb7faf6f4">Свяжитесь с нами</span>
                     </a>

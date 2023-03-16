@@ -1,5 +1,5 @@
 {% extends 'homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
     {% include 'include/header.html' %}
     <div class="banner-area banner-area-one">
@@ -8,18 +8,18 @@
           <div class="col-lg-6">
             <div class="banner-single banner-single-one percent-padding">
               <div class="banner-single-content">
-                <h2 class="banner-single-content-title fw-700"> Добро пожаловать в {{ setting.title }} </h2>
+                <h2 class="banner-single-content-title fw-700">{% trans 'Добро пожаловать в'  %} {{ setting.title }}</h2>
                 <p class="banner-single-content-para mt-3"> {{ setting.description }} </p>
-                <h6 class="fw-900 mt-3"> Наши контакты: </h6>
-                <a href="{{ setting.address_url }}"><p class="fw-900 mt-1"> Адрес: {{ setting.address }} </p></a>
-                <a href="mailto:{{ setting.email }}"><p class="fw-900 mt-1"> Почта: {{ setting.email }} </p></a>
+                <h6 class="fw-900 mt-3"> {% trans 'Наши контакты:' %} </h6>
+                <a href="{{ setting.address_url }}"><p class="fw-900 mt-1"> {% trans 'Адрес:' %} {{ setting.address }} </p></a>
+                <a href="mailto:{{ setting.email }}"><p class="fw-900 mt-1"> {% trans 'Почта:' %} {{ setting.email }} </p></a>
                 {% for phon in phone %}
                 <a href="tel:{{ phon.phone }}"><p class="fw-900 mt-1"> {{ phon.phone }} </p></a>
                 {% endfor %}
                 <div class="banner mt-3">
                     <div class="btn-wrapper">
-                      <a href="{% url 'reservation' %}" class="cmn-btn btn-bg-1 btn-small"> Забронировать </a>
-                      <a href="{% url 'contact' %}" class="cmn-btn btn-bg-1 btn-small"> Связаться </a>
+                      <a href="{% url 'reservation' %}" class="cmn-btn btn-bg-1 btn-small"> {% trans 'Забронировать' %} </a>
+                      <a href="{% url 'contact' %}" class="cmn-btn btn-bg-1 btn-small"> {% trans 'Связаться' %} </a>
                     </div>
                 </div>
               </div>
@@ -33,7 +33,7 @@
     <section class="attraction-area pat-50 pab-50">
       <div class="container">
         <div class="section-title center-text mt-5">
-          <h2 class="banner-single-content-title fw-700 mt-5"> Наши номера </h2>
+          <h2 class="banner-single-content-title fw-700 mt-5"> {% trans 'Наши номера' %} </h2>
           <div class="append-attraction" style="display: none;"></div>
         </div>
         <div class="row mt-5">
@@ -58,10 +58,10 @@
                       <a href="{% url 'room_detail' room.id %}"> {{ room.title }} </a>
                     </h4>
                     <div class="hotel-view-contents-bottom-contents">
-                      <h5 class="hotel-view-contents-bottom-title"><sub>  От {{ room.price_day }} {{ room.currency }} </sub> </h5>
+                      <h5 class="hotel-view-contents-bottom-title"><sub>  {% trans 'От' %} {{ room.price_day }} {{ room.currency }} </sub> </h5>
                     </div>`
                     <div class="btn-wrapper mt-3">
-                      <a href="{% url 'reservation_room' room.id %}" class="cmn-btn btn-bg-1 btn-small"> Забронировать </a>
+                      <a href="{% url 'reservation_room' room.id %}" class="cmn-btn btn-bg-1 btn-small"> {% trans 'Забронировать' %} </a>
                     </div>
                   </div>
                 </div>
@@ -79,7 +79,7 @@
     <section class="booking-area pat-100 pab-50">
       <div class="container">
         <div class="section-title center-text">
-          <h2 class="banner-single-content-title fw-700 mt-5"> Почему мы? </h2>
+          <h2 class="banner-single-content-title fw-700 mt-5"> {% trans 'Почему мы?' %} </h2>
           <div class="section-title-shapes"></div>
         </div>
         <div class="row gy-4 mt-5">
@@ -105,7 +105,7 @@
     <section class="partner-area pat-50 pab-100">
       <div class="container">
         <div class="section-title center-text">
-          <h2 class="banner-single-content-title fw-700 mt-5"> Где мы есть ? </h2>
+          <h2 class="banner-single-content-title fw-700 mt-5"> {% trans 'Где мы есть?' %} </h2>
           <div class="section-title-shapes"></div>
         </div>
         <div class="row mt-5">
@@ -134,7 +134,7 @@
     <section class="shots-area pat-50 pab-50">
       <div class="container">
         <div class="section-title center-text">
-          <h2 class="banner-single-content-title fw-700 mt-5"> Наша галерея </h2>
+          <h2 class="banner-single-content-title fw-700 mt-5"> {% trans 'Наша галерея' %} </h2>
           <div class="section-title-shapes"></div>
         </div>
         <div class="imgLoaded mt-5">
@@ -157,7 +157,7 @@
     <section class="question-area pat-50 pab-50">
       <div class="container">
         <div class="section-title center-text">
-          <h2 class="banner-single-content-title fw-700 mt-5"> Часто задаваемые вопросы </h2>
+          <h2 class="banner-single-content-title fw-700 mt-5"> {% trans 'Часто задаваемые вопросы' %} </h2>
           <div class="section-title-shapes"></div>
         </div>
         <div class="row g-4 mt-4">
@@ -177,27 +177,27 @@
           </div>
           <div class="col-xl-4 col-lg-5">
             <div class="faq-question faq-question-border radius-10 sticky-top">
-              <h3 class="faq-question-title"> У вас есть вопросы? </h3>
+              <h3 class="faq-question-title"> {% trans 'У вас есть вопросы?' %} </h3>
               <div class="faq-question-form custom-form mat-20">
                 <form method="post">
                   {% csrf_token %}
                   <div class="single-input">
-                    <label class="label-title"> Имя </label>
-                    <input type="text" name = "name" class="form--control radius-10" placeholder="Ваше имя">
+                    <label class="label-title"> {% trans 'Имя' %} </label>
+                    <input type="text" name = "name" class="form--control radius-10" placeholder="{% trans 'Ваше имя' %}">
                   </div>
                   <div class="single-input">
-                    <label class="label-title"> Номер </label>
-                    <input type="text" name = "phone_number" class="form--control radius-10" placeholder="Ваш номер">
+                    <label class="label-title"> {% trans 'Номер' %} </label>
+                    <input type="text" name = "phone_number" class="form--control radius-10" placeholder="{% trans 'Ваше имя' %}">
                   </div>
                   <div class="single-input">
-                    <label class="label-title"> Почта </label>
-                    <input type="text" name = "email" class="form--control radius-10" placeholder="Ваша почта">
+                    <label class="label-title"> {% trans 'Почта' %} </label>
+                    <input type="text" name = "email" class="form--control radius-10" placeholder="{% trans 'Ваша почта' %}">
                   </div>
                   <div class="single-input">
-                    <label class="label-title"> Вопрос </label>
-                    <textarea name="message" name = "message" class="form--control form-message radius-10" placeholder="Ваше сообщение..."></textarea>
+                    <label class="label-title"> {% trans 'Вопрос' %} </label>
+                    <textarea name="message" name = "message" class="form--control form-message radius-10" placeholder="{% trans 'Ваше сообщение...' %}"></textarea>
                   </div>
-                  <button class="submit-btn w-100 radius-10" type="submit" name = "contact"> Отправить </button>
+                  <button class="submit-btn w-100 radius-10" type="submit" name = "contact"> {% trans 'Отправить' %} </button>
                 </form>
               </div>
             </div>
@@ -210,7 +210,7 @@
     <section class="blog-area pat-50 pab-50">
       <div class="container">
         <div class="section-title center-text">
-          <h2 class="banner-single-content-title fw-700 mt-5"> Последние новости </h2>
+          <h2 class="banner-single-content-title fw-700 mt-5"> {% trans 'Последние новости' %} </h2>
           <div class="section-title-shapes"></div>
         </div>
         <div class="row gy-4 mt-4">
@@ -254,8 +254,8 @@
                 <img src="{% static 'assets/img/single-page/newsletter-shape2.png' %}" alt="shapes">
               </div>
               <div class="newsletter-contents center-text">
-                <h3 class="newsletter-contents-title"> Подпишитесь на наши социальные сети </h3>
-                <p class="newsletter-contents-para mt-3"> Подпишитесь на наши социальные сети, чтобы получать актуальную информацию </p>
+                <h3 class="newsletter-contents-title"> {% trans 'Подпишитесь на наши социальные сети' %} </h3>
+                <p class="newsletter-contents-para mt-3"> {% trans 'Подпишитесь на наши социальные сети, чтобы получать актуальную информацию' %} </p>
                 <div class="footer-widget widget">
                   <div class="footer-widget-social mt-4">
                     <ul class="footer-widget-social-list list-style-none justify-content-center">
@@ -296,12 +296,9 @@
       </div>
     </div>
     {% include 'include/footer.html' %}
-
-    
     <div class="back-to-top">
       <span class="back-top">
         <i class="las la-angle-up"></i>
       </span>
     </div>
-
 {% endblock %}
