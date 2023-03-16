@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-16 11:41+0600\n"
+"POT-Creation-Date: 2023-03-16 12:01+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,6 +43,7 @@ msgid "Почта:"
 msgstr "Email:"
 
 #: templates/include/footer.html:61 templates/include/header.html:19
+#: templates/room/room_detail.html:13
 msgid "Домой"
 msgstr "Home"
 
@@ -51,6 +52,7 @@ msgid "О нас"
 msgstr "About Us"
 
 #: templates/include/footer.html:67 templates/include/header.html:25
+#: templates/room/room_detail.html:16
 msgid "Комнаты"
 msgstr "Rooms"
 
@@ -92,6 +94,7 @@ msgid "Добро пожаловать в"
 msgstr "Welcome to"
 
 #: templates/index.html:21 templates/index.html:64
+#: templates/room/room_detail.html:103 templates/room/room_detail.html:257
 msgid "Забронировать"
 msgstr "Make reservation"
 
@@ -123,11 +126,13 @@ msgstr "You have questions?"
 msgid "У вас есть вопросы?"
 msgstr "You have questions?"
 
-#: templates/index.html:185
+#: templates/index.html:185 templates/room/room_detail.html:237
 msgid "Имя"
 msgstr "Last Name"
 
 #: templates/index.html:186 templates/index.html:190
+#: templates/room/room_detail.html:238 templates/room/room_detail.html:242
+#: templates/room/room_detail.html:246
 msgid "Ваше имя"
 msgstr "Your last name"
 
@@ -167,6 +172,72 @@ msgstr "Subscribe to our social networks"
 msgid ""
 "Подпишитесь на наши социальные сети, чтобы получать актуальную информацию"
 msgstr "Subscribe to our social networks to receive up-to-date information"
+
+#: templates/room/room_detail.html:63 templates/room/room_detail.html:184
+msgid "Паркинг"
+msgstr "Parking"
+
+#: templates/room/room_detail.html:76 templates/room/room_detail.html:196
+msgid "Кухня"
+msgstr "Kitchen"
+
+#: templates/room/room_detail.html:83 templates/room/room_detail.html:202
+msgid "Уборка"
+msgstr "Cleaning"
+
+#: templates/room/room_detail.html:90 templates/room/room_detail.html:209
+msgid "Ресепшн"
+msgstr "Receptionist"
+
+#: templates/room/room_detail.html:98 templates/room/room_detail.html:217
+#: templates/room/room_detail.html:302
+msgid "День"
+msgstr "Day"
+
+#: templates/room/room_detail.html:100 templates/room/room_detail.html:219
+#: templates/room/room_detail.html:304
+msgid "Цена указана на 1 человека"
+msgstr "The price is for 1 person"
+
+#: templates/room/room_detail.html:110
+msgid "Описание"
+msgstr "Description"
+
+#: templates/room/room_detail.html:111
+msgid "Отзывы"
+msgstr "Reviews"
+
+#: templates/room/room_detail.html:131
+msgid "Оставить отзыв"
+msgstr "Leave feedback"
+
+#: templates/room/room_detail.html:132
+msgid "Наша дружная команда будет рада услышать вас."
+msgstr "Our friendly team will be happy to hear from you."
+
+#: templates/room/room_detail.html:165 templates/room/room_detail.html:307
+msgid "Посмотреть"
+msgstr "See more"
+
+#: templates/room/room_detail.html:241
+msgid "Фамилия"
+msgstr "First name"
+
+#: templates/room/room_detail.html:245
+msgid "Номер телефонна"
+msgstr "Phone number"
+
+#: templates/room/room_detail.html:249
+msgid "Дата заезда"
+msgstr "Arrival date"
+
+#: templates/room/room_detail.html:250 templates/room/room_detail.html:254
+msgid "Дата"
+msgstr "Date"
+
+#: templates/room/room_detail.html:253
+msgid "Дата отъезда"
+msgstr "Departure date"
 
 #: venv/lib/python3.10/site-packages/_pytest/config/argparsing.py:474
 #, python-format

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-16 11:44+0600\n"
+"POT-Creation-Date: 2023-03-16 12:05+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,6 +43,7 @@ msgid "Почта:"
 msgstr "Почта:"
 
 #: templates/include/footer.html:61 templates/include/header.html:19
+#: templates/room/room_detail.html:13
 msgid "Домой"
 msgstr "Башкы бет"
 
@@ -51,6 +52,7 @@ msgid "О нас"
 msgstr "Биз жөнүндө"
 
 #: templates/include/footer.html:67 templates/include/header.html:25
+#: templates/room/room_detail.html:16
 msgid "Комнаты"
 msgstr "Бөлмөлөр"
 
@@ -88,6 +90,7 @@ msgid "Добро пожаловать в"
 msgstr "Кош келиңиздер"
 
 #: templates/index.html:21 templates/index.html:64
+#: templates/room/room_detail.html:103 templates/room/room_detail.html:257
 msgid "Забронировать"
 msgstr "Заказ кылуу"
 
@@ -119,11 +122,13 @@ msgstr "Көп берилүүчү суроолор"
 msgid "У вас есть вопросы?"
 msgstr "Суроолоруңуз барбы?"
 
-#: templates/index.html:185
+#: templates/index.html:185 templates/room/room_detail.html:237
 msgid "Имя"
 msgstr "Аты"
 
 #: templates/index.html:186 templates/index.html:190
+#: templates/room/room_detail.html:238 templates/room/room_detail.html:242
+#: templates/room/room_detail.html:246
 msgid "Ваше имя"
 msgstr "Сиздин атыңыз"
 
@@ -163,6 +168,72 @@ msgstr "Биздин социалдык тармактарга жазылыңы�
 msgid ""
 "Подпишитесь на наши социальные сети, чтобы получать актуальную информацию"
 msgstr "Соңку маалымат алуу үчүн биздин социалдык тармактарга жазылыңыз"
+
+#: templates/room/room_detail.html:63 templates/room/room_detail.html:184
+msgid "Паркинг"
+msgstr "Паркинг"
+
+#: templates/room/room_detail.html:76 templates/room/room_detail.html:196
+msgid "Кухня"
+msgstr "Ашкана"
+
+#: templates/room/room_detail.html:83 templates/room/room_detail.html:202
+msgid "Уборка"
+msgstr "Тазалоо"
+
+#: templates/room/room_detail.html:90 templates/room/room_detail.html:209
+msgid "Ресепшн"
+msgstr "Ресепшнист"
+
+#: templates/room/room_detail.html:98 templates/room/room_detail.html:217
+#: templates/room/room_detail.html:302
+msgid "День"
+msgstr "Күн"
+
+#: templates/room/room_detail.html:100 templates/room/room_detail.html:219
+#: templates/room/room_detail.html:304
+msgid "Цена указана на 1 человека"
+msgstr "Баасы 1 адам үчүн"
+
+#: templates/room/room_detail.html:110
+msgid "Описание"
+msgstr "Бөлмө жөнүндө"
+
+#: templates/room/room_detail.html:111
+msgid "Отзывы"
+msgstr "Сын-пикирлер"
+
+#: templates/room/room_detail.html:131
+msgid "Оставить отзыв"
+msgstr "Пикир калтыруу"
+
+#: templates/room/room_detail.html:132
+msgid "Наша дружная команда будет рада услышать вас."
+msgstr "Биздин ынтымактуу команда сизди укканга кубанычта болот."
+
+#: templates/room/room_detail.html:165 templates/room/room_detail.html:307
+msgid "Посмотреть"
+msgstr "Көрүү"
+
+#: templates/room/room_detail.html:241
+msgid "Фамилия"
+msgstr "Фамилия"
+
+#: templates/room/room_detail.html:245
+msgid "Номер телефонна"
+msgstr "Телефон номуру"
+
+#: templates/room/room_detail.html:249
+msgid "Дата заезда"
+msgstr "Келүү күнү"
+
+#: templates/room/room_detail.html:250 templates/room/room_detail.html:254
+msgid "Дата"
+msgstr "Дата"
+
+#: templates/room/room_detail.html:253
+msgid "Дата отъезда"
+msgstr "Кетүү күнү"
 
 #: venv/lib/python3.10/site-packages/_pytest/config/argparsing.py:474
 #, python-format

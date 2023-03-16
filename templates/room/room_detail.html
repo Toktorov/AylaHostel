@@ -1,5 +1,5 @@
 {% extends 'homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
     {% include 'include/header.html' %}
     <div class="breadcrumb-area breadcrumb-padding">
@@ -10,10 +10,10 @@
               <h4 class="breadcrumb-contents-title"> {{ room.title }} </h4>
               <ul class="breadcrumb-contents-list list-style-none">
                 <li class="breadcrumb-contents-list-item">
-                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Домой </a>
+                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> {% trans 'Домой' %} </a>
                 </li>
                 <li class="breadcrumb-contents-list-item">
-                  <a href="listing.html" class="breadcrumb-contents-list-item-link"> Комнаты </a>
+                  <a href="listing.html" class="breadcrumb-contents-list-item-link"> {% trans 'Комнаты' %} </a>
                 </li>
                 <li class="breadcrumb-contents-list-item"> {{ room.title }} </li>
               </ul>
@@ -60,7 +60,7 @@
                         <span>
                           <i class="las la-parking"></i>
                         </span>
-                        <p class="hotel-view-contents-icon-title flex-fill"> Паркинг </p>
+                        <p class="hotel-view-contents-icon-title flex-fill"> {% trans 'Паркинг' %} </p>
                       </div>
                       <div class="hotel-view-contents-icon d-flex gap-1">
                         <span>
@@ -73,21 +73,21 @@
                           <span>
                             <i class="las la-coffee"></i>
                           </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Кухня </p>
+                          <p class="hotel-view-contents-icon-title flex-fill"> {% trans 'Кухня' %} </p>
                         </div>
 
                       <div class="hotel-view-contents-icon d-flex gap-1">
                         <span>
                           <i class="las la-quidditch"></i>
                         </span>
-                        <p class="hotel-view-contents-icon-title flex-fill"> Уборка </p>
+                        <p class="hotel-view-contents-icon-title flex-fill"> {% trans 'Уборка' %} </p>
                       </div>
                       
                       <div class="hotel-view-contents-icon d-flex gap-1">
                         <span>
                           <i class="las la-receipt"></i>
                         </span>
-                        <p class="hotel-view-contents-icon-title flex-fill"> Ресепшн </p>
+                        <p class="hotel-view-contents-icon-title flex-fill"> {% trans 'Ресепшн' %} </p>
                       </div>
                       
                     </div>
@@ -95,20 +95,20 @@
                   <div class="hotel-view-contents-bottom">
                     <div class="hotel-view-contents-bottom-flex">
                       <div class="hotel-view-contents-bottom-contents">
-                        <h4 class="hotel-view-contents-bottom-title"> {{ room.price_day }} {{ room.currency }} <sub>/ День</sub>
+                        <h4 class="hotel-view-contents-bottom-title"> {{ room.price_day }} {{ room.currency }} <sub>/ {% trans 'День' %}</sub>
                         </h4>
-                        <p class="hotel-view-contents-bottom-para"> Цена указана на 1 человека </p>
+                        <p class="hotel-view-contents-bottom-para"> {% trans 'Цена указана на 1 человека' %} </p>
                       </div>
                       <div class="btn-wrapper">
-                        <a href="{% url 'reservation_room' room.id %}" class="cmn-btn btn-bg-1 btn-small"> Забронировать </a>
+                        <a href="{% url 'reservation_room' room.id %}" class="cmn-btn btn-bg-1 btn-small"> {% trans 'Забронировать' %} </a>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="details-contents-tab">
                   <ul class="tabs details-tab details-tab-border">
-                    <li class="active" data-tab="about"> Описание </li>
-                    <li data-tab="reviews"> Отзывы </li>
+                    <li class="active" data-tab="about"> {% trans 'Описание' %} </li>
+                    <li data-tab="reviews"> {% trans 'Отзывы' %} </li>
                   </ul>
                   <div id="about" class="tab-content-item active">
                     <div class="about-tab-contents">
@@ -128,8 +128,8 @@
                     
                         <!-- <div class="contact-wrapper contact-padding bg-white radius-20"> -->
                           <div class="contact-contents mt-4">
-                            <h4 class="contact-contents-title"> Оставить отзыв </h4>
-                            <p class="contact-contents-para mt-2"> Наша дружная команда будет рада услышать вас. </p>
+                            <h4 class="contact-contents-title"> {% trans 'Оставить отзыв' %} </h4>
+                            <p class="contact-contents-para mt-2"> {% trans 'Наша дружная команда будет рада услышать вас.' %} </p>
                             <div class="contact-contents-form custom-form">
                               <form method="POST">
                                 {% csrf_token %}
@@ -162,7 +162,7 @@
                           <i class="las la-star"></i> 10 <span class="hotel-view-contents-review-count"> ({{ reviews.all.count }}) </span>
                         </span>
                         <div class="btn-wrapper">
-                          <a href="{% url 'room_detail' one.id %}" class="cmn-btn btn-bg-1 btn-small"> Посмотреть </a>
+                          <a href="{% url 'room_detail' one.id %}" class="cmn-btn btn-bg-1 btn-small"> {% trans 'Посмотреть' %} </a>
                         </div>
                       </div>
                       <h3 class="hotel-view-contents-title">
@@ -181,7 +181,7 @@
                           <span>
                             <i class="las la-parking"></i>
                           </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Паркинг </p>
+                          <p class="hotel-view-contents-icon-title flex-fill"> {% trans 'Паркинг' %} </p>
                         </div>
                         <div class="hotel-view-contents-icon d-flex gap-1">
                           <span>
@@ -193,20 +193,20 @@
                           <span>
                             <i class="las la-coffee"></i>
                           </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Кухня </p>
+                          <p class="hotel-view-contents-icon-title flex-fill"> {% trans 'Кухня' %} </p>
                         </div>
                         <div class="hotel-view-contents-icon d-flex gap-1">
                           <span>
                             <i class="las la-quidditch"></i>
                           </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Уборка </p>
+                          <p class="hotel-view-contents-icon-title flex-fill"> {% trans 'Уборка' %} </p>
                         </div>
                         
                         <div class="hotel-view-contents-icon d-flex gap-1">
                           <span>
                             <i class="las la-receipt"></i>
                           </span>
-                          <p class="hotel-view-contents-icon-title flex-fill"> Ресепшн </p>
+                          <p class="hotel-view-contents-icon-title flex-fill"> {% trans 'Ресепшн' %} </p>
                         </div>
                         
                       </div>
@@ -214,9 +214,9 @@
                     <div class="hotel-view-contents-bottom">
                       <div class="hotel-view-contents-bottom-flex">
                         <div class="hotel-view-contents-bottom-contents d-flex flex-wrap gap-4">
-                          <h4 class="hotel-view-contents-bottom-title"> {{ one.price_day }} {{ one.currency }} <sub>/ День</sub>
+                          <h4 class="hotel-view-contents-bottom-title"> {{ one.price_day }} {{ one.currency }} <sub>/ {% trans 'День' %}</sub>
                           </h4>
-                          <p class="hotel-view-contents-bottom-para"> Цена указана на 1 человека </p>
+                          <p class="hotel-view-contents-bottom-para"> {% trans 'Цена указана на 1 человека' %} </p>
                         </div>
                       </div>
                     </div>
@@ -234,27 +234,27 @@
                     <form method="POST">
                       {% csrf_token %}
                       <div class="single-input">
-                        <label class="details-sidebar-dropdown-title"> Имя</label>
-                        <input class="form--control" type="text" name="first_name" placeholder="Ваше имя">
+                        <label class="details-sidebar-dropdown-title"> {% trans 'Имя' %}</label>
+                        <input class="form--control" type="text" name="first_name" placeholder="{% trans 'Ваше имя' %}">
                       </div>
                       <div class="single-input mt-3">
-                        <label class="details-sidebar-dropdown-title"> Фамилия </label>
-                        <input class="form--control" type="text" name="last_name" placeholder="Ваше имя">
+                        <label class="details-sidebar-dropdown-title"> {% trans 'Фамилия' %} </label>
+                        <input class="form--control" type="text" name="last_name" placeholder="{% trans 'Ваше имя' %}">
                       </div>
                       <div class="single-input mt-3">
-                        <label class="details-sidebar-dropdown-title"> Номер телефонна </label>
-                        <input class="form--control" type="text" name="phone_number" placeholder="Ваше имя">
+                        <label class="details-sidebar-dropdown-title"> {% trans 'Номер телефонна' %} </label>
+                        <input class="form--control" type="text" name="phone_number" placeholder="{% trans 'Ваше имя' %}">
                       </div>
                       <div class="single-input mt-3">
-                        <label class="details-sidebar-dropdown-title"> Дата заезда </label>
-                        <input class="form--control date-picker" name = "arrival_date" type="text" placeholder="Дата">
+                        <label class="details-sidebar-dropdown-title"> {% trans 'Дата заезда' %} </label>
+                        <input class="form--control date-picker" name = "arrival_date" type="text" placeholder="{% trans 'Дата' %}">
                       </div>
                       <div class="single-input mt-3">
-                        <label class="details-sidebar-dropdown-title"> Дата отъезда </label>
-                        <input class="form--control date-picker" name = "departure_date" type="text" placeholder="Дата">
+                        <label class="details-sidebar-dropdown-title"> {% trans 'Дата отъезда' %} </label>
+                        <input class="form--control date-picker" name = "departure_date" type="text" placeholder="{% trans 'Дата' %}">
                       </div>
                       <div class="btn-wrapper mt-4">
-                        <button type="submit" name = "reservation" class="cmn-btn btn-bg-1 btn-small"> Забронировать </button>
+                        <button type="submit" name = "reservation" class="cmn-btn btn-bg-1 btn-small"> {% trans 'Забронировать' %} </button>
                       </div>
                     </form>
                   </div>
@@ -299,12 +299,12 @@
                     <div class="hotel-view-contents-bottom">
                       <div class="hotel-view-contents-bottom-flex">
                         <div class="hotel-view-contents-bottom-contents">
-                          <h4 class="hotel-view-contents-bottom-title"> {{ two.price_day }} {{ two.currency }} <sub>/ День</sub>
+                          <h4 class="hotel-view-contents-bottom-title"> {{ two.price_day }} {{ two.currency }} <sub>/ {% trans 'День' %}</sub>
                           </h4>
-                          <p class="hotel-view-contents-bottom-para"> Цена указана на 1 человека </p>
+                          <p class="hotel-view-contents-bottom-para"> {% trans 'Цена указана на 1 человека' %} </p>
                         </div>
                         <div class="btn-wrapper">
-                          <a href="{% url 'room_detail' two.id %}" class="cmn-btn btn-bg-1 btn-small"> Посмотреть </a>
+                          <a href="{% url 'room_detail' two.id %}" class="cmn-btn btn-bg-1 btn-small"> {% trans 'Посмотреть' %} </a>
                         </div>
                       </div>
                     </div>
