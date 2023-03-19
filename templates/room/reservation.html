@@ -1,5 +1,5 @@
 {% extends 'homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
     {% include 'include/header.html' %}
     <div class="breadcrumb-area breadcrumb-padding">
@@ -7,12 +7,12 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-contents">
-              <h4 class="breadcrumb-contents-title"> Забронировать </h4>
+              <h4 class="breadcrumb-contents-title"> {% trans 'Забронировать' %} </h4>
               <ul class="breadcrumb-contents-list list-style-none">
                 <li class="breadcrumb-contents-list-item">
                   <a href="index.html" class="breadcrumb-contents-list-item-link"> Домой </a>
                 </li>
-                <li class="breadcrumb-contents-list-item"> Забронировать </li>
+                <li class="breadcrumb-contents-list-item"> {% trans 'Забронировать' %} </li>
               </ul>
             </div>
           </div>
@@ -25,41 +25,41 @@
           <div class="col-xl-11 col-lg-7">
             <div class="checkout-wrapper">
               <div class="checkout-single bg-white radius-10">
-                <h4 class="checkout-title"> Детали вашего бронирования </h4>
+                <h4 class="checkout-title"> {% trans 'Детали вашего бронирования' %} </h4>
                 <div class="checkout-contents mt-3">
                   <div class="checkout-form custom-form">
                     <form method="post">
                         {% csrf_token %}
                       <div class="input-flex-item">
                         <div class="single-input mt-4">
-                          <label class="label-title"> Фамилия </label>
-                          <input class="form--control" type="text" name="first_name" placeholder="Ваше фамилия">
+                          <label class="label-title"> {% trans 'Фамилия' %} </label>
+                          <input class="form--control" type="text" name="first_name" placeholder="{% trans 'Ваше фамилия' %}">
                         </div>
                         <div class="single-input mt-4">
-                          <label class="label-title"> Имя</label>
-                          <input class="form--control" type="text" name="last_name" placeholder="Ваше имя">
+                          <label class="label-title"> {% trans 'Имя' %}</label>
+                          <input class="form--control" type="text" name="last_name" placeholder="{% trans 'Ваше имя' %}">
                         </div>
                       </div>
                       <div class="input-flex-item">
                         <div class="single-input mt-4">
-                            <label class="label-title"> Телефонный номер </label>
-                            <input class="form--control" type="text" name="phone_number" placeholder="Ваш телефонный номер">
+                            <label class="label-title"> {% trans 'Телефонный номер' %} </label>
+                            <input class="form--control" type="text" name="phone_number" placeholder="{% trans 'Ваш телефонный номер' %}">
                           </div>
                       </div> 
                       <div class="input-flex-item">
                         <div class="single-input mt-4">
-                            <label class="label-title"> Дата заезда </label>
-                            <input class="form--control date-picker" type="text" name="arrival_date" placeholder="Дата заезда">
+                            <label class="label-title"> {% trans 'Дата заезда' %} </label>
+                            <input class="form--control date-picker" type="text" name="arrival_date" placeholder="{% trans 'Дата заезда' %}">
                           </div>
                       </div> 
                       <div class="input-flex-item">
                         <div class="single-input mt-4">
-                            <label class="label-title"> Дата отъезда </label>
-                            <input class="form--control date-picker" type="text" name="departure_date" placeholder="Дата отъезда">
+                            <label class="label-title"> {% trans 'Дата отъезда' %} </label>
+                            <input class="form--control date-picker" type="text" name="departure_date" placeholder="{% trans 'Дата отъезда' %}">
                           </div>
                       </div> 
                       <div class="btn-wrapper mt-4">
-                        <button type="submit" class="cmn-btn btn-bg-1 btn-small">Забронировать</button>
+                        <button type="submit" class="cmn-btn btn-bg-1 btn-small">{% trans 'Забронировать' %}</button>
                      </div>
                     </form>
                   </div>

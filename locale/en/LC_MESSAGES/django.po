@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-16 12:01+0600\n"
+"POT-Creation-Date: 2023-03-19 16:54+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,130 @@ msgstr ""
 msgid "English"
 msgstr ""
 
+#: templates/about.html:10 templates/include/footer.html:64
+#: templates/include/header.html:22
+msgid "О нас"
+msgstr "About Us"
+
+#: templates/about.html:13 templates/confirm_contact.html:13
+#: templates/contact.html:13 templates/include/footer.html:61
+#: templates/include/header.html:19 templates/news/detail.html:13
+#: templates/room/confirmation.html:13 templates/room/confirmation.html:31
+#: templates/room/room_detail.html:13 templates/room/rooms.html:14
+msgid "Домой"
+msgstr "Home"
+
+#: templates/about.html:15 templates/about.html:25
+msgid "О"
+msgstr "About"
+
+#: templates/about.html:35
+msgid "Наша команда"
+msgstr "Our team"
+
+#: templates/about.html:61
+msgid "Наши партнеры"
+msgstr "Our partners"
+
+#: templates/confirm_contact.html:10
+msgid "Контакты"
+msgstr "Contacts:"
+
+#: templates/confirm_contact.html:15 templates/room/confirmation.html:15
+#: templates/room/confirmation.html:28
+msgid "Ваша заявка оставлена"
+msgstr "Your application has been submitted"
+
+#: templates/confirm_contact.html:28
+msgid "Спасибо, ваша заявка оставлена"
+msgstr "Thanks, your application has been submitted"
+
+#: templates/confirm_contact.html:29
+msgid "В скором времени с вами свяжутся )"
+msgstr "You will be contacted shortly)"
+
+#: templates/contact.html:10 templates/contact.html:36
+#: templates/include/footer.html:70 templates/include/header.html:33
+#: templates/index.html:22
+msgid "Связаться"
+msgstr "Contact"
+
+#: templates/contact.html:15
+msgid "Связаться с"
+msgstr "Contact with"
+
+#: templates/contact.html:37 templates/room/room_detail.html:132
+msgid "Наша дружная команда будет рада услышать вас."
+msgstr "Our friendly team will be happy to hear from you."
+
+#: templates/contact.html:48 templates/index.html:185
+#: templates/room/reservation.html:39 templates/room/room_detail.html:237
+msgid "Имя"
+msgstr "Last Name"
+
+#: templates/contact.html:51 templates/room/reservation.html:45
+msgid "Телефонный номер"
+msgstr "Phone number"
+
+#: templates/contact.html:55 templates/index.html:193
+msgid "Почта"
+msgstr "Email"
+
+#: templates/contact.html:58
+msgid "Сообщение"
+msgstr "Message..."
+
+#: templates/contact.html:60 templates/index.html:200
+msgid "Отправить"
+msgstr "Send"
+
+#: templates/custom_admin/login.html:13
+msgid "Здраствуйте!"
+msgstr "Hello!"
+
+#: templates/custom_admin/login.html:14
+msgid "Зайдите чтобы войти в админ панель"
+msgstr "Login to login to admin panel"
+
+#: templates/custom_admin/login.html:18
+msgid "Имя пользователя"
+msgstr "Login"
+
+#: templates/custom_admin/login.html:19
+msgid "Ваше имя пользователя"
+msgstr "Your login"
+
+#: templates/custom_admin/login.html:22
+msgid "Пароль"
+msgstr "Password"
+
+#: templates/custom_admin/login.html:23
+msgid "Пароль от аккаунта"
+msgstr "Account password"
+
+#: templates/custom_admin/login.html:33 templates/include/header.html:95
+msgid "Войти"
+msgstr "Sign In"
+
+#: templates/error.html:14
+msgid "Упс, произошла ошибка"
+msgstr "Oops, an error occurred"
+
+#: templates/error.html:15
+msgid "Вы видете данную страницу потому что не добавили настройки для проекта"
+msgstr ""
+"You are seeing this page because you have not added settings for the project."
+
+#: templates/error.html:16
+msgid ""
+"Для исправления данной ошибки зайдите в административную панель и добавьте "
+"настройки сайта"
+msgstr ""
+
+#: templates/error.html:18
+msgid "Обновить"
+msgstr "Send"
+
 #: templates/include/footer.html:17 templates/index.html:13
 msgid "Наши контакты:"
 msgstr "Our contacts:"
@@ -42,38 +166,26 @@ msgstr "Address:"
 msgid "Почта:"
 msgstr "Email:"
 
-#: templates/include/footer.html:61 templates/include/header.html:19
-#: templates/room/room_detail.html:13
-msgid "Домой"
-msgstr "Home"
-
-#: templates/include/footer.html:64 templates/include/header.html:22
-msgid "О нас"
-msgstr "About Us"
-
 #: templates/include/footer.html:67 templates/include/header.html:25
-#: templates/room/room_detail.html:16
+#: templates/room/room_detail.html:16 templates/room/rooms.html:11
+#: templates/room/rooms.html:16
 msgid "Комнаты"
 msgstr "Rooms"
 
-#: templates/include/footer.html:70 templates/include/header.html:33
-#: templates/index.html:22
-msgid "Связаться"
-msgstr "Contact"
-
 #: templates/include/footer.html:90
-#, fuzzy
-#| msgid "У вас есть вопросы?"
 msgid "Есть вопросы?"
 msgstr "You have questions?"
 
 #: templates/include/footer.html:101
-#, fuzzy
-#| msgid "У вас есть вопросы?"
 msgid "Есть вопрос?"
-msgstr "You have questions?"
+msgstr "You have question?"
 
-#: templates/include/header.html:29
+#: templates/include/footer.html:103
+msgid "Свяжитесь с нами"
+msgstr "Contact with us"
+
+#: templates/include/header.html:29 templates/news/detail.html:16
+#: templates/news/index.html:15
 msgid "Новости"
 msgstr "News"
 
@@ -85,16 +197,14 @@ msgstr "Admin panel"
 msgid "Выйти"
 msgstr "Sign out"
 
-#: templates/include/header.html:95
-msgid "Войти"
-msgstr "Sign In"
-
 #: templates/index.html:11
 msgid "Добро пожаловать в"
 msgstr "Welcome to"
 
 #: templates/index.html:21 templates/index.html:64
-#: templates/room/room_detail.html:103 templates/room/room_detail.html:257
+#: templates/room/reservation.html:10 templates/room/reservation.html:15
+#: templates/room/reservation.html:62 templates/room/room_detail.html:103
+#: templates/room/room_detail.html:257
 msgid "Забронировать"
 msgstr "Make reservation"
 
@@ -126,23 +236,15 @@ msgstr "You have questions?"
 msgid "У вас есть вопросы?"
 msgstr "You have questions?"
 
-#: templates/index.html:185 templates/room/room_detail.html:237
-msgid "Имя"
-msgstr "Last Name"
-
 #: templates/index.html:186 templates/index.html:190
-#: templates/room/room_detail.html:238 templates/room/room_detail.html:242
-#: templates/room/room_detail.html:246
+#: templates/room/reservation.html:40 templates/room/room_detail.html:238
+#: templates/room/room_detail.html:242 templates/room/room_detail.html:246
 msgid "Ваше имя"
 msgstr "Your last name"
 
 #: templates/index.html:189
 msgid "Номер"
 msgstr "Phone"
-
-#: templates/index.html:193
-msgid "Почта"
-msgstr "Email"
 
 #: templates/index.html:194
 msgid "Ваша почта"
@@ -155,10 +257,6 @@ msgstr "Question"
 #: templates/index.html:198
 msgid "Ваше сообщение..."
 msgstr "Your message..."
-
-#: templates/index.html:200
-msgid "Отправить"
-msgstr "Send"
 
 #: templates/index.html:213
 msgid "Последние новости"
@@ -173,29 +271,77 @@ msgid ""
 "Подпишитесь на наши социальные сети, чтобы получать актуальную информацию"
 msgstr "Subscribe to our social networks to receive up-to-date information"
 
+#: templates/news/detail.html:52
+msgid "Другие посты"
+msgstr "Other posts"
+
+#: templates/news/index.html:10
+msgid "Новости о"
+msgstr "News about"
+
+#: templates/room/confirmation.html:10 templates/room/reservation.html:28
+msgid "Детали вашего бронирования"
+msgstr "Your booking details"
+
+#: templates/room/confirmation.html:29
+msgid "ваша заявка на бронирование"
+msgstr "your booking request"
+
+#: templates/room/confirmation.html:29
+msgid "успешно оставлена. В скором времени с вами свяжутся )"
+msgstr "successfully abandoned. You will be contacted shortly)"
+
+#: templates/room/reservation.html:35 templates/room/room_detail.html:241
+msgid "Фамилия"
+msgstr "First name"
+
+#: templates/room/reservation.html:36
+msgid "Ваше фамилия"
+msgstr "Your last name"
+
+#: templates/room/reservation.html:46
+msgid "Ваш телефонный номер"
+msgstr "Phone number"
+
+#: templates/room/reservation.html:51 templates/room/reservation.html:52
+#: templates/room/room_detail.html:249
+msgid "Дата заезда"
+msgstr "Arrival date"
+
+#: templates/room/reservation.html:57 templates/room/reservation.html:58
+#: templates/room/room_detail.html:253
+msgid "Дата отъезда"
+msgstr "Departure date"
+
 #: templates/room/room_detail.html:63 templates/room/room_detail.html:184
+#: templates/room/rooms.html:89 templates/room/rooms.html:157
 msgid "Паркинг"
 msgstr "Parking"
 
 #: templates/room/room_detail.html:76 templates/room/room_detail.html:196
+#: templates/room/rooms.html:95 templates/room/rooms.html:169
 msgid "Кухня"
 msgstr "Kitchen"
 
 #: templates/room/room_detail.html:83 templates/room/room_detail.html:202
+#: templates/room/rooms.html:98 templates/room/rooms.html:175
 msgid "Уборка"
 msgstr "Cleaning"
 
 #: templates/room/room_detail.html:90 templates/room/room_detail.html:209
+#: templates/room/rooms.html:101 templates/room/rooms.html:181
 msgid "Ресепшн"
 msgstr "Receptionist"
 
 #: templates/room/room_detail.html:98 templates/room/room_detail.html:217
-#: templates/room/room_detail.html:302
+#: templates/room/room_detail.html:302 templates/room/rooms.html:109
+#: templates/room/rooms.html:188
 msgid "День"
 msgstr "Day"
 
 #: templates/room/room_detail.html:100 templates/room/room_detail.html:219
-#: templates/room/room_detail.html:304
+#: templates/room/room_detail.html:304 templates/room/rooms.html:111
+#: templates/room/rooms.html:190
 msgid "Цена указана на 1 человека"
 msgstr "The price is for 1 person"
 
@@ -211,33 +357,29 @@ msgstr "Reviews"
 msgid "Оставить отзыв"
 msgstr "Leave feedback"
 
-#: templates/room/room_detail.html:132
-msgid "Наша дружная команда будет рада услышать вас."
-msgstr "Our friendly team will be happy to hear from you."
-
 #: templates/room/room_detail.html:165 templates/room/room_detail.html:307
 msgid "Посмотреть"
 msgstr "See more"
-
-#: templates/room/room_detail.html:241
-msgid "Фамилия"
-msgstr "First name"
 
 #: templates/room/room_detail.html:245
 msgid "Номер телефонна"
 msgstr "Phone number"
 
-#: templates/room/room_detail.html:249
-msgid "Дата заезда"
-msgstr "Arrival date"
-
 #: templates/room/room_detail.html:250 templates/room/room_detail.html:254
 msgid "Дата"
 msgstr "Date"
 
-#: templates/room/room_detail.html:253
-msgid "Дата отъезда"
-msgstr "Departure date"
+#: templates/room/rooms.html:51
+msgid "Найдено"
+msgstr "Find"
+
+#: templates/room/rooms.html:51
+msgid "комнат"
+msgstr "Rooms"
+
+#: templates/room/rooms.html:114 templates/room/rooms.html:193
+msgid "Смотреть"
+msgstr "See more"
 
 #: venv/lib/python3.10/site-packages/_pytest/config/argparsing.py:474
 #, python-format

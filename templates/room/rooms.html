@@ -1,21 +1,19 @@
 {% extends 'homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
     {% include 'include/header.html' %}
-    
-  
     <section class="hotel-list-area section-bg-2 pat-100 pab-100">
       <div class="container">
           <div class="container custom-container-one">
             <div class="row">
               <div class="col-lg-12">
                 <div class="breadcrumb-contents">
-                  <h4 class="breadcrumb-contents-title"> Комнаты </h4>
+                  <h4 class="breadcrumb-contents-title"> {% trans 'Комнаты' %} </h4>
                   <ul class="breadcrumb-contents-list list-style-none">
                     <li class="breadcrumb-contents-list-item">
-                      <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Домой </a>
+                      <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> {% trans 'Домой' %} </a>
                     </li>
-                    <li class="breadcrumb-contents-list-item"> Комнаты </li>
+                    <li class="breadcrumb-contents-list-item"> {% trans 'Комнаты' %} </li>
                   </ul>
                 </div>
               </div>
@@ -50,7 +48,7 @@
           <div class="shop-grid-contents">
             <div class="grid-list-contents">
               <div class="grid-list-contents-flex">
-                <p class="grid-list-contents-para"> Найдено {{ rooms.all.count }} комнат </p>
+                <p class="grid-list-contents-para"> {% trans 'Найдено' %} {{ rooms.all.count }} {% trans 'комнат' %} </p>
                 <div class="grid-list-view">
                   <ul class="grid-list-view-flex d-flex tabs list-style-none">
                     <li class="grid-list-view-icons active" data-tab="tab-grid">
@@ -88,19 +86,19 @@
                       </div>
                       <div class="hotel-view-contents-middle">
                         <div class="hotel-view-contents-flex">
-                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Паркинг">
+                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Паркинг' %}">
                             <i class="las la-parking"></i>
                           </div>
                           <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="WiFi">
                             <i class="las la-wifi"></i>
                           </div>
-                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Кухня">
+                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Кухня' %}">
                             <i class="las la-coffee"></i>
                           </div>
-                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Уборка">
+                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Уборка' %}">
                             <i class="las la-quidditch"></i>
                           </div>
-                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Ресепшн">
+                          <div class="hotel-view-contents-icon myTooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="{% trans 'Ресепшн' %}">
                             <i class="las la-receipt"></i>
                           </div>
                         </div>
@@ -108,12 +106,12 @@
                       <div class="hotel-view-contents-bottom">
                         <div class="hotel-view-contents-bottom-flex">
                           <div class="hotel-view-contents-bottom-contents">
-                            <h4 class="hotel-view-contents-bottom-title"> {{ room.price_day }} {{ room.currency }} <sub>/ День</sub>
+                            <h4 class="hotel-view-contents-bottom-title"> {{ room.price_day }} {{ room.currency }} <sub>/ {% trans 'День' %}</sub>
                             </h4>
-                            <p class="hotel-view-contents-bottom-para"> Цена указана на 1 человека </p>
+                            <p class="hotel-view-contents-bottom-para"> {% trans 'Цена указана на 1 человека' %} </p>
                           </div>
                           <div class="btn-wrapper">
-                            <a href="{% url 'room_detail' room.id %}" class="cmn-btn btn-bg-1 btn-small"> Смотреть </a>
+                            <a href="{% url 'room_detail' room.id %}" class="cmn-btn btn-bg-1 btn-small"> {% trans 'Смотреть' %} </a>
                           </div>
                         </div>
                       </div>
@@ -156,7 +154,7 @@
                               <span>
                                 <i class="las la-parking"></i>
                               </span>
-                              <p class="hotel-view-contents-icon-title flex-fill"> Паркинг </p>
+                              <p class="hotel-view-contents-icon-title flex-fill"> {% trans 'Паркинг' %} </p>
                             </div>
                             <div class="hotel-view-contents-icon d-flex gap-1">
                               <span>
@@ -168,31 +166,31 @@
                               <span>
                                 <i class="las la-coffee"></i>
                               </span>
-                              <p class="hotel-view-contents-icon-title flex-fill"> Кухня </p>
+                              <p class="hotel-view-contents-icon-title flex-fill"> {% trans 'Кухня' %} </p>
                             </div>
                             <div class="hotel-view-contents-icon d-flex gap-1">
                               <span>
                                 <i class="las la-quidditch"></i>
                               </span>
-                              <p class="hotel-view-contents-icon-title flex-fill"> Уборка </p>
+                              <p class="hotel-view-contents-icon-title flex-fill"> {% trans 'Уборка' %} </p>
                             </div>
                             <div class="hotel-view-contents-icon d-flex gap-1">
                               <span>
                                 <i class="las la-receipt"></i>
                               </span>
-                              <p class="hotel-view-contents-icon-title flex-fill"> Ресепшн </p>
+                              <p class="hotel-view-contents-icon-title flex-fill"> {% trans 'Ресепшн' %} </p>
                             </div>
                           </div>
                         </div>
                         <div class="hotel-view-contents-bottom">
                           <div class="hotel-view-contents-bottom-flex">
                             <div class="hotel-view-contents-bottom-contents">
-                              <h4 class="hotel-view-contents-bottom-title"> {{ room.price_day }} {{ room.currency }} <sub>/ День</sub>
+                              <h4 class="hotel-view-contents-bottom-title"> {{ room.price_day }} {{ room.currency }} <sub>/ {% trans 'День' %}</sub>
                               </h4>
-                              <p class="hotel-view-contents-bottom-para"> Цена указана на 1 человека </p>
+                              <p class="hotel-view-contents-bottom-para"> {% trans 'Цена указана на 1 человека' %} </p>
                             </div>
                             <div class="btn-wrapper">
-                              <a href="{% url 'room_detail' room.id %}" class="cmn-btn btn-bg-1 btn-small"> Смотреть </a>
+                              <a href="{% url 'room_detail' room.id %}" class="cmn-btn btn-bg-1 btn-small"> {% trans 'Смотреть' %} </a>
                             </div>
                           </div>
                         </div>

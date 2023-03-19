@@ -1,5 +1,5 @@
 {% extends 'homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
     {% include 'include/header.html' %}
     <div class="breadcrumb-area breadcrumb-padding">
@@ -7,12 +7,12 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-contents">
-              <h4 class="breadcrumb-contents-title"> О нас </h4>
+              <h4 class="breadcrumb-contents-title"> {% trans 'О нас' %} </h4>
               <ul class="breadcrumb-contents-list list-style-none">
                 <li class="breadcrumb-contents-list-item">
-                  <a href="{% url 'index'%}" class="breadcrumb-contents-list-item-link"> Домой </a>
+                  <a href="{% url 'index'%}" class="breadcrumb-contents-list-item-link"> {% trans 'Домой' %} </a>
                 </li>
-                <li class="breadcrumb-contents-list-item"> О {{ setting.title }} </li>
+                <li class="breadcrumb-contents-list-item"> {% trans 'О' %} {{ setting.title }} </li>
               </ul>
             </div>
           </div>
@@ -22,7 +22,7 @@
     <section class="about-area pat-100 pab-50">
       <div class="container">
         <div class="section-title center-text">
-          <h2 class="title"> О {{ setting.title }} </h2>
+          <h2 class="title"> {% trans 'О' %} {{ setting.title }} </h2>
           <div class="section-title-line"></div>
           <p class="section-para"> {{ about.title }} </p>
         </div>
@@ -32,7 +32,7 @@
       <section class="team-area pat-50 pab-50">
         <div class="container">
           <div class="section-title center-text">
-            <h2 class="title"> Наша команда </h2>
+            <h2 class="title"> {% trans 'Наша команда' %} </h2>
             <div class="section-title-line"></div>
           </div>
           {% for team in team %}
@@ -58,7 +58,7 @@
     <section class="partner-area pat-50 pab-100">
       <div class="container">
         <div class="section-title center-text">
-          <h2 class="title"> Наши партнеры </h2>
+          <h2 class="title"> {% trans 'Наши партнеры' %} </h2>
           <div class="section-title-line"></div>
         </div>
         <div class="row mt-5">

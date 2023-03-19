@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-16 12:05+0600\n"
+"POT-Creation-Date: 2023-03-19 16:55+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,15 +20,139 @@ msgstr ""
 
 #: hostel/settings.py:165
 msgid "Kyrgyz"
-msgstr ""
+msgstr "Кыргызча"
 
 #: hostel/settings.py:166
 msgid "Russian"
-msgstr ""
+msgstr "Орусча"
 
 #: hostel/settings.py:167
 msgid "English"
-msgstr ""
+msgstr "Англисче"
+
+#: templates/about.html:10 templates/include/footer.html:64
+#: templates/include/header.html:22
+msgid "О нас"
+msgstr "Биз жөнүндө"
+
+#: templates/about.html:13 templates/confirm_contact.html:13
+#: templates/contact.html:13 templates/include/footer.html:61
+#: templates/include/header.html:19 templates/news/detail.html:13
+#: templates/room/confirmation.html:13 templates/room/confirmation.html:31
+#: templates/room/room_detail.html:13 templates/room/rooms.html:14
+msgid "Домой"
+msgstr "Башкы бет"
+
+#: templates/about.html:15 templates/about.html:25
+msgid "О"
+msgstr "Биз жөнүндө"
+
+#: templates/about.html:35
+msgid "Наша команда"
+msgstr "Биздин галерея"
+
+#: templates/about.html:61
+msgid "Наши партнеры"
+msgstr "Биздин өнөктөштөр"
+
+#: templates/confirm_contact.html:10
+msgid "Контакты"
+msgstr "Биздин байланыштар:"
+
+#: templates/confirm_contact.html:15 templates/room/confirmation.html:15
+#: templates/room/confirmation.html:28
+msgid "Ваша заявка оставлена"
+msgstr "Сиздин арызыңыз тапшырылды"
+
+#: templates/confirm_contact.html:28
+msgid "Спасибо, ваша заявка оставлена"
+msgstr "Рахмат, өтүнүчүңүз тапшырылды"
+
+#: templates/confirm_contact.html:29
+msgid "В скором времени с вами свяжутся )"
+msgstr "Жакын арада сиз менен байланышат)"
+
+#: templates/contact.html:10 templates/contact.html:36
+#: templates/include/footer.html:70 templates/include/header.html:33
+#: templates/index.html:22
+msgid "Связаться"
+msgstr "Байланыш"
+
+#: templates/contact.html:15
+msgid "Связаться с"
+msgstr "Байланыш"
+
+#: templates/contact.html:37 templates/room/room_detail.html:132
+msgid "Наша дружная команда будет рада услышать вас."
+msgstr "Биздин ынтымактуу команда сизди укканга кубанычта болот."
+
+#: templates/contact.html:48 templates/index.html:185
+#: templates/room/reservation.html:39 templates/room/room_detail.html:237
+msgid "Имя"
+msgstr "Аты"
+
+#: templates/contact.html:51 templates/room/reservation.html:45
+msgid "Телефонный номер"
+msgstr "Тел номери"
+
+#: templates/contact.html:55 templates/index.html:193
+msgid "Почта"
+msgstr "Почта"
+
+#: templates/contact.html:58
+msgid "Сообщение"
+msgstr "Билдирүү"
+
+#: templates/contact.html:60 templates/index.html:200
+msgid "Отправить"
+msgstr "Жөнөтүү"
+
+#: templates/custom_admin/login.html:13
+msgid "Здраствуйте!"
+msgstr "Салам!"
+
+#: templates/custom_admin/login.html:14
+msgid "Зайдите чтобы войти в админ панель"
+msgstr "Админ панелине кирүү үчүн кириңиз"
+
+#: templates/custom_admin/login.html:18
+msgid "Имя пользователя"
+msgstr "Колдонуучунун аты"
+
+#: templates/custom_admin/login.html:19
+msgid "Ваше имя пользователя"
+msgstr "Сиздин колдонуучу атыңыз"
+
+#: templates/custom_admin/login.html:22
+msgid "Пароль"
+msgstr "Пароль"
+
+#: templates/custom_admin/login.html:23
+msgid "Пароль от аккаунта"
+msgstr "Cырсөз"
+
+#: templates/custom_admin/login.html:33 templates/include/header.html:95
+msgid "Войти"
+msgstr "Кирүү"
+
+#: templates/error.html:14
+msgid "Упс, произошла ошибка"
+msgstr "Ой, ката кетти"
+
+#: templates/error.html:15
+msgid "Вы видете данную страницу потому что не добавили настройки для проекта"
+msgstr "Сиз бул баракты көрүп жатасыз, анткени сиз долбоор үчүн жөндөөлөрдү кошо элексиз."
+
+#: templates/error.html:16
+msgid ""
+"Для исправления данной ошибки зайдите в административную панель и добавьте "
+"настройки сайта"
+msgstr "Бул катаны оңдоо үчүн администратор панелине өтүп, "
+"сайт орнотуулары"
+
+#: templates/error.html:18
+msgid "Обновить"
+msgstr "Жөнөтүү"
 
 #: templates/include/footer.html:17 templates/index.html:13
 msgid "Наши контакты:"
@@ -42,24 +166,11 @@ msgstr "Дарек:"
 msgid "Почта:"
 msgstr "Почта:"
 
-#: templates/include/footer.html:61 templates/include/header.html:19
-#: templates/room/room_detail.html:13
-msgid "Домой"
-msgstr "Башкы бет"
-
-#: templates/include/footer.html:64 templates/include/header.html:22
-msgid "О нас"
-msgstr "Биз жөнүндө"
-
 #: templates/include/footer.html:67 templates/include/header.html:25
-#: templates/room/room_detail.html:16
+#: templates/room/room_detail.html:16 templates/room/rooms.html:11
+#: templates/room/rooms.html:16
 msgid "Комнаты"
 msgstr "Бөлмөлөр"
-
-#: templates/include/footer.html:70 templates/include/header.html:33
-#: templates/index.html:22
-msgid "Связаться"
-msgstr "Байланыш"
 
 #: templates/include/footer.html:90
 msgid "Есть вопросы?"
@@ -69,7 +180,12 @@ msgstr "Суроолор барбы?"
 msgid "Есть вопрос?"
 msgstr "Суроо бар?"
 
-#: templates/include/header.html:29
+#: templates/include/footer.html:103
+msgid "Свяжитесь с нами"
+msgstr "Биз менен байланышыңыз"
+
+#: templates/include/header.html:29 templates/news/detail.html:16
+#: templates/news/index.html:15
 msgid "Новости"
 msgstr "Жаңылыктар"
 
@@ -81,16 +197,14 @@ msgstr "Админ панели"
 msgid "Выйти"
 msgstr "Чыгуу"
 
-#: templates/include/header.html:95
-msgid "Войти"
-msgstr "Кирүү"
-
 #: templates/index.html:11
 msgid "Добро пожаловать в"
 msgstr "Кош келиңиздер"
 
 #: templates/index.html:21 templates/index.html:64
-#: templates/room/room_detail.html:103 templates/room/room_detail.html:257
+#: templates/room/reservation.html:10 templates/room/reservation.html:15
+#: templates/room/reservation.html:62 templates/room/room_detail.html:103
+#: templates/room/room_detail.html:257
 msgid "Забронировать"
 msgstr "Заказ кылуу"
 
@@ -122,23 +236,15 @@ msgstr "Көп берилүүчү суроолор"
 msgid "У вас есть вопросы?"
 msgstr "Суроолоруңуз барбы?"
 
-#: templates/index.html:185 templates/room/room_detail.html:237
-msgid "Имя"
-msgstr "Аты"
-
 #: templates/index.html:186 templates/index.html:190
-#: templates/room/room_detail.html:238 templates/room/room_detail.html:242
-#: templates/room/room_detail.html:246
+#: templates/room/reservation.html:40 templates/room/room_detail.html:238
+#: templates/room/room_detail.html:242 templates/room/room_detail.html:246
 msgid "Ваше имя"
 msgstr "Сиздин атыңыз"
 
 #: templates/index.html:189
 msgid "Номер"
 msgstr "Номер"
-
-#: templates/index.html:193
-msgid "Почта"
-msgstr "Почта"
 
 #: templates/index.html:194
 msgid "Ваша почта"
@@ -151,10 +257,6 @@ msgstr "Суроо"
 #: templates/index.html:198
 msgid "Ваше сообщение..."
 msgstr "Сиздин билдирүү..."
-
-#: templates/index.html:200
-msgid "Отправить"
-msgstr "Жөнөтүү"
 
 #: templates/index.html:213
 msgid "Последние новости"
@@ -169,29 +271,77 @@ msgid ""
 "Подпишитесь на наши социальные сети, чтобы получать актуальную информацию"
 msgstr "Соңку маалымат алуу үчүн биздин социалдык тармактарга жазылыңыз"
 
+#: templates/news/detail.html:52
+msgid "Другие посты"
+msgstr "Башка посттор"
+
+#: templates/news/index.html:10
+msgid "Новости о"
+msgstr "Жаңылыктар"
+
+#: templates/room/confirmation.html:10 templates/room/reservation.html:28
+msgid "Детали вашего бронирования"
+msgstr "Сиздин ээлөө чоо-жайы"
+
+#: templates/room/confirmation.html:29
+msgid "ваша заявка на бронирование"
+msgstr "ээлөө өтүнүчүңүз"
+
+#: templates/room/confirmation.html:29
+msgid "успешно оставлена. В скором времени с вами свяжутся )"
+msgstr "ийгиликтүү ташталган. Жакын арада сиз менен байланышат )"
+
+#: templates/room/reservation.html:35 templates/room/room_detail.html:241
+msgid "Фамилия"
+msgstr "Фамилия"
+
+#: templates/room/reservation.html:36
+msgid "Ваше фамилия"
+msgstr "Сиздин фамилияңыз"
+
+#: templates/room/reservation.html:46
+msgid "Ваш телефонный номер"
+msgstr "Телефон номуру"
+
+#: templates/room/reservation.html:51 templates/room/reservation.html:52
+#: templates/room/room_detail.html:249
+msgid "Дата заезда"
+msgstr "Келүү күнү"
+
+#: templates/room/reservation.html:57 templates/room/reservation.html:58
+#: templates/room/room_detail.html:253
+msgid "Дата отъезда"
+msgstr "Кетүү күнү"
+
 #: templates/room/room_detail.html:63 templates/room/room_detail.html:184
+#: templates/room/rooms.html:89 templates/room/rooms.html:157
 msgid "Паркинг"
 msgstr "Паркинг"
 
 #: templates/room/room_detail.html:76 templates/room/room_detail.html:196
+#: templates/room/rooms.html:95 templates/room/rooms.html:169
 msgid "Кухня"
 msgstr "Ашкана"
 
 #: templates/room/room_detail.html:83 templates/room/room_detail.html:202
+#: templates/room/rooms.html:98 templates/room/rooms.html:175
 msgid "Уборка"
 msgstr "Тазалоо"
 
 #: templates/room/room_detail.html:90 templates/room/room_detail.html:209
+#: templates/room/rooms.html:101 templates/room/rooms.html:181
 msgid "Ресепшн"
 msgstr "Ресепшнист"
 
 #: templates/room/room_detail.html:98 templates/room/room_detail.html:217
-#: templates/room/room_detail.html:302
+#: templates/room/room_detail.html:302 templates/room/rooms.html:109
+#: templates/room/rooms.html:188
 msgid "День"
 msgstr "Күн"
 
 #: templates/room/room_detail.html:100 templates/room/room_detail.html:219
-#: templates/room/room_detail.html:304
+#: templates/room/room_detail.html:304 templates/room/rooms.html:111
+#: templates/room/rooms.html:190
 msgid "Цена указана на 1 человека"
 msgstr "Баасы 1 адам үчүн"
 
@@ -207,33 +357,29 @@ msgstr "Сын-пикирлер"
 msgid "Оставить отзыв"
 msgstr "Пикир калтыруу"
 
-#: templates/room/room_detail.html:132
-msgid "Наша дружная команда будет рада услышать вас."
-msgstr "Биздин ынтымактуу команда сизди укканга кубанычта болот."
-
 #: templates/room/room_detail.html:165 templates/room/room_detail.html:307
 msgid "Посмотреть"
 msgstr "Көрүү"
-
-#: templates/room/room_detail.html:241
-msgid "Фамилия"
-msgstr "Фамилия"
 
 #: templates/room/room_detail.html:245
 msgid "Номер телефонна"
 msgstr "Телефон номуру"
 
-#: templates/room/room_detail.html:249
-msgid "Дата заезда"
-msgstr "Келүү күнү"
-
 #: templates/room/room_detail.html:250 templates/room/room_detail.html:254
 msgid "Дата"
 msgstr "Дата"
 
-#: templates/room/room_detail.html:253
-msgid "Дата отъезда"
-msgstr "Кетүү күнү"
+#: templates/room/rooms.html:51
+msgid "Найдено"
+msgstr "Табылды"
+
+#: templates/room/rooms.html:51
+msgid "комнат"
+msgstr "бөлмөлөр"
+
+#: templates/room/rooms.html:114 templates/room/rooms.html:193
+msgid "Смотреть"
+msgstr "Көрүү"
 
 #: venv/lib/python3.10/site-packages/_pytest/config/argparsing.py:474
 #, python-format

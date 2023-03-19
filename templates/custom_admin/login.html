@@ -1,5 +1,5 @@
 {% extends 'homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
     {% include 'include/header.html' %}
     <section class="login-area padding-top-100 padding-bottom-100">
@@ -10,17 +10,17 @@
               <img src="{{ setting.backround_image.url }}" alt="img">
             </div>
             <div class="login-wrapper-contents login-padding">
-              <h2 class="single-title"> Здраствуйте! </h2>
-              <p class="sigle-para mt-2"> Зайдите чтобы войти в админ панель </p>
+              <h2 class="single-title"> {% trans 'Здраствуйте!' %} </h2>
+              <p class="sigle-para mt-2"> {% trans 'Зайдите чтобы войти в админ панель' %} </p>
               <form class="login-wrapper-contents-form custom-form" method="post">
                 {% csrf_token %}
                 <div class="single-input mt-4">
-                  <label class="label-title mb-3"> Имя пользователя </label>
-                  <input class="form--control" type="text" name = "username" placeholder="Ваше имя пользователя">
+                  <label class="label-title mb-3"> {% trans 'Имя пользователя' %} </label>
+                  <input class="form--control" type="text" name = "username" placeholder="{% trans 'Ваше имя пользователя' %}">
                 </div>
                 <div class="single-input mt-4">
-                  <label class="label-title mb-3"> Пароль </label>
-                  <input class="form--control" type="password" name = "password" placeholder="Пароль от аккаунта">
+                  <label class="label-title mb-3"> {% trans 'Пароль' %} </label>
+                  <input class="form--control" type="password" name = "password" placeholder="{% trans 'Пароль от аккаунта' %}">
                   <div class="icon toggle-password">
                     <div class="show-icon">
                       <i class="las la-eye-slash"></i>
@@ -30,7 +30,7 @@
                     </span>
                   </div>
                 </div>
-                <button class="submit-btn w-100 mt-4" type="submit"> Войти </button>
+                <button class="submit-btn w-100 mt-4" type="submit"> {% trans 'Войти' %} </button>
                 </span>
               </form>
             </div>

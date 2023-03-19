@@ -1,5 +1,5 @@
 {% extends 'homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
     {% include 'include/header.html' %}
     <div class="breadcrumb-area breadcrumb-padding">
@@ -7,12 +7,12 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-contents">
-              <h4 class="breadcrumb-contents-title">Связаться </h4>
+              <h4 class="breadcrumb-contents-title">{% trans 'Связаться' %} </h4>
               <ul class="breadcrumb-contents-list list-style-none">
                 <li class="breadcrumb-contents-list-item">
-                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Домой </a>
+                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> {% trans 'Домой' %} </a>
                 </li>
-                <li class="breadcrumb-contents-list-item"> Связаться с {{ setting.title }} </li>
+                <li class="breadcrumb-contents-list-item"> {% trans 'Связаться с' %} {{ setting.title }} </li>
               </ul>
             </div>
           </div>
@@ -33,8 +33,8 @@
           <div class="col-lg-6 mt-5">
             <div class="contact-wrapper contact-padding bg-white radius-20">
               <div class="contact-contents">
-                <h4 class="contact-contents-title"> Связаться </h4>
-                <p class="contact-contents-para mt-2"> Наша дружная команда будет рада услышать вас. </p>
+                <h4 class="contact-contents-title"> {% trans 'Связаться' %} </h4>
+                <p class="contact-contents-para mt-2"> {% trans 'Наша дружная команда будет рада услышать вас.' %} </p>
                 {% for phon in phone %}
                 <p class="contact-contents-para mt-2"> {{ phon.phone }} </p>
                 {% endfor %}
@@ -45,20 +45,19 @@
                     {% csrf_token %}
                     <div class="single-flex-input mt-4">
                       <div class="single-input mt-4">
-                        <input type="text" name = "name" class="form--control radius-5" placeholder="Имя">
+                        <input type="text" name = "name" class="form--control radius-5" placeholder="{% trans 'Имя' %}">
                       </div>
                       <div class="single-input mt-4">
-                        <input type="text" name = "phone_number" class="form--control radius-5" placeholder="Телефонный номер">
+                        <input type="text" name = "phone_number" class="form--control radius-5" placeholder="{% trans 'Телефонный номер' %}">
                       </div>
                     </div>
                     <div class="single-input mt-4">
-                      <input type="email" name = "email" class="form--control radius-5" placeholder="Почта">
+                      <input type="email" name = "email" class="form--control radius-5" placeholder="{% trans 'Почта' %}">
                     </div>
                     <div class="single-input mt-4">
-                      <input type="text" name = "message" class="form--control radius-5" placeholder="Сообщение">
+                      <input type="text" name = "message" class="form--control radius-5" placeholder="{% trans 'Сообщение' %}">
                     </div>
-                   
-                    <button type="submit" class="submit-btn radius-5"> Отправить </button>
+                    <button type="submit" class="submit-btn radius-5"> {% trans 'Отправить' %} </button>
                   </form>
                 </div>
               </div>

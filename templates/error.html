@@ -1,5 +1,5 @@
 {% extends 'homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
     {% include 'include/header.html' %}
     <div class="error-area pat-100 pab-100">
@@ -11,11 +11,11 @@
                 <img src="{% static 'assets/img/single-page/404.png' %}" alt="img">
               </div>
               <div class="error-contents mat-60">
-                <h2 class="error-contents-title"> Упс, произошла ошибка </h2>
-                <p>Вы видете данную страницу потому что не добавили настройки для проекта</p>
-                <p>Для исправления данной ошибки зайдите в административную панель и добавьте настройки сайта</p>
+                <h2 class="error-contents-title"> {% trans 'Упс, произошла ошибка' %} </h2>
+                <p>{% trans 'Вы видете данную страницу потому что не добавили настройки для проекта' %}</p>
+                <p>{% trans 'Для исправления данной ошибки зайдите в административную панель и добавьте настройки сайта' %}</p>
                 <div class="btn-wrapper mat-25">
-                  <a href="{% url 'index' %}" class="cmn-btn btn-bg-1"> Обновить </a>
+                  <a href="{% url 'index' %}" class="cmn-btn btn-bg-1"> {% trans 'Обновить' %} </a>
                 </div>
               </div>
             </div>

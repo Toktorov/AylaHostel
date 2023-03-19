@@ -1,5 +1,5 @@
 {% extends 'homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
     {% include 'include/header.html' %}
     <div class="breadcrumb-area breadcrumb-padding">
@@ -10,10 +10,10 @@
               <h4 class="breadcrumb-contents-title"> {{ news.title|truncatewords:10 }} </h4>
               <ul class="breadcrumb-contents-list list-style-none">
                 <li class="breadcrumb-contents-list-item">
-                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Домой </a>
+                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> {% trans 'Домой' %} </a>
                 </li>
                 <li class="breadcrumb-contents-list-item">
-                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Новости </a>
+                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> {% trans 'Новости' %} </a>
                 </li>
                 <li class="breadcrumb-contents-list-item"> {{ news.title|truncatewords:5 }} </li>
               </ul>
@@ -49,7 +49,7 @@
               <div class="blog-details-side">
                 <div class="blog-details-side-item radius-10">
                   <div class="blog-details-side-title open">
-                    <h5 class="title"> Другие посты </h5>
+                    <h5 class="title"> {% trans 'Другие посты' %} </h5>
                     <div class="blog-details-side-inner">
                       <ul class="recent-list list-style-none">
                         {% for news in random_news %}

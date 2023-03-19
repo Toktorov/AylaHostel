@@ -1,5 +1,5 @@
 {% extends 'homepage.html' %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
     {% include 'include/header.html' %}
     <div class="breadcrumb-area breadcrumb-padding">
@@ -7,12 +7,12 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="breadcrumb-contents">
-              <h4 class="breadcrumb-contents-title"> Детали вашего бронирования </h4>
+              <h4 class="breadcrumb-contents-title"> {% trans 'Детали вашего бронирования' %} </h4>
               <ul class="breadcrumb-contents-list list-style-none">
                 <li class="breadcrumb-contents-list-item">
-                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> Домой </a>
+                  <a href="{% url 'index' %}" class="breadcrumb-contents-list-item-link"> {% trans 'Домой' %} </a>
                 </li>
-                <li class="breadcrumb-contents-list-item"> Ваша заявка оставлена </li>
+                <li class="breadcrumb-contents-list-item"> {% trans 'Ваша заявка оставлена' %} </li>
               </ul>
             </div>
           </div>
@@ -25,10 +25,10 @@
           <div class="confirmation-contents-icon">
             <i class="las la-check"></i>
           </div>
-          <h4 class="confirmation-contents-title"> Ваша заявка оставлена </h4>
-          <p class="confirmation-contents-para"> {{ reservation.first_name }} {{ reservation.last_name }}, ваша заявка на бронирование <a href="javascript:void(0)"> #{{ reservation.id }} </a> успешно оставлена. В скором времени с вами свяжутся ) </p>
+          <h4 class="confirmation-contents-title"> {% trans 'Ваша заявка оставлена' %} </h4>
+          <p class="confirmation-contents-para"> {{ reservation.first_name }} {{ reservation.last_name }}, {% trans 'ваша заявка на бронирование' %} <a href="javascript:void(0)"> #{{ reservation.id }} </a> {% trans 'успешно оставлена. В скором времени с вами свяжутся )' %} </p>
           <div class="btn-wrapper flex-btn mt-4 mt-lg-5">
-            <a href="{% url 'index' %}" class="cmn-btn btn-outline-1 color-one"> Домой </a>
+            <a href="{% url 'index' %}" class="cmn-btn btn-outline-1 color-one"> {% trans 'Домой' %} </a>
            
           </div>
         </div>
