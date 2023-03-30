@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-19 16:54+0600\n"
+"POT-Creation-Date: 2023-03-30 09:23+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -258,15 +258,19 @@ msgstr "Question"
 msgid "Ваше сообщение..."
 msgstr "Your message..."
 
-#: templates/index.html:213
+#: templates/index.html:214
+msgid "Наш инстаграм"
+msgstr "Our instagram"
+
+#: templates/index.html:224
 msgid "Последние новости"
 msgstr "Last news"
 
-#: templates/index.html:257
+#: templates/index.html:268
 msgid "Подпишитесь на наши социальные сети"
 msgstr "Subscribe to our social networks"
 
-#: templates/index.html:258
+#: templates/index.html:269
 msgid ""
 "Подпишитесь на наши социальные сети, чтобы получать актуальную информацию"
 msgstr "Subscribe to our social networks to receive up-to-date information"

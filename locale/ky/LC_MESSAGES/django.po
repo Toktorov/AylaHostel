@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-19 16:55+0600\n"
+"POT-Creation-Date: 2023-03-30 09:24+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -141,14 +141,15 @@ msgstr "Ой, ката кетти"
 
 #: templates/error.html:15
 msgid "Вы видете данную страницу потому что не добавили настройки для проекта"
-msgstr "Сиз бул баракты көрүп жатасыз, анткени сиз долбоор үчүн жөндөөлөрдү кошо элексиз."
+msgstr ""
+"Сиз бул баракты көрүп жатасыз, анткени сиз долбоор үчүн жөндөөлөрдү кошо "
+"элексиз."
 
 #: templates/error.html:16
 msgid ""
 "Для исправления данной ошибки зайдите в административную панель и добавьте "
 "настройки сайта"
-msgstr "Бул катаны оңдоо үчүн администратор панелине өтүп, "
-"сайт орнотуулары"
+msgstr "Бул катаны оңдоо үчүн администратор панелине өтүп, сайт орнотуулары"
 
 #: templates/error.html:18
 msgid "Обновить"
@@ -258,15 +259,19 @@ msgstr "Суроо"
 msgid "Ваше сообщение..."
 msgstr "Сиздин билдирүү..."
 
-#: templates/index.html:213
+#: templates/index.html:214
+msgid "Наш инстаграм"
+msgstr "Биздин инстаграм"
+
+#: templates/index.html:224
 msgid "Последние новости"
 msgstr "Акыркы жаңылыктар"
 
-#: templates/index.html:257
+#: templates/index.html:268
 msgid "Подпишитесь на наши социальные сети"
 msgstr "Биздин социалдык тармактарга жазылыңыз"
 
-#: templates/index.html:258
+#: templates/index.html:269
 msgid ""
 "Подпишитесь на наши социальные сети, чтобы получать актуальную информацию"
 msgstr "Соңку маалымат алуу үчүн биздин социалдык тармактарга жазылыңыз"

@@ -42,6 +42,10 @@ class Setting(models.Model):
         verbose_name="Ссылка на instagram",
         blank = True, null = True
     )
+    instagram_url = models.URLField(
+        verbose_name="Ссылка на iframe instagram",
+        blank=True, null=True
+    )
     whatsapp = models.URLField(
         verbose_name="Ссылка на WhatsApp",
         blank = True, null = True
