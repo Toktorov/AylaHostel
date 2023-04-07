@@ -8,7 +8,7 @@ class SettingAdmin(TranslationAdmin):
     list_display = ('title', 'description')
 
 class BenefitAdmin(TranslationAdmin):
-    list_display = ('title', 'description')
+    list_display = ('id', 'title', 'description')
 
 admin.site.register(Setting, SettingAdmin)
 admin.site.register(PhoneNumber)
