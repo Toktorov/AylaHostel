@@ -13806,3 +13806,42 @@ blockquote .blockquote-contents-title {
   line-height: 36px;
   margin: -4px 0 0;
 }
+
+/* Изменить цвет фона и границы элемента */
+select {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 15px 10px;
+  border-radius: 10px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--heading-color);
+}
+
+/* Изменить цвет текста */
+select option {
+  color: #000;
+}
+
+/* Изменить шрифт и размер текста */
+select {
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+}
+
+/* Изменить внешний вид стрелки выпадающего списка */
+select::-ms-expand {
+  display: none;
+  border-radius: 10px;
+}
+select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  border-radius: 10px;
+}
