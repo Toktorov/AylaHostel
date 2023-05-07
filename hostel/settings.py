@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-# import config
+import config
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,24 +24,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 #Nurbolot
-SECRET_KEY = 'django-insecure-pyp6y!=5j40y51lsja+8_c42ygn2j$*h*ogn4-nk%twy&n94g('
+# SECRET_KEY = 'django-insecure-pyp6y!=5j40y51lsja+8_c42ygn2j$*h*ogn4-nk%twy&n94g('
 
 #Kurmanbek
-# SECRET_KEY = config.SECRET_KEY 
+SECRET_KEY = config.SECRET_KEY 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
 #Nurbolot
-DEBUG =  True
+# DEBUG =  True
 
 #Kurmanbek
-# DEBUG = config.DEBUG
+DEBUG = config.DEBUG
 
 #Nurbolot
-ALLOWED_HOSTS =["*"]
+# ALLOWED_HOSTS =["*"]
 
 #Kurmanbek
-# ALLOWED_HOSTS = config.ALLOWED_HOSTS 
+ALLOWED_HOSTS = config.ALLOWED_HOSTS 
 
 
 
@@ -110,24 +110,24 @@ WSGI_APPLICATION = 'hostel.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 #Nurbolot
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-#Kurmanbek
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': config.DB_NAME,
-#         'USER': config.DB_USER,
-#         'PASSWORD': config.DB_PASSWORD,
-#         'HOST': config.DB_HOST,
-#         'PORT': config.DB_PORT,
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+#Kurmanbek
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config.DB_NAME,
+        'USER': config.DB_USER,
+        'PASSWORD': config.DB_PASSWORD,
+        'HOST': config.DB_HOST,
+        'PORT': config.DB_PORT,
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -178,27 +178,29 @@ LOCALE_PATHS = (
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 #Kurmanbek
-# STATIC_URL = 'static/'
-# # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-# MEDIA_URL = 'media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
-
-#Nurbolot
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
+
+#Nurbolot
+# STATIC_URL = 'static/'
+# STATICFILES_DIRS = [BASE_DIR / 'static']
+
+# MEDIA_URL = 'media/'
+# MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-# TELEGRAM_TOKEN = config.TOKEN
+#Kurmanbek
+
+TELEGRAM_TOKEN = config.TOKEN
 
 
 #Nurbolot
-TELEGRAM_TOKEN = "5718814185:AAHPC4RP-s_2zXgSjRRADjh-Qd_Lb95x7mM"
+# TELEGRAM_TOKEN = "5718814185:AAHPC4RP-s_2zXgSjRRADjh-Qd_Lb95x7mM"
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
