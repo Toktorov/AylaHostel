@@ -194,7 +194,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
+#Kurmanbek
+
 TELEGRAM_TOKEN = config.TOKEN
+
+
+#Nurbolot
+# TELEGRAM_TOKEN = "5718814185:AAHPC4RP-s_2zXgSjRRADjh-Qd_Lb95x7mM"
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
